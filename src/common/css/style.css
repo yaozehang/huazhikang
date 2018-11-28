@@ -1,0 +1,79 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,input,p{ margin: 0; padding: 0;font-size: 12px;font-family: "Î¢ÈíÑÅºÚ", "microsoft yahei"}
+ul,li{list-style-type: none}
+/*×¢²á*/
+.re-register{width: 100%;background-color: #efefef!important;}
+.re-header, .re-content, .re-footer,.re-h-content{width: 1180px;margin: auto}
+.re-header{width: 100%;background-color:#fff;height:97px;border-bottom: 1px solid #e4e4e4}
+.re-h-content{overflow: hidden;}
+.re-h-content .re-h-left a{display: block;float: left;cursor: pointer}
+.re-h-content .re-h-left{float: left}
+.re-h-content .re-h-right{float: right}
+.re-h-content .re-h-right a{display: inline-block;padding: 0 15px;height: 36px;border: 1px solid #dcdcdc;color: #fff;background-color: #ee8f25;line-height: 36px;margin-top: 30px;cursor: pointer}
+.re-h-content .re-h-right span{color: #737171;margin-left: 10px;display: inline-block;padding-top:40px;}
+.re-h-content .wlyc-logo{margin-top:14px}
+.re-h-content .re-wire{height:70px;background-color: #808080;width: 2px;margin: 14px 20px 0 9px;}
+.re-h-content .esw-logo{margin-top:37px}
+.re-content{margin-top: 18px;background-color: #fff;padding: 60px 0 80px 145px;border: 1px solid #ddd}
+.re-content-from h3{font-size: 16px;color: #333;font-weight: normal}
+.re-content-from form{margin-top: 40px}
+.re-content-from ul li{position:relative;overflow: hidden;margin-bottom: 10px}
+.re-content-from ul li>div{float: left}
+.re-content-from ul li .left{width: 112px;text-align: right;line-height: 36px}
+.re-content-from ul li .middle{width: 404px}
+.re-content-from ul li .right{padding-top: 8px;display: none}
+.re-content-from ul li label{color:#333;}
+.re-content-from ul li label i{color: #f81116;font-style: normal;margin-right: 8px}
+.re-content-from ul li input{height: 25px;border: 1px solid #ccc;outline: none;padding-left: 10px;margin-left: 2px}
+.re-content-from ul li input:focus{border-color:#44a8f0 }
+.re-content-from ul li input.max{width: 390px}
+.re-content-from ul li input.min{width: 266px;margin-right: 5px}
+.re-content-from ul li .re-error{position:relative;color: #f30707;margin-left: 10px}
+.re-content-from ul li .re-error img{position: absolute;top:2px;left: 0}
+.re-content-from ul li .re-error b{font-style: normal;font-weight: normal;margin-left: 25px}
+.re-content-from ul li .re-code{background-color: #498ecd!important;}
+.re-content-from ul li #findBtn, .re-content-from ul li #registerBtn{height: 38px;border: none;outline: none;width: 117px;border-radius: 3px;color: #fff;cursor: pointer;font-size: 16px;display: inline-block;background-color: #ccc;line-height: 38px;text-align: center}
+.re-submit{outline: none;border: none;width: 170px;height: 42px;background-color: #498ecd;color: #fff;border-radius: 3px;font-size: 16px;margin:60px 0 0 30px;cursor: pointer;}
+.re-footer{
+;width: 100%;border-top: 1px solid #e4e4e4;padding-top: 20px;text-align: center;background-color: #fff}
+.re-footer p{color: #646464}
+/*µÇÂ¼*/
+.login-content{ height: 526px; background: url("../login_bg.jpg")no-repeat  center; position: relative; }
+.login-main{width: 1180px;margin: auto;overflow: hidden}
+.login-main .login-main-right{float: right;margin-right: 115px;background-color: #fff;width: 378px;border-radius: 5px;height: 400px;margin-top: 64px}
+.login-main .login-main-right form h3{font-size: 24px;font-weight: normal;color: #333;height: 65px;line-height: 65px;text-align: center;margin-top:28px;}
+.login-main .login-main-right form {width: 324px;margin: auto;}
+.login-main .login-main-right ul li input{height: 36px;outline: none;border: 1px solid #999;padding-left: 10px}
+.login-main .login-main-right input.max{width: 312px}
+.login-main .login-main-right input.mid{width: 163px}
+.login-main .login-main-right input.min{width: 128px}
+.login-main .login-main-right input.mis{width: 106px}
+.login-main .login-main-right  span.symbol{display: inline-block;width: 21px;text-align: center;font-size: 16px}
+.login-main .login-main-right .login-error p{position: relative;height: 26px;line-height: 26px;padding-left: 25px;color:#f30707;display: none}
+.login-main .login-main-right .login-error{height: 26px;}
+.login-main .login-main-right  .login-error p img{position: absolute;top:3px;left: 0}
+.login-main .login-main-right input:focus{border-color:#44a8f0 }
+.login-main .login-main-right .validCode{width: 80px;height: 38px}
+.login-validCode{overflow: hidden}
+.login-validCode input, .login-validCode img, .login-validCode span{float: left}
+.login-validCode img{margin: 0 10px 0 18px}
+.login-validCode span{color: #295992;line-height: 38px;cursor: pointer}
+.login-xj {color: #333; line-height: 18px; margin-top:12px; }
+.login-xj label{position: relative;padding-left:23px;cursor: pointer;font-weight:normal}
+.login-xj label input{position: absolute;top:0;left: 0}
+.forget-pwd { float: right;color: #333;text-decoration: none}
+.forget-pwd:hover{text-decoration:underline;color:#dd2726;}
+.login-main-right .login-btn{width: 100%;height: 38px;outline: none;border: none;color: #fff;background-color: #347ab8;margin-top: 28px;cursor: pointer}
+.login-btn:hover{background-color: #2b6092}
+a {cursor: pointer;}

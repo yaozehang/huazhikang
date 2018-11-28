@@ -1,0 +1,214 @@
+html, body {min-width: 980px;}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font-family: inherit;vertical-align: baseline;font-style: normal;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {display: block;}
+
+body {line-height: 1;font-size: 16px;font-family: "微软雅黑";color: #333;}
+body {line-height: 1;font-size: 16px;font-family: "微软雅黑";color: #333;}
+body {line-height: 1;font-size: 16px;font-family: "微软雅黑";color: #868686;}
+body {line-height: 1;font-size: 16px;font-family: "微软雅黑";color: #666;}
+
+ol, ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before, blockquote:after,
+q:before, q:after {content: '';content: none;}
+
+table {border-collapse: collapse;border-spacing: 0;}
+
+a {text-decoration: none}
+a:hover {text-decoration: none;}
+input {font-family: "微软雅黑";}
+.clearfix:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+
+.clearfix {display: inline-block;}
+
+.clearfix {display: block;}
+.my-form{width: 600px; margin: 20px auto;   font-size: 16px!important;}
+.common-form{
+  background: #f5fcff;
+  padding: 40px 40px 40px 20px;
+  width: 700px!important;
+}
+.list-title{  line-height: 50px; color: #fff; padding-left: 10px; background: #4d9bf3; font-size: 16px; }
+.border-bottom{
+  border-bottom: 1px solid #004a9d; margin-bottom: 5px; margin-top: 10px; width: 100%;
+}
+.title-btn{ 
+color: #fff;
+border-radius: 5px;
+font-size: 22px;
+height: 60px; 
+line-height: 60px;
+width: 250px;
+border: none;
+outline: none;
+text-align: center;
+background: url('../../../static/imgs/list-bg.png');
+background-size: 100% 100%;
+}
+.my-pagination{ float: right; }
+/*左侧菜单栏样式*/
+.el-dialog__footer {
+text-align: center!important;
+}
+/*职业病区别*/
+.conclusions-1{
+  color: #6b6c6c;
+}
+.conclusions-2{
+  color: #ed1c22;
+}
+.conclusions-3{
+  color: #f1810f;
+}
+.conclusions-4{
+  /*color: #28a263;*/
+  color: #00904e;
+}
+.conclusions-5{
+  color: #28a263;
+}
+.sureBtns{
+margin-top: 130px;
+}
+.list-title-all{
+margin-bottom: 20px;
+}
+/*表头样式*/
+.el-table thead,.el-table tr,.el-table th{
+  /* background: #e8f5ff; */
+}
+/*文本超出*/
+.my-word{
+text-overflow:ellipsis;
+white-space:nowrap;
+overflow:hidden;
+}
+/* 表格鼠标色 */
+.el-table__row.el-table__row--striped{
+  background-color: #fafafa;
+}
+.el-table .el-table__row:hover{
+border-bottom: 2px solid #e9ecf2!important;
+  box-shadow: 0px 0px 5px #e9ecf2 inset;
+background-color: #fafafa;
+}
+/* 表格默认斑马色 */
+.el-table .success-row {   
+  background: #e9ecf2;
+}
+.el-select-dropdown__list{
+  border: 1px solid #c8cddc;
+  /* box-shadow: 0px 0px 5px #8397a8; */
+}
+.el-select .el-input__inner{
+color: #0074ea;
+}
+.el-select-dropdown__item.selected {
+  background-color: #dbefff!important;
+}
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected{
+  background-color: #dbefff!important;
+}
+.popper__arrow{
+  border-bottom-color: #c8cddc!important;
+}
+.el-input__inner .el-breadcrumb__item{
+  border: 1px solid #c8cddc;
+}
+/* 面包学导航 */
+.el-breadcrumb__item .el-breadcrumb__inner{
+  font-size: 16px;
+  font-weight: normal;
+}
+.el-breadcrumb__item:last-child .el-breadcrumb__inner{
+  color: #0074ea;
+  font-size: 16px;
+}
+.common-btn{
+display: inline-block;
+height: 40px;
+line-height: 40px;
+color: #fff;
+padding: 0 10px;
+font-size: 18px;
+text-align: center;
+width: 110px;
+border-radius: 5px;
+}
+.common-btn:hover{
+  cursor: pointer;
+}
+.orange-btn{
+  background: -webkit-linear-gradient(#e4c94a, #ab5000); 
+  background: -o-linear-gradient(#e4c94a, #ab5000); 
+  background: -moz-linear-gradient(#e4c94a, #ab5000);
+  background: linear-gradient(#e4c94a, #ab5000); 
+  box-shadow: 0 0 10px #a76e00;
+}
+.orange-btn:hover{
+  box-shadow: 0 0 0px #a76e00;
+  color: #fff;
+}
+.green-btn{
+  color: #fff;
+  background: -webkit-linear-gradient(#82d759, #057732); 
+  background: -o-linear-gradient(#82d759, #057732); 
+  background: -moz-linear-gradient(#82d759, #057732); 
+  background: linear-gradient(#82d759, #057732); 
+  box-shadow: 0 0 10px #009c28;
+}
+.green-btn:hover{
+  box-shadow: 0 0 0px #a76e00;
+  color: #fff;
+}
+.small-comfirm{   /* 绿色小查询按钮 */
+  color: #fff;
+  background: -webkit-linear-gradient(#82d759, #057732); 
+  background: -o-linear-gradient(#82d759, #057732); 
+  background: -moz-linear-gradient(#82d759, #057732); 
+  background: linear-gradient(#82d759, #057732);  
+}
+.small-comfirm:hover{
+  color: #fff;
+}
+/* 保存查询按钮 */
+.save-blue{  
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+  height: 44px;
+  line-height: 44px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(#00a2ff, #004a9d); 
+  background: -o-linear-gradient(#00a2ff, #004a9d); 
+  background: -moz-linear-gradient(#00a2ff, #004a9d);
+  background: linear-gradient(#00a2ff, #004a9d); 
+  box-shadow: 0 0 10px #0069bb;
+}
+.save-blue:hover{
+  cursor: pointer;
+  box-shadow: 0 0 0px #0069bb;
+}
+.yell-btn{
+  background: #ff7520;
+  border-radius: 5px;
+}

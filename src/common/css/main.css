@@ -1,0 +1,105 @@
+  .bread-list{
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .bread-content{
+  float: right;
+  margin-right: 40px;
+  height: 35px;
+  line-height: 35px;
+}
+.local-icon{
+  display: inline-block;
+  width: 25px;
+  height: 35px;
+  vertical-align: top;
+}
+.local-title{
+  display: inline-block;
+    height: 35px;
+  line-height: 35px;
+  vertical-align: top;
+}
+.bread-menu{
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  font-size: 16px;
+  padding-top: 10px;
+}
+.right-30{
+  margin-right: 30px;
+}
+.right-20{
+  margin-right: 20px;
+}
+.left-20{
+  margin-left: 20px;
+}
+.left-50{
+  margin-left: 50px;
+}
+.big-blue{
+  width: 80px!important;
+}
+.el-button.el-button--default{
+width: 80px!important;
+font-size: 18px;
+}
+/* 小橙色确认按钮 */
+.small-check{
+display: inline-block;
+width: 60px;
+height: 30px;
+line-height: 30px;
+border-radius: 5px;
+border: 1px solid #9ba5ad;
+font-size: 16px;
+text-align: center;
+}
+.small-check:hover{
+  cursor: pointer;
+}
+.clear-btn:hover{
+  color: #008af2;
+  border: 1px solid #008af2;
+}
+.orange-check{
+background: #ff7520;
+color: #fff;
+}
+.blue-check{
+  color: #fff;
+  background: -webkit-linear-gradient(#00a2ff, #004a9d); 
+  background: -o-linear-gradient(#00a2ff, #004a9d); 
+  background: -moz-linear-gradient(#00a2ff, #004a9d);
+  background: linear-gradient(#00a2ff, #004a9d); 
+  box-shadow: 0 0 10px #0069bb;
+}
+.blue-check:hover{
+  box-shadow: 0 0 0px #0069bb;
+  color: #fff;
+}
+.el-dialog__title{
+  color: #0088ee;
+}
+.title-btn-file{
+  padding: 0 40px;
+  border-top-right-radius: 30px;
+  border: none;
+  outline: none;
+  height: 60px;
+  line-height: 60px;
+  font-size: 18px;
+  color: #fff;
+  background: -webkit-linear-gradient(#00a2ff, #004a9d); 
+  background: -o-linear-gradient(#00a2ff, #004a9d); 
+  background: -moz-linear-gradient(#00a2ff, #004a9d);
+  background: linear-gradient(#00a2ff, #004a9d); 
+  box-shadow: 0 0 2px #0069bb;
+}
+.el-form-item__label{
+  font-size: 16px;
+}
