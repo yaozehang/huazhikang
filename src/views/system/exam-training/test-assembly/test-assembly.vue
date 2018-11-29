@@ -220,7 +220,7 @@ export default {
         queIdList: JSON.stringify(this.editParams.queIdList),
         comPId: getUserInfo().comPId
       }
-      this.axios.post('/web/train/papers/add.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/train/papers/add.do', qs.stringify(data)).then((res) => {
         if (res.data.status === 1) {
           this.$message({
             type: 'success',
@@ -286,7 +286,7 @@ export default {
         paperId:  this.editParams.paperId,
         comPId: getUserInfo().comPId
       }
-      this.axios.post('/web/train/papers/edit.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/train/papers/edit.do', qs.stringify(data)).then((res) => {
         if (res.data.status === 1) {
           this.$message({
             type: 'success',
@@ -370,7 +370,7 @@ export default {
           'Content-Type': 'multpart/form-data'
         }
       }
-      this.axios.post('/web/train/papers/uploadDocs.do', formData, config).then((res) => {
+      this.axios.post('/train/papers/uploadDocs.do', formData, config).then((res) => {
         if (res.data === 1) {
           this.$message({
             type: 'success',
@@ -383,7 +383,7 @@ export default {
       })
     },
     downloadFile(id) {
-      let url = `http://192.168.1.157:8088/web/train/papers/downloadDocs.do?id=${id}`
+      let url = `http://192.168.1.157:8088/train/papers/downloadDocs.do?id=${id}`
       window.open(url)
     },
     deletFile(id) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="main-content" @click="hideTree($event)">
+  <el-card class="main-content" @click="hideTree($event)">
     <!-- 搜索框 -->
     <ul class="search-container">
       <li class="input-group">
@@ -104,7 +104,7 @@
        </section>
        </div>
     </el-dialog>
-  </div>
+  </el-card>
 </template>
 
 <script>

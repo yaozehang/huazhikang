@@ -27,15 +27,15 @@
        <ul class="search-container">
           <li class="input-group" >
             <span class="title">任务分区</span>
-            <el-input class="inner-input" v-model="template.place" id="my-part"  @focus="" :disabled="publishFlag"></el-input>
+            <el-input class="inner-input" v-model="template.place" id="my-part" :disabled="publishFlag"></el-input>
           </li>
             <li class="input-group" >
             <span class="title">执行时间</span>
-            <el-input class="inner-input" v-model="template.finishDate" id="my-part"  @focus="" :disabled="publishFlag"></el-input>
+            <el-input class="inner-input" v-model="template.finishDate" id="my-part"  :disabled="publishFlag"></el-input>
           </li>
             <li class="input-group" >
             <span class="title">审核时间</span>
-            <el-input class="inner-input" v-model="template.date" id="my-part"  @focus="" :disabled="publishFlag"></el-input>
+            <el-input class="inner-input" v-model="template.date" id="my-part"   :disabled="publishFlag"></el-input>
           </li>
           <li class="input-group">
             <span class="title">结束日期</span>

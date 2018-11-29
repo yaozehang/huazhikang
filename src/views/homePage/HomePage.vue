@@ -96,7 +96,7 @@ export default {
       let data ={
         comId: getUserInfo().comPId
       }
-      this.axios.post('/web/warn/warnMessgage.do', qs.stringify(data))
+      this.axios.post('/warn/warnMessgage.do', qs.stringify(data))
       .then((res) => {
         if(res.data){
           this.testZone = res.data.patitionName
@@ -133,17 +133,19 @@ background-size: 100% 100%;
    /* background: url('../../static/img/home-bg.png') */
 }
 .menu-container{
-  width: 1920px;
-  height: 1010px;
+  width: 100%;
+  height: calc(100vh - 60px) ;
   background-size: 100% 100%;
+  position: relative;
 }
 .menu-content{
   width: 1080px;
-  height: 1010px;
-  position: fixed;
-  top: 208px;
+  /* height: 1010px; */
+  position: absolute;
+  top: 50%;
   /* left: 485px; */
-  left: 25%;
+  left: 50%;
+  transform: translate(-50%,-50%)
 }
 .my-notification{
   width: 400px;

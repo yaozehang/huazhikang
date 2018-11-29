@@ -6,7 +6,7 @@
           <div class="form-items">
             <el-form-item label="供应商名称"  style="margin-right:30px;">
               <el-select v-model="form.name" clearable placeholder="请选择" class="common-input">
-                <el-option  v-for="(item,index) in supplierList" :key="index"  :label="item":value="item"> </el-option>
+                <el-option  v-for="(item,index) in supplierList" :key="index"  :label="item" :value="item"> </el-option>
               </el-select>
             </el-form-item>
             <el-form-item label="联系人">
@@ -16,7 +16,7 @@
            <div class="form-items">
             <el-form-item label="是否启用"  style="margin-right:150px;">
               <el-select v-model="form.isUse" clearable placeholder="请选择" class="common-input">
-                <el-option  v-for="(item,index) in isUse" :key="index"  :label="item":value="item"> </el-option>
+                <el-option  v-for="(item,index) in isUse" :key="index"  :label="item" :value="item"> </el-option>
                </el-select>
             </el-form-item>
             <el-form-item label="">
@@ -27,10 +27,10 @@
         </el-form>
       </div>
       <div class="zoneList-title border-bottom">
-        <button class="title-btn">供应商列表</button>
+        <el-button class="title-btn" type="text">供应商列表</el-button>
       </div>
       <div class="zonList-table">  <!-- spPyCode  spDescribe -->
-       <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600">
+       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600">
         <!-- <el-table-column prop="spId"  label="序号"  width="50" > </el-table-column> -->
         <el-table-column  prop="spName" label="供应商名称" > </el-table-column>
          <el-table-column prop="spLinkman" label="联系人"> </el-table-column>
@@ -40,7 +40,7 @@
          <el-table-column  prop="spPyCode" label="gonyinhsangmaioshu"> </el-table-column> -->
         <el-table-column   label="操作"  width="150"> 
           <template slot-scope="scope">
-             <el-button type="primary" style="margin-left:30px;" @click="editInfo(scope.$index,scope.row)">修改</el-button>
+             <el-button size="mini" type="warning" style="margin-left:30px;" @click="editInfo(scope.$index,scope.row)">修改</el-button>
         </template>
         </el-table-column>
     </el-table>
@@ -62,7 +62,7 @@
             </el-form-item>
              <el-form-item label="是否启用" >
               <el-select v-model="addForm.isUse" clearable placeholder="请选择" class="common-input">
-                <el-option  v-for="(item,index) in uselist" :key="index"  :label="item":value="item"> </el-option>
+                <el-option  v-for="(item,index) in uselist" :key="index"  :label="item" :value="item"> </el-option>
                </el-select>
             </el-form-item>
          <!--    <el-form-item label="拼音简码">
@@ -100,7 +100,7 @@
             </el-form-item>
             <el-form-item label="是否启用" >
               <el-select v-model="addForm.isUse" clearable placeholder="请选择" class="common-input">
-                <el-option  v-for="(item,index) in uselist" :key="index"  :label="item":value="item"> </el-option>
+                <el-option  v-for="(item,index) in uselist" :key="index"  :label="item" :value="item"> </el-option>
                </el-select>
             </el-form-item>
            <!--  <el-form-item label="拼音简码">
@@ -206,7 +206,7 @@ export default {
         departId: this.partitionId
       }
       console.log(data)
-      this.axios.post('/web/supp/selectsuppbypage.do', qs.stringify(data))
+      this.axios.post('/supp/selectsuppbypage.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           this.tableData = res.data.resultList
@@ -221,7 +221,7 @@ export default {
       let data={
         spPartitionId: getUserInfo().comPId
       }
-      this.axios.post('/web/supp/selectsupnamelist.do',qs.stringify(data))
+      this.axios.post('/supp/selectsupnamelist.do',qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
         this.supplierList = res.data
@@ -244,7 +244,7 @@ export default {
         spDescribe: this.addForm.info,
         spPartitionId: this.partitionId
       }
-    this.axios.post('/web/supp/addsupp.do', qs.stringify(data))
+    this.axios.post('/supp/addsupp.do', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
           if(res.data.msg === '添加成功') {
@@ -271,7 +271,7 @@ export default {
       let data = {
         spId: row.spId
       }
-    this.axios.post('/web/supp/selectsuppbyid.do', qs.stringify(data))
+    this.axios.post('/supp/selectsuppbyid.do', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
           this.editForm.name = res.data.spName
@@ -298,7 +298,7 @@ export default {
         spDescribe: this.editForm.info,
         spPartitionId: this.partitionId
       }
-    this.axios.post('/web/supp/updatesupp.do', qs.stringify(data))
+    this.axios.post('/supp/updatesupp.do', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
           if(res.data.msg === '修改成功') {
@@ -326,7 +326,7 @@ export default {
         departId: this.partitionId
       }
       console.log(data)
-    this.axios.post('/web/supp/selectsuppbypage.do', qs.stringify(data))
+    this.axios.post('/supp/selectsuppbypage.do', qs.stringify(data))
     .then((res) => {
       if (res.status ===200) {
         this.tableData = res.data.resultList

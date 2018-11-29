@@ -24,7 +24,7 @@
       </div>
       <div class="add-table">   
         <!-- curPosId   id  gpGender  gpAge-->
-        <el-table :data="tableDataT" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="500" ref="multipleTable"  >
+        <el-table :data="tableDataT"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="500" ref="multipleTable"  >
         <el-table-column prop="gpGetMan"  label=""> </el-table-column>
         <el-table-column prop="gpGetMan"  label="姓名" > </el-table-column>
         <el-table-column  prop="gpGetTel" label="电话" > </el-table-column>

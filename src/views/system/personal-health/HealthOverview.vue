@@ -6,7 +6,7 @@
      <div class="content-main">
       <div class="bread-list clearfix">
         <div class="bread-content">
-          <span class="local-icon"> <img src="static/imgs/position.png" alt=""></span>
+          <span class="local-icon"> <img src="static/imgs/position.png" alt="" width="20px"></span>
           <span class="local-title">您的当前位置：</span>
           <span class="bread-menu">
             <el-breadcrumb separator-class="el-icon-arrow-right">
@@ -16,7 +16,9 @@
           </span>
         </div>
       </div>
-      <router-view :currentMenu="currentMenu"></router-view>
+      <el-card style="padding-bottom:10px;">
+        <router-view :currentMenu="currentMenu"></router-view>
+      </el-card>
     </div>
   </div>
 </template>
@@ -53,7 +55,7 @@ export default {
     } else {
       data.menuId = sessionStorage.getItem('menuId')
     }
-    this.axios.post('/web/user/getInsideMenu.do', qs.stringify(data))
+    this.axios.post('/user/getInsideMenu.do', qs.stringify(data))
     .then((res) => {
     if (res.status ===200) {
       console.log(res.data)

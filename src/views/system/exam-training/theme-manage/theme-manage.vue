@@ -135,7 +135,7 @@ export default {
       this.showFlag = true
     },
     addTheme() {
-      this.axios.post('/web/train/theme/add.do', qs.stringify({
+      this.axios.post('/train/theme/add.do', qs.stringify({
         themeName: this.editParams.themeName,
         status: this.editParams.status,
         comPId: this.comPId
@@ -165,7 +165,7 @@ export default {
       })
     },
     editTheme() {
-      this.axios.post('/web/train/theme/edit.do', qs.stringify(this.editParams)).then((res) => {
+      this.axios.post('/train/theme/edit.do', qs.stringify(this.editParams)).then((res) => {
         if (res.data.status === 1) {
           this.$message({
             type: 'success',

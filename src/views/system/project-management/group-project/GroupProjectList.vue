@@ -9,7 +9,7 @@
             </el-form-item>
              <el-form-item label="项目类型" style="float:left;">
                <el-select v-model="Project.ProjectType" clearable placeholder="请选择">
-                <el-option  v-for="(item,index) in ProjectTypeList" :key="index"  :label="item":value="item"> </el-option>
+                <el-option  v-for="(item,index) in ProjectTypeList" :key="index"  :label="item" :value="item"> </el-option>
                </el-select>
             </el-form-item>
             <div class="search-btns ">
@@ -19,7 +19,7 @@
         </el-form>
       </div>
       <div class="zoneList-title border-bottom">
-        <button class="title-btn">组合项目列表</button>
+        <el-button class="title-btn" type="text">组合项目列表</el-button>
         <span class="import-excel" @click="exportTable"> 导出EXCEL</span>
       </div>
       <div class="zonList-table">
@@ -110,7 +110,7 @@ export default {
       })
         return false
       } else{
-        let url =`${myurl}/web/exprotGroupProject.do?id=${this.multipleSelection}`
+        let url =`${myurl}/exprotGroupProject.do?id=${this.multipleSelection}`
         window.open(url)
       }
     },
@@ -120,7 +120,7 @@ export default {
       let data ={
         page:this.currentPage
       }
-    this.axios.post('/web/selectGroupProject.do', qs.stringify(data))
+    this.axios.post('/selectGroupProject.do', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
           this.tableData = res.data.resultList
@@ -141,7 +141,7 @@ export default {
         projects_name: this.Project.ProjectName,
         projects_type:  this.Project.ProjectType
       }
-    this.axios.post('/web/conditionSelectGroupProject.do', qs.stringify(data))
+    this.axios.post('/conditionSelectGroupProject.do', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
           this.tableData = res.data.resultList
@@ -161,7 +161,7 @@ export default {
         let data ={
         projectId: this.delId
       }
-    this.axios.post('/web/deleteProjectGroupById.do', qs.stringify(data))
+    this.axios.post('/deleteProjectGroupById.do', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
             this.getList()
@@ -182,7 +182,7 @@ export default {
         projects_type:  this.Project.ProjectType,
         page: val
       }
-    this.axios.post('/web/conditionSelectGroupProject.do', qs.stringify(data))
+    this.axios.post('/conditionSelectGroupProject.do', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
               this.tableData = res.data.resultList

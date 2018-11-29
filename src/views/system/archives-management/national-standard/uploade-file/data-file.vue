@@ -2,7 +2,7 @@
   <!-- 页面样式 -->
   <div class="file-container">
   <div class="list-title-all border-bottom">
-    <button class="title-btn">新建上传</button>
+    <el-button class="title-btn" type="text">新建上传</el-button>
     <el-button class="return" @click="goBack" >返回</el-button>
   </div>
   <div class="file-content clearfix">
@@ -39,7 +39,7 @@
   <!--  -->
     <div class="my-table">
       <el-table :data="fileData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle"
-       max-height="700"   ref="multipleTable"  @selection-change="" >
+       max-height="700"   ref="multipleTable"  >
 <!--         <el-table-column type="selection" > </el-table-column> -->
         <el-table-column label="序号" width="50" type="index"> </el-table-column>
         <el-table-column  label="名字" >
@@ -85,7 +85,7 @@
           </li>
         </ul>
         <ul class="data-list">
-          <li class="clearfix" v-for=" (item,indedx) in historyList">
+          <li class="clearfix" v-for="(item,index) in historyList" v-bind:key="index">
             <div class="item-left">
               <span class="item-img">
                 <img src="static/img/word.png" alt="文件夹" v-if="item.type === 2">
@@ -223,11 +223,11 @@ export default {
       })
     },
     scanFile(index,item){   //预览
-      let url =`${myurl}/web/occuHealthRecordsManage/preview.do?id=${item.fId}`
+      let url =`${myurl}/occuHealthRecordsManage/preview.do?id=${item.fId}`
       window.open(url)
     },
     downFile(index,item){   //预览
-      let url =`${myurl}/web/occuHealthRecordsManage/download.do?id=${item.fId}`
+      let url =`${myurl}/occuHealthRecordsManage/download.do?id=${item.fId}`
       window.open(url)
     },
     _floderIsReapeat(){

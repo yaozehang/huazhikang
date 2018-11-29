@@ -2,7 +2,7 @@
   <!--2-1 _年度职业病防治计划实施检查表 id4 -->
 <div class="content">
   <div class="list-title-all border-bottom">
-     <button class="title-btn">度职业病防治计划实施检查表</button>
+     <el-button class="title-btn" type="text">度职业病防治计划实施检查表</el-button>
   </div>
   <form action="" ref="myform">
   <div class="tableForm">
@@ -46,12 +46,12 @@
         <th style="width:60px;">  删除 </th>
       </tr>
       <tr v-for="(i, x) in tableData " :key="x" track-by="x">
-         <td > <input v-model="i[0]" >  </input> </td>
-         <td ><input v-model="i[1]" >  </input> </td>
-         <td ><input v-model="i[2] " >  </input></td>
-         <td ><input v-model="i[3] " >  </input> </td>
-         <td > <input v-model="i[4]" >  </input> </td>
-         <td ><input v-model="i[5]" >  </input> </td>
+         <td > <input v-model="i[0]" >   </td>
+         <td ><input v-model="i[1]" >   </td>
+         <td ><input v-model="i[2] " >  </td>
+         <td ><input v-model="i[3] " >   </td>
+         <td > <input v-model="i[4]" >   </td>
+         <td ><input v-model="i[5]" >   </td>
         <td >
           <i class="el-icon-remove-outline" @click="delInner(x)"></i>
         </td>
@@ -131,7 +131,7 @@ export default {
         inputs: inputs,
         comPId: getUserInfo().comPId
       }
-      this.axios.post('/web/recordsEdit/edit.do', qs.stringify( data ) )
+      this.axios.post('/recordsEdit/edit.do', qs.stringify( data ) )
       .then((res) => {
         if(res.data === 'success1'){
             this.$message({

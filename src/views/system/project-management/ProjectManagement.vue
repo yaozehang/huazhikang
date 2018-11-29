@@ -3,9 +3,11 @@
     <div class="sideMenu">
       <side-menu :slidList="slidList"></side-menu>
     </div>
+    <el-card>
      <div class="project-main">
       <router-view></router-view>
-    </div>
+     </div>
+    </el-card>
   </div>
 </template>
 

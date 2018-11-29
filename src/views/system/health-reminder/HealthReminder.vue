@@ -1,6 +1,6 @@
 <template>
   <!-- @click="hideTree($event)" -->
-  <div class="HealthReminder" @click="hideTree($event)">
+  <el-card class="HealthReminder" @click="hideTree($event)">
     <el-form :inline="true" :model="form" class="demo-form-inline" label-width="120px">
       <div class="search-form">
         <div class="search-items">
@@ -26,7 +26,7 @@
           </el-form-item>
           <el-form-item label="工种">
             <el-select v-model="form.workPost" multiple  filterable  placeholder="请输入关键词"  style="width:100%" >
-            <el-option v-for="(item,index) in workTypeList" :key="item.jobsName"  :label="item.jobsName" :value="item.jobsName">
+            <el-option v-for="(item,index) in workTypeList" v-bind:key="index"  :label="item.jobsName" :value="item.jobsName">
             </el-option>
           </el-select>
           </el-form-item>
@@ -50,7 +50,7 @@
             <el-form-item label="" >
               <el-button type="" @click="goTest">人员安排标记</el-button>
               <span class="import-excel" @click="exportTable"> 导出EXCEL</span>
-       <!--    <a class="import-excel" :href="'http://192.168.1.208:8080/web/warn/exportwarn.do?id='+multipleSelection">导出EXCEL</a> -->
+       <!--    <a class="import-excel" :href="'http://192.168.1.208:8080/warn/exportwarn.do?id='+multipleSelection">导出EXCEL</a> -->
             </el-form-item>
           </div>
           <div class="bottom-button">
@@ -75,7 +75,7 @@
     </div>
     </el-form>
      <div class="type-list-title border-bottom">
-        <button class="title-btn">职业健康检查一览表</button>
+        <el-button class="title-btn" type="text">职业健康检查一览表</el-button>
     </div>
     <div class="my-table">
         <!-- 没用到的 "cwHarmElement":危害因素       "cwUserId":职员id   "cwWarn":提醒类型   "cwWorkType":工种 -->
@@ -112,7 +112,7 @@
       </div> 
 
     </div>
-  </div>
+  </el-card>
 </template>
 
 <script>
@@ -212,7 +212,7 @@ export default {
         period: this.form.testCycle,
         id: JSON.stringify(this.multipleSelection)
       }
-      this.axios.post('/web/warn/updatePeriod.do', qs.stringify(data))
+      this.axios.post('/warn/updatePeriod.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
          this.sucMsg(res.data)
@@ -231,7 +231,7 @@ export default {
       })
         return false
       } else{
-        let url =`${myurl}/web/warn/exportwarn.do?id=${this.multipleSelection}`
+        let url =`${myurl}/warn/exportwarn.do?id=${this.multipleSelection}`
         window.open(url)
       }
     },
@@ -284,7 +284,7 @@ export default {
         job: '',
         comId: getUserInfo().comPId
       }
-      this.axios.post('/web/selectJobslist.do', qs.stringify(data))
+      this.axios.post('/selectJobslist.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           res.data.map((item,index) => {
@@ -319,7 +319,7 @@ export default {
         workType: workPost === []? '' : workPost,   // 工种
         departId: getUserInfo().userId,
       }
-      this.axios.post('/web/warn/query.do', qs.stringify(data))
+      this.axios.post('/warn/query.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.sucMsg('查询成功')
@@ -345,7 +345,7 @@ export default {
         id: id
       }
       if(this.multipleSelection.length >0){
-        this.axios.post('/web/warn/updatestatus.do', qs.stringify(data))
+        this.axios.post('/warn/updatestatus.do', qs.stringify(data))
         .then((res) => {
           if (res.status ===200) {
             this.sucMsg(res.data.msg)
@@ -378,7 +378,7 @@ export default {
         workType: workPost,
         departId: getUserInfo().userId,
       }
-      this.axios.post('/web/warn/query.do', qs.stringify(data))
+      this.axios.post('/warn/query.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.testData = res.data.resultList
@@ -464,6 +464,7 @@ export default {
   border-top:1px solid #cccccc;
   margin-top: 20px;
   margin-left: 30px;
+  margin-right: 30px;
   padding: 20px 0;
 }
 .form-items{

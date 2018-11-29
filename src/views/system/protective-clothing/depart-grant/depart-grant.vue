@@ -48,11 +48,11 @@
     <!-- 部门树状图 -->
       </div>
       <div class="zoneList-title border-bottom">
-        <button class="title-btn">部门发放记录</button>
+        <el-button class="title-btn" type="text">部门发放记录</el-button>
         <el-button  @click="exportTable" class="export-excel">导出excel</el-button>
       </div>       
       <div class="zonList-table">
-       <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600" :default-sort = "{prop: 'dgGrantTime', order: 'descending'}"  @selection-change="handleSelectionChange">
+       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600" :default-sort = "{prop: 'dgGrantTime', order: 'descending'}"  @selection-change="handleSelectionChange">
         <el-table-column prop="dgId"  label="序号"  width="50"  type="selection"> </el-table-column>
         <el-table-column  prop="dgDepartName" label="发放部门" > </el-table-column>
         <el-table-column prop="dgProductType" label="产品分类"> </el-table-column>
@@ -235,7 +235,7 @@ export default {
         dgId: this.zoneKey
       }
       if(this.zoneKey !== ''){
-        this.axios.post('/web/depart/queryproducttypebydgid.do', qs.stringify(data))
+        this.axios.post('/depart/queryproducttypebydgid.do', qs.stringify(data))
         .then((res) => {
         if (res.status ===200) {
           if(res.data.length !==0){
@@ -270,7 +270,7 @@ export default {
         // comPId: getUserInfo().comPId
       }
       console.log(data)
-      this.axios.post('/web/proic/queryproductnamelist.do',qs.stringify(data))
+      this.axios.post('/proic/queryproductnamelist.do',qs.stringify(data))
       .then((res) => {
         console.log(res.data)
         if (res.status ===200) {
@@ -284,7 +284,7 @@ export default {
       let data = {
         proType: this.addForm.ProductType
       }
-      this.axios.post('/web/depart/queryproductbytypename.do',qs.stringify(data))
+      this.axios.post('/depart/queryproductbytypename.do',qs.stringify(data))
       .then((res) => {
         console.log(res.data)
         if (res.status ===200) {
@@ -348,8 +348,8 @@ export default {
         })
         return false
       }
-      let url =`${myurl}/web/depart/exprot.do?id=${this.multipleSelection}`
-      // let url ='http://47.92.26.132:8080/web/workPlan/batchDownload.do?id='+this.multipleSelection
+      let url =`${myurl}/depart/exprot.do?id=${this.multipleSelection}`
+      // let url ='http://47.92.26.132:8080/workPlan/batchDownload.do?id='+this.multipleSelection
       window.open(url)
     },
     // 分页/条件查询部门发放信息depart/querydepartlist.do
@@ -363,7 +363,7 @@ export default {
         depart: this.depart,  //发放部门   id
         departId: getUserInfo().userId
       }
-    this.axios.post('/web/depart/querydepartlist.do', qs.stringify(data))
+    this.axios.post('/depart/querydepartlist.do', qs.stringify(data))
     .then((res) => {
       if (res.status ===200) {
             this.tableData = res.data.resultList
@@ -392,7 +392,7 @@ export default {
         proName: this.addForm.procetName
       }
       if(this.addForm.ProductType !== '' && this.addForm.procetName !==''){
-        this.axios.post('/web/depart/querynumbers.do', qs.stringify(data))
+        this.axios.post('/depart/querynumbers.do', qs.stringify(data))
         .then((res) => {
         if (res.status ===200) {
           this.addForm.totalNum = res.data.totalNumber
@@ -418,7 +418,7 @@ export default {
       }
     this.$refs[addForm].validate((valid) => {
       if (valid) {
-        this.axios.post('/web/depart/adddepartgrant.do', qs.stringify(data))
+        this.axios.post('/depart/adddepartgrant.do', qs.stringify(data))
         .then((res) => {
           if (res.status ===200) {
             this.IsAdd = false
@@ -453,7 +453,7 @@ export default {
         depart: this.depart,  //发放部门
         departId: getUserInfo().partitionId
       }
-    this.axios.post('/web/depart/querydepartlist.do', qs.stringify(data))
+    this.axios.post('/depart/querydepartlist.do', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
           this.tableData = res.data.resultList

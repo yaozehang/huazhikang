@@ -72,7 +72,6 @@
     		 </table>
     	</div>
     </div>
-    </el-form>
     <div class="btn-container">
     	 <el-button type="primary" @click="save">保存</el-button>
     	 <el-button type="primary" @click="reset">清空</el-button>
@@ -135,7 +134,7 @@ export default {
         inputs: inputs,
         comPId: getUserInfo().comPId
       }
-      this.axios.post('/web/recordsEdit/edit.do', qs.stringify( data )  )
+      this.axios.post('/recordsEdit/edit.do', qs.stringify( data )  )
       .then((res) => {
         if(res.data === 'success1'){
             this.$message({

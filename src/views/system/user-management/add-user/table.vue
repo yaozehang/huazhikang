@@ -5,7 +5,7 @@
         <div class="right">功能权限</div>
     </li>
     <div class="vertical-line"></div>
-    <li  v-for="(item,index) in dataList" :key="item.id">
+    <li  v-for="(item,index) in dataList" :key="index">
         <div class="left h40"  @click="fold(item)">
             <i :class="{'el-icon-caret-right':item.folded,'el-icon-caret-bottom':!item.folded}"
                v-cloak v-if="item.second"
@@ -22,7 +22,7 @@
         </div>
         <div class="line"></div>
         <ul v-show="item.second&&!item.folded">
-            <li class="h40" v-for="(second,cur) in item.second" :key="second.id">
+            <li class="h40" v-for="(second,cur) in item.second" :key="cur">
                 <div class="left">
                     <el-checkbox   v-model="second.checkAll" @change="handleCheckAllChange($event,item,second)" v-cloak>
                         {{second.title}}

@@ -53,18 +53,18 @@
     		 	 	</thead>
     		 	 	<tbody>
     		 	 		<tr v-for="(i,index) in tableData" :key="index" track-by="index">
-                <td > <input v-model="i[0]" >  </input> </td>
-                <td ><input v-model="i[1]" >  </input> </td>
-                <td ><input v-model="i[2] " >  </input></td>
-                <td ><input v-model="i[3] " >  </input> </td>
-                <td > <input v-model="i[4]" >  </input> </td>
-                <td ><input v-model="i[5]" >  </input> </td>
-                <td ><input v-model="i[6]" >  </input> </td>
-                <td ><input v-model="i[7]" >  </input> </td>
-                <td ><input v-model="i[8]" >  </input> </td>
-                <td ><input v-model="i[9]" >  </input> </td>
-                <td ><input v-model="i[10]" >  </input> </td>
-                <td ><input v-model="i[11]" >  </input> </td>
+                <td > <input v-model="i[0]" >   </td>
+                <td ><input v-model="i[1]" >   </td>
+                <td ><input v-model="i[2] " >  </td>
+                <td ><input v-model="i[3] " >   </td>
+                <td > <input v-model="i[4]" >   </td>
+                <td ><input v-model="i[5]" >   </td>
+                <td ><input v-model="i[6]" >   </td>
+                <td ><input v-model="i[7]" >   </td>
+                <td ><input v-model="i[8]" >   </td>
+                <td ><input v-model="i[9]" >   </td>
+                <td ><input v-model="i[10]" >   </td>
+                <td ><input v-model="i[11]" >   </td>
                 <td style="text-align:center;"><i class="icon el-icon-remove-outline" @click="cutRow(index)"></i></td>
     		 	 		</tr>
               <tr>
@@ -74,7 +74,6 @@
     		 </table>
     	</div>
     </div>
-    </el-form>
     <div class="save">
     	 <el-button  @click="reset">清空</el-button>
        <span class="save-blue big-blue left-20" @click="save" >保存</span>

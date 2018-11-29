@@ -14,7 +14,7 @@
         </el-form>
       </div>
       <div class="zoneList-title border-bottom">
-        <button class="title-btn">明细项目列表</button>
+        <el-button class="title-btn" type="text">明细项目列表</el-button>
         <span class="import-excel" @click="exportTable"> 导出EXCEL</span>
       </div>
       <div class="zonList-table">
@@ -105,7 +105,7 @@ export default {
       })
         return false
       } else{
-        let url =`${myurl}/web/exprotProjectToExcl.do?id=${this.multipleSelection}`
+        let url =`${myurl}/exprotProjectToExcl.do?id=${this.multipleSelection}`
         window.open(url)
       }
     },
@@ -115,7 +115,7 @@ export default {
       let data ={
         page: this.currentPage
       }
-    this.axios.post('/web/selectProject.do', qs.stringify(data))
+    this.axios.post('/selectProject.do', qs.stringify(data))
     .then((res) => {
       if (res.status ===200) {
         this.tableData = res.data.resultList
@@ -132,7 +132,7 @@ export default {
         di_name: this.form.name,
         page: this.currentPage
       }
-    this.axios.post('/web/conditionProject.do ', qs.stringify(data))
+    this.axios.post('/conditionProject.do ', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
           this.tableData = res.data.resultList
@@ -147,7 +147,7 @@ export default {
         di_name: this.form.name,
         page: val
       }
-    this.axios.post('/web/conditionProject.do ', qs.stringify(data))
+    this.axios.post('/conditionProject.do ', qs.stringify(data))
     .then((res) => {
       if (res.status ===200) {
         this.tableData = res.data.resultList

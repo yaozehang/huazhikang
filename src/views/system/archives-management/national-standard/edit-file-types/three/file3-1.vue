@@ -2,7 +2,7 @@
   <!-- 3-1 id 18_年度职业卫生宣传培训一览表  -->
 <div class="content">
   <div class="list-title-all border-bottom">
-     <button class="title-btn">职业卫生宣传培训一览表 </button>
+     <el-button class="title-btn" type="text">职业卫生宣传培训一览表 </el-button>
   </div>
   <div class="tableForm">                 
     <el-form :inline="true" :model="form1" class="demo-form-inline" label-width="140px" style="margin-left:-50px;">
@@ -63,10 +63,10 @@
         <th style="width:100px;">  删除 </th>
       </tr>
       <tr v-for="(i, x) in tableData " :key="x" track-by="x">
-         <td > <input v-model="i[0]" >  </input> </td>
-         <td ><input v-model="i[1]" >  </input> </td>
-         <td ><input v-model="i[2] " >  </input></td>
-         <td ><input v-model="i[3] " >  </input> </td>
+         <td > <input v-model="i[0]" >   </td>
+         <td ><input v-model="i[1]" >   </td>
+         <td ><input v-model="i[2] " >  </td>
+         <td ><input v-model="i[3] " >   </td>
         <td >
           <i class="el-icon-remove-outline" @click="delInner(x)"></i>
         </td>
@@ -144,7 +144,7 @@ export default {
         inputs: inputs,
         comPId: getUserInfo().comPId
       }
-      this.axios.post('/web/recordsEdit/edit.do', qs.stringify( data )  )
+      this.axios.post('/recordsEdit/edit.do', qs.stringify( data )  )
       .then((res) => {
         if(res.data === 'success1'){
             this.$message({

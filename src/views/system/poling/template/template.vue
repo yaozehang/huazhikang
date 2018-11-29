@@ -8,7 +8,7 @@
       </li>
       <li class="input-group">
         <span class="title">巡检标题</span>
-        <el-select v-model="selectParams.title"  clearable placeholder="请选择" @change="" class="inner-input" >
+        <el-select v-model="selectParams.title"  clearable placeholder="请选择"  class="inner-input" >
           <el-option v-for="item in titleOption" :key="item.id" :label="item.title" :value="item.title"></el-option>
           </el-select>
         <!-- <el-input class="inner-input" v-model="selectParams.title" @keyup.native.enter="_getTemplateList"></el-input> -->
@@ -25,15 +25,16 @@
       <el-table :data="tableData" border stripe style="width: 100%;">
         <el-table-column label="序号" type="index" width="50"></el-table-column>
         <!-- <el-table-column prop="insTypeName" label="巡检类型"></el-table-column> -->
-        <el-table-column prop="insTitle" label="巡检标题"></el-table-column>
-        <el-table-column label="巡检内容"  width="600" >
+        <el-table-column prop="insTitle" label="巡检标题" width="200"></el-table-column>
+        <el-table-column label="巡检内容" >
           <template slot-scope="scope">
            <p class="task-contant"> {{scope.row.insContent}} </p>
           </template>
         </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="操作" width="150px">
         <template slot-scope="scope">
-          <span class="edit-btn" @click="_editTemplate(scope.row.id)">编辑</span>|<span class="del-btn" @click="_removeTemplatebyId(scope.row.id)">删除</span>
+          <el-button class="edit-btn" @click="_editTemplate(scope.row.id)" size="mini">编辑</el-button>
+          <el-button size="mini" type="danger" class="del-btn" @click="_removeTemplatebyId(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
       </el-table>
@@ -78,7 +79,7 @@
            <span class="input-group">
             <!-- getTypename -->
             <span class="title">巡检类型</span>
-            <el-select class="inner-input" v-model="template.typeId" placeholder="请选择" @change="">
+            <el-select class="inner-input" v-model="template.typeId" placeholder="请选择">
               <el-option v-for="item in typeOption1" :key="item.id" :label="item.insTypeName" :value="item.id"></el-option>
          </el-select>
           </span>
@@ -237,7 +238,7 @@ export default {
         comPId: getUserInfo().comPId
       }
       console.log(data)
-      this.axios.post('/web/inspection/addInspectionTemplate.do', qs.stringify(data))
+      this.axios.post('/inspection/addInspectionTemplate.do', qs.stringify(data))
         .then((res) => {
           if (res.data === 1) {
             this.$message({
@@ -292,7 +293,7 @@ export default {
         templateType: this.editParams.templateType,
         comPId: getUserInfo().comPId
       }
-      this.axios.post('/web/inspection/editInsTemp.do', qs.stringify(data))
+      this.axios.post('/inspection/editInsTemp.do', qs.stringify(data))
         .then((res) => {
           if (res.data === 1) {
             this.$message({
@@ -416,16 +417,16 @@ export default {
     margin-top:10px
     border-radius(5px)
     overflow:hidden
-    .edit-btn
-      padding:10px
-      text-decoration:underline
-      cursor:pointer
-      color:#f48c25
-    .del-btn
-      padding:10px
-      text-decoration:underline
-      cursor:pointer
-      color:#ef3a41
+    // .edit-btn
+    //   padding:10px
+    //   text-decoration:underline
+    //   cursor:pointer
+    //   color:#f48c25
+    // .del-btn
+    //   padding:10px
+    //   text-decoration:underline
+    //   cursor:pointer
+    //   color:#ef3a41
   .pagination-container
     text-align:right
     margin-top:30px

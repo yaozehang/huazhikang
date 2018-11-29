@@ -34,7 +34,7 @@
   </el-dialog>
   <!-- 搜索文件弹窗结束 -->
   <div class="list-title-all border-bottom">
-      <button class="title-btn">自查清单</button>
+      <el-button class="title-btn" type="text">自查清单</el-button>
       <!-- <button class="title-btn" @click=" dataShow = true">数据同步</button> -->
   </div>
     <!-- 数据同步弹窗 -->
@@ -101,7 +101,7 @@
        </el-table-column>
      </el-table>
       <div class="add-type" >
-        <el-button type="button"  @click=""  class="add-type-btn" @click="addTypeOne()">
+        <el-button type="button"   class="add-type-btn" @click="addTypeOne()">
             <i class="el-icon-circle-plus-outline"> </i>
         </el-button>
      </div>
@@ -135,7 +135,7 @@
         </el-form>
         <div slot="footer" class="dialog-footer my-footer-bths" >
           <el-button type="primary" @click="comfirmAddType(addForm)">确 定</el-button>
-          <el-button @click="">取 消</el-button>
+          <el-button>取 消</el-button>
         </div>
       </el-dialog>
   <!-- 新增类型弹出框结束-->
@@ -254,16 +254,16 @@ export default {
         query: {fYear: this.archivesDate, fSmallId:row.id, fBigId:rows.id,menuId:4, name:'职业健康监护档案'}})
     },
     scanFile(index,item){   //预览
-      let url =`${myurl}/web/occuHealthRecordsManage/preview.do?id=${item.id}`
+      let url =`${myurl}/occuHealthRecordsManage/preview.do?id=${item.id}`
       window.open(url)
     },
      downFile(index,item){   //预览
-      let url =`${myurl}/web/occuHealthRecordsManage/download.do?id=${item.id}`
+      let url =`${myurl}/occuHealthRecordsManage/download.do?id=${item.id}`
       window.open(url)
     },
     getNews(){
       let data = {comId: getUserInfo().comPId}
-      this.axios.post('/web/switch/queryMessage.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/switch/queryMessage.do', qs.stringify(data)).then((res) => {
         if(res.data.status === 1){
           this.newsContent = res.data.data.tmMessage
           this.newsTime = res.data.data.tmCreateDate
@@ -428,7 +428,7 @@ export default {
       let data = {
         id: item.id,
       }
-      this.axios.post('/web/occuHealthRecordsManage/delete.do', qs.stringify(data))
+      this.axios.post('/occuHealthRecordsManage/delete.do', qs.stringify(data))
      .then((res) => {
       if(res.status === 200){
        this.sucMsg('删除成功')

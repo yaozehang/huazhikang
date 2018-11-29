@@ -2,7 +2,7 @@
 <div class=" addZone-container" @click="hideTree($event)"> 
   <div class="addZone-content">
     <div class="type-list-title border-bottom">
-       <button class="title-btn">修改分区</button>
+       <el-button type="text" class="title-btn">修改分区</el-button>
        <el-button class="return" @click="goBack">返回 </el-button>
         <!-- <button class="return" @click="goBack">返回</button> -->
     </div>
@@ -17,15 +17,15 @@
         <el-form-item label="工种/职务" prop="workType">
         <el-select v-model="form.workType" multiple   filterable placeholder="请输入关键词" 
            style="width:100%" @remove-tag="removeWork">
-          <el-option v-for="(item,index) in workTypeList" :key="item.id"  :label="item.name" :value="item.id">
+          <el-option v-for="(item,index) in workTypeList" :key="index"  :label="item.name" :value="item.id">
           </el-option>
         </el-select>
       </el-form-item>
       <!-- 选择列表 -->
       <el-form-item label="危害因素">
      <el-select v-model="form.hazardFactors" multiple  filterable  placeholder="请输入关键词" 
-        style="width:100%" @remove-tag="">
-        <el-option v-for="(item,index) in hazardFactorsList" :key="item.id"  :label="item.name"  :value="item.id">
+        style="width:100%">
+        <el-option v-for="(item,index) in hazardFactorsList" :key="index"  :label="item.name"  :value="item.id">
         </el-option>
         </el-select>
       </el-form-item>
@@ -37,18 +37,18 @@
       </el-form-item> -->
         <el-form-item label="护具类型" >
         <el-select v-model="form.protectClothing"  multiple placeholder="请选择" style="width:100%">
-          <el-option v-for="(item,index) in protectClothingList" :key="item.ptId"  :label="item.ptName"  :value="item.ptId">
+          <el-option v-for="(item,index) in protectClothingList" :key="index"  :label="item.ptName"  :value="item.ptId">
         </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="培训主题">
         <el-select v-model="form.testTheme" multiple placeholder="请选择" style="width:100%">
-          <el-option v-for="(item,index) in trainingThemeList" :key="item.id"  :label="item.theme"  :value="item.id">
+          <el-option v-for="(item,index) in trainingThemeList" :key="index"  :label="item.theme"  :value="item.id">
         </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="培训周期">
-        <el-input type="" v-model="form.testCycle" placeholder="天" style="width:200px; margin-right:20px;" type="number"></el-input>  <span>天</span>
+        <el-input  v-model="form.testCycle" placeholder="天" style="width:200px; margin-right:20px;" type="number"></el-input>  <span>天</span>
       </el-form-item>
       <el-form-item label="二维码">
         <div class="code-img" @click="codeVisible = true">
@@ -207,7 +207,7 @@ export default {
     },
     getInfo(){
       let data= this.queryItem
-       this.axios.post('/web/selectByPartition.do', qs.stringify(data)).then((res) => {
+       this.axios.post('/selectByPartition.do', qs.stringify(data)).then((res) => {
             if (res.status ===200) {
               let data = res.data.bylist
               this.form.name  = data.name
@@ -250,9 +250,9 @@ export default {
         partitionId: this.queryItem.id,
         comId: getUserInfo().comPId
       }
-      this.axios.post('/web/canOrNotDelJob.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/canOrNotDelJob.do', qs.stringify(data)).then((res) => {
         if (res.data === '可以删除') {
-          this.axios.post('/web/delPartitionBlowJob.do', qs.stringify(data))
+          this.axios.post('/delPartitionBlowJob.do', qs.stringify(data))
           .then((res) => {
               if (res.status ===200) {
               }else{
@@ -312,7 +312,7 @@ export default {
     })
     },
     getZone() {
-      this.axios.post('/web/partition/query.do').then((res) => {
+      this.axios.post('/partition/query.do').then((res) => {
         if (res.status ===200) {
           this.zoneData.push(res.data)
         }else{

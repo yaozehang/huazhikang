@@ -33,7 +33,7 @@
           </el-form-item>
            <el-form-item label="工种" style="margin-right:30px;">
             <el-select v-model="form.workPost" multiple  filterable  placeholder="请输入关键词" >
-              <el-option v-for="(item,index) in workTypeList" :key="item.id"  :label="item.jobsName" :value="item.jobsName">
+              <el-option v-for="(item,index) in workTypeList" :key="index"  :label="item.jobsName" :value="item.jobsName">
               </el-option>
             </el-select>
           </el-form-item>
@@ -44,20 +44,20 @@
         <div class="form-items">
           <el-form-item label="体检结论"  style="margin-right:50px;">
               <el-select v-model="form.testResult" clearable  placeholder="请选择">
-              <el-option v-for="item,index) in options" :key="index" :label="item" :value="item"> </el-option>
+              <el-option v-for="(item,index) in options" :key="index" :label="item" :value="item"> </el-option>
               </el-select>
           </el-form-item>
            <el-form-item label="危害因素 " style="margin-right:80px;">
           <el-select v-model="form.harmFactor" multiple  filterable  placeholder="请输入关键词" 
            style="width:100%" @change="selectHarm">
-          <el-option v-for="(item,index) in harmList" :key="item.id"  :label="item.name"  :value="item.id">
+          <el-option v-for="(item,index) in harmList" :key="index"  :label="item.name"  :value="item.id">
           </el-option>
         </el-select>
           </el-form-item>
            <el-form-item label="" >
              <el-checkbox v-model="form.checked"  style="margin-right:87px;">只看未分区</el-checkbox>
-              <span class="save-blue right-30" @click="getTestData" > 查询 </span>
-              <!-- <el-button type="primary" @click="getTestData()"  style="margin-right:87px;" >查询</el-button> -->
+              <!-- <span class="save-blue right-30" @click="getTestData" > 查询 </span> -->
+              <el-button type="primary" @click="getTestData()"  style="margin-right:87px;" >查询</el-button>
           </el-form-item>
         </div>
      </el-form>
@@ -78,15 +78,15 @@
      <!-- 上传弹出框 结束-->
     <div class="tabs">
       <div class="type-list-title border-bottom">
-        <button class="title-btn">体检结果统计</button>
+        <el-button class="title-btn" type="text">体检结果统计</el-button>
         <button v-show="role === 1" class="my-downLoade right-30" @click="downFile"> 模板下载</button>
         <button  class="my-downLoade right-30" v-show="role === 1"  @click="importExcle"> 导入EXCEL </button>
       </div> 
         <el-table :data="testData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="700"  :row-class-name="tableRowClassName">
         <!-- <el-table-column prop="cpid" label="序号" width="50" > </el-table-column> -->
-        <el-table-column prop="crdepartment_id"  label="车间班组"  width="180">  </el-table-column>
+        <el-table-column prop="crdepartment_id"  label="车间班组"  width="150">  </el-table-column>
         <el-table-column  prop="cpname"  label="姓名">  </el-table-column>
-        <el-table-column  prop="cpcardnumber"  label="身份证号码">  </el-table-column>
+        <el-table-column  prop="cpcardnumber"  label="身份证号码" width="170px">  </el-table-column>
         <el-table-column  prop=""  label="性别" width="50">  
           <template slot-scope="scope">
           <span v-if="scope.row.cpgener === '0' ">男</span>
@@ -98,7 +98,7 @@
         <el-table-column  prop="crjobnumber"  label="工号">  </el-table-column>
         <el-table-column  prop="crjobstate"  label="体检类型">  </el-table-column>
         <el-table-column  prop="chharmname"  label="危害因素">  </el-table-column>  
-        <el-table-column  prop="crcheckdate"  label="体检时间"  sortable>  </el-table-column>
+        <el-table-column  prop="crcheckdate"  label="体检时间"  sortable width="100px">  </el-table-column>
         <el-table-column  prop="" label="体检结论"> 
           <template slot-scope="scope"> 
              <!-- :class="addclass(scope.row.crcheckstate)" -->
@@ -213,7 +213,7 @@ export default {
         userId : this.userId,
         menuId: this.menuId
       }
-      this.axios.post('/web/user/getAuthorityByUserAndMenu.do', qs.stringify(data))
+      this.axios.post('/user/getAuthorityByUserAndMenu.do', qs.stringify(data))
       .then((res) => {
           if (res.status === 200) {
             if(res.data === 1){  //管理员可操作
@@ -229,7 +229,7 @@ export default {
         })
     },
     downFile(){   //下载
-      let url =`${myurl}/web/download.do`
+      let url =`${myurl}/download.do`
       window.open(url)
     },
     showInfo(index, row){        //判断用户是可以查看还是可以操作 true查看
@@ -364,7 +364,7 @@ export default {
           'Content-Type': 'multpart/form-data'
         }
       }
-      this.axios.post('/web/importExcel.do',fd, config)
+      this.axios.post('/importExcel.do',fd, config)
        .then((res) => {
           if(res.data === '添加成功') {
             this.getTestData()
@@ -402,7 +402,7 @@ export default {
         this.form.onlyZone = '只看分区'
      }
       if(true){
-        this.axios.post('/web/selectlistallpage.do', qs.stringify(data))
+        this.axios.post('/selectlistallpage.do', qs.stringify(data))
         .then((res) => {
             if (res.status ===200) {
               console.log(res.data)
@@ -443,7 +443,7 @@ export default {
         roleId: getUserInfo().roleId,
         pid: getUserInfo().cpId || '[]'
       }
-      this.axios.post('/web/selectlistallpage.do', qs.stringify(data))
+      this.axios.post('/selectlistallpage.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           this.total1 = parseInt(res.data.total)

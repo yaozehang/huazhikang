@@ -91,4 +91,7 @@ margin-top: 20px;
   height: 71px;
 }
 
+body {
+  background-color: #f1f1f1;
+}
 </style>

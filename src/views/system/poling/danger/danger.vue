@@ -17,7 +17,7 @@
       </li>
       <li class="input-group">
           <span class="title">排查状态</span>
-          <el-select v-model="form.status" class="inner-input" placeholder="请选择" @keyup.native.enter="">
+          <el-select v-model="form.status" class="inner-input" placeholder="请选择" >
           <el-option v-for="item in statusList" :key="item" :label="item" :value="item"></el-option>
         </el-select>
       <!--     <el-input class="inner-input" v-model="selectParams.status" @keyup.native.enter="_getDangerList"></el-input> -->
@@ -61,9 +61,10 @@
            <p class=""> {{scope.row.title}} </p>
           </template>
         </el-table-column>
-        <el-table-column  label="隐患详情">
+        <el-table-column  label="隐患详情" width="100px">
           <template slot-scope="scope">
-            <span class="link-btn" @click="showDetail(scope.row.id,scope.row.dangerDetail, scope.row.status)">查看详情</span>
+            <!-- <span class="link-btn" @click="showDetail(scope.row.id,scope.row.dangerDetail, scope.row.status)">查看详情</span> -->
+            <el-button size="mini" plain @click="showDetail(scope.row.id,scope.row.dangerDetail, scope.row.status)">查看详情</el-button>
           </template>
         </el-table-column>
         <el-table-column prop="personal"  label="审核人"></el-table-column>
@@ -72,8 +73,10 @@
         <el-table-column prop="dealPerson"  label="执行人"></el-table-column>
         <el-table-column  label="隐患处理">
           <template slot-scope="scope">
-            <span class="link-btn" @click="handelDangers(scope.$index, scope.row)" v-if="scope.row.status === '3' ||scope.row.status === '4'">处理</span>
-            <span class="link-btn"  @click="handelDangers(scope.$index, scope.row)" v-else>查看</span>
+            <!-- <span class="link-btn" @click="handelDangers(scope.$index, scope.row)" v-if="scope.row.status === '3' ||scope.row.status === '4'">处理</span> -->
+            <el-button size="mini" type="danger" @click="handelDangers(scope.$index, scope.row)" v-if="scope.row.status === '3' ||scope.row.status === '4'">处理</el-button>
+            <!-- <span class="link-btn"  @click="handelDangers(scope.$index, scope.row)" v-else>查看</span> -->
+            <el-button size="mini" plain  @click="handelDangers(scope.$index, scope.row)" v-else>查看</el-button>
           </template>
         </el-table-column>
         <el-table-column label="处理状态">
@@ -90,7 +93,7 @@
       <!-- 分页 -->
       <div class="pagination-container">
         <el-pagination @current-change="pageChange" :current-page="selectParams.page"
-          layout=" prev, pager, next, jumper":total="totalPage"></el-pagination>
+          layout=" prev, pager, next, jumper" :total="totalPage"></el-pagination>
       </div>
       <!-- 处理弹窗 selsectPerson-->
       <div class="handel-content"  @click="hideTree($event)">
@@ -205,7 +208,7 @@
       <div class="template-container" v-for="(template,index) in editParams.templateList" track-by="index" :key="index">
         <header class="template-head">
           <span class="title title-dm">{{ template.title}}</span>
-          <span class="show-img" @click="showImg(template)" v-if=""> 查看图片 </span>
+          <span class="show-img" @click="showImg(template)" > 查看图片 </span>
         </header>
         <section class="template-content">
           <ul>

@@ -82,7 +82,7 @@
         <section class="template-content">
           <ul>
           <!--  未完成未审核 listType=== 0-->
-          <li v-for="(item,idx) in template.list" :key="item.uid">
+          <li v-for="(item,idx) in template.list" v-bind:key="idx">
             <template-item :type="parseInt(item.type)" :defaultData="item.default" :result="item.result" :uid="editParams.id" v-if="listType=== 0" :status="0" :resultList=" []"></template-item>
              <!-- 已完成已审核可以查看图片 2-->
             <template-item :type="parseInt(item.type)" :defaultData="item.array.length ===0 ? item.defaultValue : item.array"  :resultList="item.array.length ===0 ? [item.editStr]:item.items"
@@ -276,11 +276,11 @@ export default {
         this.$message({ type: 'warning', message: '请先选择要下载的文件'})
         return false
       }
-      let url =`${myurl}/web/workPlan/batchDownload.do?${listStr}`
+      let url =`${myurl}/workPlan/batchDownload.do?${listStr}`
       window.open(url)
     },
     checkRow() {
-      this.axios.post('/web/workPlan/audit.do', qs.stringify(this.checkParams))
+      this.axios.post('/workPlan/audit.do', qs.stringify(this.checkParams))
         .then((res) => {
           if (res.data === 1) {
             this.$message({

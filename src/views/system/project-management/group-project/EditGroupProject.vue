@@ -2,7 +2,7 @@
 <div class="clearfix addZone-container"> 
   <div class="addZone-content">
     <div class="addZone-title border-bottom">
-      <button class="title-btn">修改信息</button>
+      <el-button class="title-btn" type="text">修改信息</el-button>
       <button class="title-btn my-return-btn" @click="goBack">返回</button>
     </div>
  <div class="add-form">
@@ -38,7 +38,7 @@
         <el-form-item label="明细项目" >
           <el-select v-model="project.testItem" multiple  filterable remote reserve-keyword placeholder="请输入明细项目" 
           :remote-method="remoteMethod1"  :loading="loading" style="width:100%" @change="changeTestItem">
-          <el-option v-for="(item,index) in DetailedList" :key="item.diId" track-by="index" :label="item.diName"  :value="item.diId">
+          <el-option v-for="(item,index) in DetailedList" :key="index" track-by="index" :label="item.diName"  :value="item.diId">
           </el-option>
         </el-select>
         </el-form-item>
@@ -118,7 +118,7 @@ export default {
         let data = {
         projectName: query
       }
-      this.axios.post('/web/selectSysDetalItem.do', qs.stringify(data))
+      this.axios.post('/selectSysDetalItem.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.DetailedList= []
@@ -140,7 +140,7 @@ export default {
       let data ={
         projectId: this.querryId
       }
-      this.axios.post('/web/updateSelectGroupProject.do', qs.stringify(data))
+      this.axios.post('/updateSelectGroupProject.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             let data = res.data
@@ -204,7 +204,7 @@ export default {
         i_code: this.project.projectCode,
         sysdetalitems: sysdetalItems,
       } 
-      this.axios.post('/web/updateGroupProject.do', qs.stringify(data))
+      this.axios.post('/updateGroupProject.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.sucMsg('修改成功')

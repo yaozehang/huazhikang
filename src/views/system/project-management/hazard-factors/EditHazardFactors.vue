@@ -1,7 +1,7 @@
       <template>
   <div class="add-hazardFactors ">
     <div class="add-project-title border-bottom">
-      <button class="title-btn">编辑危害因素</button>
+      <el-button class="title-btn" type="text">编辑危害因素</el-button>
       <button class="title-btn my-return-btn" @click="goBack">返回</button>
     </div>
     <div class="content clearfix">
@@ -19,7 +19,7 @@
          <el-form-item label="组合项目">
           <el-select v-model="hazard.testItem" multiple  filterable remote reserve-keyword placeholder="请输入组合项目" 
             :remote-method="getGruopBase"  :loading="loading" style="width:100%" @change="changeTestItem">
-            <el-option v-for="(item,index) in DetailedList"  :key="item.iId"  :label="item.iName"  :value="item.iId">
+            <el-option v-for="(item,index) in DetailedList"  :key="index"  :label="item.iName"  :value="item.iId">
             </el-option>
           </el-select>
         </el-form-item>
@@ -196,7 +196,7 @@ export default {
         hid: this.querryId,
         name: this.hazard.hazardName
       }
-       this.axios.post('/web/alphabeticBrevityCodeHName.do', qs.stringify(data))
+       this.axios.post('/alphabeticBrevityCodeHName.do', qs.stringify(data))
         .then((res) => {
             if (res.status ===200) {
               if(res.data ==='名字重复') {
@@ -223,7 +223,7 @@ export default {
         let data = {
         projiectName: query
       }
-      this.axios.post('/web/selectdetalItemByName.do', qs.stringify(data))
+      this.axios.post('/selectdetalItemByName.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.DetailedList= []
@@ -254,7 +254,7 @@ export default {
       let data ={
         projectId: this.querryId
       }
-      this.axios.post('/web/updateselectsysharmById.do', qs.stringify(data))
+      this.axios.post('/updateselectsysharmById.do', qs.stringify(data))
       .then((res) => {
         console.log(res.data)
           // console.log(res.data.one[0].hPcTwareferencevalue,res.data.one[0].hPcTwaunits)
@@ -357,7 +357,7 @@ export default {
    }
     this.$refs[hazard].validate((valid) => {
       if (valid && this.disable === false) {
-        this.axios.post('/web/updatesysItem.do', qs.stringify(data))
+        this.axios.post('/updatesysItem.do', qs.stringify(data))
         .then((res) => {
         if (res.data === 1 ) {
           this.$message({ message: '修改成功',type: 'success',})

@@ -1,5 +1,4 @@
 <template>
-<el-card>
   <div class="main-content" @click="hideTree($event)">
     <!-- 搜索框 -->
     <ul class="search-container">
@@ -23,10 +22,10 @@
     <table-title :title="'调岗记录'"></table-title>
     <!-- 表格 -->
     <div class="table-container my-table">
-      <el-table :data="tableData" border  style="width: 100%;" max-height="700">
+      <el-table :data="tableData" border  style="width: 100%;" max-height="700" stripe>
         <el-table-column  label="序号" type="index" width="50"> </el-table-column>
         <el-table-column  prop="name"  label="姓名"></el-table-column>
-        <el-table-column  prop="idCard"  label="身份证号码"></el-table-column>
+        <el-table-column  prop="idCard"  label="身份证号码" width="170px"></el-table-column>
         <el-table-column  prop="sex"  label="性别" ></el-table-column>
         <el-table-column  prop="age"  label="年龄" ></el-table-column>
         <el-table-column  prop="position"  label="分区"></el-table-column>
@@ -68,7 +67,6 @@
     </div>
   </el-dialog>
   </div>
-  </el-card> 
 </template>
 
 <script>

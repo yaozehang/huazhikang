@@ -3,29 +3,29 @@
   	 <!-- 文本 -->
   	 <div v-show="type===1">
   	    <span class="title-s">任务说明</span>
-        <textarea name="" v-model="defaultData" @change="" rows="3" class="iner-input" placeholder="" readonly></textarea>
+        <textarea name="" v-model="defaultData"  rows="3" class="iner-input" placeholder="" readonly></textarea>
   	 </div>
   	 <!-- 单选 -->
   	 <div v-show="type===2">
-         <el-radio-group v-model="value1" @change="" disabled>
+         <el-radio-group v-model="value1"  disabled>
             <el-radio :label="item" v-for="(item,idx) in list" :key="idx">{{item}}</el-radio>
          </el-radio-group>
   	 </div>
   	 <!-- 复选 -->
   	 <div v-show="type===3">
-        <el-checkbox-group v-model="value2" @change="" disabled>
+        <el-checkbox-group v-model="value2"  disabled>
 		    <el-checkbox :label="item" v-for="(item,idx) in list" :key="idx"></el-checkbox>
         </el-checkbox-group>
   	 </div>
      <!-- 输入框 -->
      <div v-show="type===4">
       <span class="title-s">任务说明</span>
-       <input type="text" v-model="str" @change=""  class="iner-input" placeholder="" readonly>
+       <input type="text" v-model="str"   class="iner-input" placeholder="" readonly>
      </div>
      <!-- 文本域 -->
      <div v-show="type==5">
       <span class="title-s">备注</span>
-      <textarea name="" v-model="str" @change="" rows="3" class="iner-input" placeholder="" readonly></textarea>
+      <textarea name="" v-model="str"  rows="3" class="iner-input" placeholder="" readonly></textarea>
      </div>
   </div>
 </template>

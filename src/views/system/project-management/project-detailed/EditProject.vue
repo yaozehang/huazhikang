@@ -1,7 +1,7 @@
 <template>
 <div class="add-project-management" >
   <div class="add-project-title border-bottom clearfix">
-     <button class="title-btn">修改明细项目</button>
+     <el-button class="title-btn" type="text">修改明细项目</el-button>
      <button class="title-btn my-return-btn" @click="goBack">返回</button>
   </div>
   <div class="list-content clearfix">
@@ -81,7 +81,7 @@
           </el-select>
         </td>
          <td >
-          <input v-model="i.dccontrastvalue1" >  </input>
+          <input v-model="i.dccontrastvalue1" >  
         </td>
          <td >
            <el-select v-model="i.dcrule2" ref="workTypeST"  placeholder="请选择"  >
@@ -89,7 +89,7 @@
           </el-select>
         </td>
          <td >
-          <input v-model="i.dccontrastvalue2" >  </input>
+          <input v-model="i.dccontrastvalue2" >  
         </td>
          <td >
           <el-select v-model="i.dccontrastresult" placeholder="请选择"  style="border:none;outline:none;">
@@ -97,7 +97,7 @@
           </el-select>
         </td>
          <td >
-          <input v-model="i.dccontrastresultdate" >  </input>
+          <input v-model="i.dccontrastresultdate" >  
         </td>
         <td >
           <i class="el-icon-remove-outline" @click="delRule(i,x)"></i>
@@ -109,7 +109,6 @@
     </div>
 
   </div>
-</div>
 </template>
 
 <script>
@@ -178,7 +177,7 @@ export default {
       let data = {
         di_id: this.querryId
       }
-    this.axios.post('/web/selectditionProjectById.do', qs.stringify(data))
+    this.axios.post('/selectditionProjectById.do', qs.stringify(data))
     .then((res) => {
         let data = res.data
         let diUsable = 2
@@ -245,7 +244,7 @@ export default {
         detailPrice: detailPrice,
         rule: myRules
       }
-      this.axios.post('/web/updateditionProjectById.do', qs.stringify(data))
+      this.axios.post('/updateditionProjectById.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
          thsi.sucMsg('修改成功')

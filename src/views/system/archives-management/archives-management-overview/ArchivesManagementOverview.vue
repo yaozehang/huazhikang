@@ -7,7 +7,7 @@
   <div class="Archives-main">
     <div class="bread-list clearfix">
       <div class="bread-content">
-        <span class="local-icon"> <img src="static/imgs/position.png" alt=""></span>
+        <span class="local-icon"> <img src="static/imgs/position.png" alt="" width="20px"></span>
         <span class="local-title">您的当前位置：</span>
         <span class="bread-menu">
           <el-breadcrumb separator-class="el-icon-arrow-right">
@@ -17,7 +17,9 @@
         </span>
       </div>
     </div>
-    <router-view></router-view>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
 </div>
 </template>

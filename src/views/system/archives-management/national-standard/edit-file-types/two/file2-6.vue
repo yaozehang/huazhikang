@@ -2,7 +2,7 @@
     <!-- 2#6  2-5 id 10 职业病防护设施检修、维护记录表 -->
 <div class="content">
   <div class="list-title-all border-bottom">
-     <button class="title-btn"> 职业病防护设施检修、维护记录表</button>
+     <el-button class="title-btn" type="text"> 职业病防护设施检修、维护记录表</el-button>
   </div>
   <div class="tableForm">
     <el-form :inline="true" :model="form1" class="demo-form-inline" label-width="160px" style="margin-left:-50px;">
@@ -119,7 +119,7 @@ export default {
         comPId: getUserInfo().comPId
       }
       console.log(data)
-      this.axios.post('/web/recordsEdit/edit.do', qs.stringify( data ) )
+      this.axios.post('/recordsEdit/edit.do', qs.stringify( data ) )
       .then((res) => {
         if(res.data === 'success1'){
           this.$message({

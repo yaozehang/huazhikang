@@ -2,7 +2,7 @@
 <div class="clearfix addZone-container"> 
   <div class="addZone-content">
     <div class="addZone-title border-bottom">
-       <button class="title-btn">新增组合项目</button>
+       <el-button class="title-btn" type="text">新增组合项目</el-button>
     </div>
  <div class="add-form">
       <el-form ref="project" :model="project" :rules="rules"  label-width="120px" style="width:90%; margin:0 auto;">
@@ -37,7 +37,7 @@
         <el-form-item label="明细项目">
         <el-select v-model="project.testItem" multiple  filterable remote reserve-keyword placeholder="请输入明细项目" 
           :remote-method="remoteMethod1"  :loading="loading" style="width:100%" @change="changeTestItem">
-          <el-option v-for="(item,index) in DetailedList" :key="item.diId"  :label="item.diName"  :value="item.diId">
+          <el-option v-for="(item,index) in DetailedList" :key="index"  :label="item.diName"  :value="item.diId">
           </el-option>
         </el-select>
         </el-form-item>
@@ -125,7 +125,7 @@ export default {
         let data = {
         projectName: query
       }
-      this.axios.post('/web/selectSysDetalItem.do', qs.stringify(data))
+      this.axios.post('/selectSysDetalItem.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.DetailedList= []
@@ -146,7 +146,7 @@ export default {
       let data ={
         name: this.project.projectName,
       }
-       this.axios.post('/web/groupprojectCode.do', qs.stringify(data))
+       this.axios.post('/groupprojectCode.do', qs.stringify(data))
         .then((res) => {
             if (res.status ===200) {
               this.project.pinyinCode = res.data
@@ -180,7 +180,7 @@ export default {
       }
     this.$refs[project].validate((valid) => {
       if (valid) {
-        this.axios.post('/web/addGroupProject.do', qs.stringify(data))
+        this.axios.post('/addGroupProject.do', qs.stringify(data))
           .then((res) => {
               if (res.status ===200) {
                 this.sucMsg('新增成功')

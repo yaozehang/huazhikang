@@ -15,7 +15,7 @@
       <el-form-item label="明细项目">
         <el-select v-model="testItem"  filterable remote reserve-keyword placeholder="请输入明细项目" 
           :remote-method="remoteMethod1"  :loading="loading" style="width:100%" @change="changeTestItem">
-          <el-option v-for="(item,index) in DetailedList" :key="item.diId"  :label="item.diName"  :value="item.diId">
+          <el-option v-for="(item,index) in DetailedList" v-bind:key="index"  :label="item.diName"  :value="item.diId">
           </el-option>
         </el-select>
         </el-form-item>
@@ -84,7 +84,7 @@
       </el-form>
     </li>
     <!--  id :609 name: "肝功能1" details:[{小项 did 467 dname"谷丙转氨酶"}]  -->
-    <li id="item.id" class="ENT" v-for="(item,index) in testList" ref="items">
+    <li id="item.id" class="ENT" v-for="(item,index) in testList" v-bind:key="index" ref="items">
       <div class="list-title">{{item.name}}</div>
       <ul >
         <li :key="idx" class="clearfix"  v-for="(i,idx) in item.details">
@@ -180,7 +180,7 @@ export default {
         let data = {
         projectName: query
       }
-      this.axios.post('/web/selectSysDetalItem.do', qs.stringify(data))
+      this.axios.post('/selectSysDetalItem.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.DetailedList= []

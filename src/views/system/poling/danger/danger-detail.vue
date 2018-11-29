@@ -4,7 +4,7 @@
      <div v-show="type===1">
 <!--       <p>{{defaultData}}</p> -->
         <span class="title-s">任务说明</span>
-        <textarea type="text" name="" v-model="str" @change="" rows="3" placeholder="请输入文字" class="iner-input" readonly></textarea>
+        <textarea type="text" name="" v-model="str" rows="3" placeholder="请输入文字" class="iner-input" readonly></textarea>
      </div>
      <!-- 单选 -->
     <div v-show="type===2">
@@ -14,18 +14,18 @@
      </div>
      <!-- 复选 -->
      <div v-show="type===3">
-        <el-checkbox-group v-model="value2" @change="" disabled>
+        <el-checkbox-group v-model="value2"  disabled>
         <el-checkbox :label="item" v-for="(item,idx) in list" :key="idx"></el-checkbox>
         </el-checkbox-group>
      </div>
      <!-- 输入框 -->
      <div v-show="type===4">
-       <input type="text" v-model="str" @change="" placeholder="请输入文字">
+       <input type="text" v-model="str"  placeholder="请输入文字">
      </div>
      <!-- 文本域 -->
      <div v-show="type==5">
        <span class="title-s">备注</span>
-      <textarea type="text"name="" v-model="str" @change="" rows="3" placeholder="请输入文字" class="iner-input" readonly></textarea>
+      <textarea type="text" name="" v-model="str" rows="3" placeholder="请输入文字" class="iner-input" readonly></textarea>
      </div>
   </div>
 </template>

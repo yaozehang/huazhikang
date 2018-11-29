@@ -11,7 +11,8 @@
             <el-input v-model="user.username" style="width: 260px;"></el-input>
           </span>
           <span class="search">
-             <span class="save-blue big-blue"  @click="searchList">查询</span>
+             <!-- <span class="save-blue big-blue"  @click="searchList">查询</span> -->
+             <el-button type="primary" @click="searchList">查询</el-button>
           </span>
         </li>
         <li class="clearfix">
@@ -28,7 +29,7 @@
         </li>  
      </ul>
       <div class="type-list-title border-bottom">
-        <button class="title-btn">登录列表</button>
+        <el-button class="title-btn" type="text">登录列表</el-button>
     </div>
       <div class="list-table" >
       <el-table :data="userData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="700" :row-class-name="tableRowClassName">
@@ -46,8 +47,6 @@
       </div>
     </div>
 </div>
-
-  </div>
 </template>
 
 <script>

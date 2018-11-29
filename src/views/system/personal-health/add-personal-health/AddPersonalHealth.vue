@@ -1,7 +1,7 @@
 <template>
   <div class="AddPersonalHealth" @click="hideTree($event)">
   <div class="list-title-all border-bottom">
-     <button class="title-btn">新增健康监护档案</button>
+     <el-button class="title-btn" type="text">新增健康监护档案</el-button>
     </div>
     <div class="content clearfix ">
       <div class="add-from ">
@@ -106,7 +106,7 @@
           <div class="form-items">
             <el-form-item label="工种/职务" prop="jobPost">
               <el-select v-model="form.jobPost" multiple @change="change" @focus="getInfo"  placeholder="请选择"  style="width:320%">
-                <el-option v-for="(item,index) in jobPostList" :key="item.id"  :label="item.name" :value="item.name">
+                <el-option v-for="(item,index) in jobPostList" v-bind:key="index"  :label="item.name" :value="item.name">
               </el-option>
               </el-select>
             </el-form-item>
@@ -140,8 +140,9 @@
       </div>
     </div>
       <div class="save">
-        <el-button @click="resetForm()" class="right-20">清空</el-button> 
-        <span class="save-blue big-blue" @click="addEmpInfo('form')"  :disabled="readonly">保存</span>
+        <el-button  @click="addEmpInfo('form')"  :disabled="readonly" type="primary">保存</el-button>
+        <el-button @click="resetForm()" class="right-20" plain>清空</el-button> 
+        <!-- <span class="save-blue big-blue" @click="addEmpInfo('form')"  :disabled="readonly">保存</span> -->
     </div>
   </div>
 </template>
@@ -261,7 +262,7 @@ export default {
         userId : getUserInfo().userId,
         menuId: this.currentMenu
       }
-      this.axios.post('/web/user/getAuthorityByUserAndMenu.do', qs.stringify(data))
+      this.axios.post('/user/getAuthorityByUserAndMenu.do', qs.stringify(data))
       .then((res) => {
         console.log(res.data)
           if (res.status === 200) {
@@ -294,7 +295,7 @@ export default {
       }
       console.log(this.form.idCard.length)
       if(this.form.idCard !== '' && this.form.idCard.length>=18){
-        this.axios.post('/web/crcardnumber.do', qs.stringify(data))
+        this.axios.post('/crcardnumber.do', qs.stringify(data))
         .then((res) => {
           if (res.status ===200) {
             this.form.age =  res.data.age
@@ -310,7 +311,7 @@ export default {
       let data ={
         id: this.zoneKey
       }
-      this.axios.post('/web/addlistall.do', qs.stringify(data))
+      this.axios.post('/addlistall.do', qs.stringify(data))
       .then((res) => {
         console.log(res.data)
         console.log(this.form.jobPost)
@@ -391,7 +392,7 @@ export default {
     this.$refs[form].validate((valid) => {
       console.log(valid)
       if (valid) {
-        this.axios.post('/web/addTabCheckPersonal.do', qs.stringify(data))
+        this.axios.post('/addTabCheckPersonal.do', qs.stringify(data))
         .then((res) => {
           if (res.data === '添加成功') {
            this.sucMsg('新增成功')
@@ -477,8 +478,9 @@ overflow-x:hidden;
   height: 40px;
   width: 100%;
   line-height: 40px;
-  font-size: 18px;  
-  padding-left: 20px;         
+  font-size: 16px;  
+  padding-left: 20px;   
+  margin-bottom: 20px;      
 }
 .my-workTree{
  width: 500px;

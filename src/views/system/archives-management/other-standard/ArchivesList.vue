@@ -31,7 +31,7 @@
         </li>  
      </ul>
       <div class="list-title-all border-bottom">
-         <button class="title-btn">档案列表</button>
+         <el-button class="title-btn" type="text">档案列表</el-button>
     </div>
 <!--     :date:"2018-05-17"id:1name:""note:""path:"F:\HYS_TEST\hzk\web\WEB-INF\file\otherRecords\2018-05-17"
 sort:1title:"档案编写表单内容.docx"type:"测试" -->
@@ -83,14 +83,13 @@ sort:1title:"档案编写表单内容.docx"type:"测试" -->
           :on-success="handlesuccess" -->
         <el-upload  class="upload-demo"  style="margin-bottom:30px; margin-left:20px;"
           action="123" multiple :before-upload="beforeUpload"
-          multiple  :limit="3"   :file-list="fileList">
+          :limit="3"   :file-list="fileList">
         <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
       </el-dialog>
   </div>
 <!-- 上传弹出框 结束-->
 </div>
-  </div>
 </template>
 
 <script>
@@ -158,11 +157,11 @@ export default {
       }
     },
     downFile(index, row){   //下载
-      let url =`${myurl}/web/otherRecords/download.do?id=${row.id}`
+      let url =`${myurl}/otherRecords/download.do?id=${row.id}`
       window.open(url)
     },
     view(index, row) {         // 预览
-      let url =`${myurl}/web/otherRecords/preview.do?id=${row.id}`
+      let url =`${myurl}/otherRecords/preview.do?id=${row.id}`
       window.open(url)
     },
     getSelectFileType() {     // 获取下拉选择文档类型 
@@ -227,7 +226,7 @@ export default {
         }
       }
       if(this.uploadForm.type) {
-        this.axios.post('/web/otherRecords/upload.do',fd, config)
+        this.axios.post('/otherRecords/upload.do',fd, config)
        .then((res) => {
           if(res.status === 200){
             this.sucMsg('上传成功')

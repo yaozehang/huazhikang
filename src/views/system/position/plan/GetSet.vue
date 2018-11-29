@@ -1,5 +1,4 @@
 <template>
- <el-card>
   <div class="plan-container" @click="hideTree($event)">
     <el-row :gutter="20">
      <!-- 基本信息 -->
@@ -76,7 +75,6 @@
         <el-button @click="onCancel" style="color:">取 消</el-button>
       </div>
   </div>
-  </el-card>
 </template>
 
 <script>

@@ -7,7 +7,7 @@
     <span class="search-btn common-btn green-btn"  @click="addFile()" >新增</span>
   </div>
   <div class="list-title-all border-bottom">
-    <button class="title-btn">档案类型管理</button>
+    <el-button class="title-btn" type="text">档案类型管理</el-button>
   </div>
   <div class="list-tabel">
    <el-table :data="typeData" stripe border style="width: 100%"  :row-style="rowStyle" :header-cell-style="rowStyle"

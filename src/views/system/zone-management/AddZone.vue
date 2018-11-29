@@ -2,10 +2,10 @@
 <div class=" addZone-container" @click="hideTree($event)"> 
   <div class="addZone-content">
     <div class="type-list-title border-bottom">
-       <button class="title-btn">新增分区</button>
+       <el-button class="title-btn" type="text">新增分区</el-button>
     </div>
     <div class="add-form my-form" >
-      <el-form ref="form" :model="form" :rules="rules" label-width="80px" >
+      <el-form ref="form" :model="form" :rules="rules" label-width="100px" >
       <el-form-item label="分区名称" prop="name"  required>
         <el-input v-model="form.name"  style="width:100%"  ></el-input>
       </el-form-item>
@@ -23,7 +23,7 @@
       <el-form-item label="工种/职务" prop="workType">
         <el-select v-model="form.workType" multiple   filterable placeholder="请输入关键词" 
            style="width:100%">
-          <el-option v-for="(item,index) in workTypeList" :key="item.id"  :label="item.jobsName" :value="item.id">
+          <el-option v-for="(item,index) in workTypeList" :key="index"  :label="item.jobsName" :value="item.id">
           </el-option>
         </el-select>
       </el-form-item>
@@ -31,19 +31,19 @@
       <el-form-item label="危害因素" prop="hazardFactors">
      <el-select v-model="form.hazardFactors" multiple  filterable placeholder="请输入关键词" 
         style="width:100%">
-        <el-option v-for="(item,index) in hazardFactorsList" :key="item.id"  :label="item.name"  :value="item.id">
+        <el-option v-for="(item,index) in hazardFactorsList" :key="index"  :label="item.name"  :value="item.id">
         </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="护具类型" prop="protectClothing">
         <el-select v-model="form.protectClothing"  multiple placeholder="请选择" style="width:100%">
-          <el-option v-for="(item,index) in protectClothingList" :key="item.ptId"  :label="item.ptName"  :value="item.ptId">
+          <el-option v-for="(item,index) in protectClothingList" :key="index"  :label="item.ptName"  :value="item.ptId">
         </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="培训主题" prop="testTheme">
         <el-select v-model="form.testTheme" multiple placeholder="请选择" style="width:100%">
-          <el-option v-for="(item,index) in trainingThemeList" :key="item.id"  :label="item.theme"  :value="item.id">
+          <el-option v-for="(item,index) in trainingThemeList" :key="index"  :label="item.theme"  :value="item.id">
         </el-option>
         </el-select>
       </el-form-item>
@@ -54,8 +54,9 @@
         <el-input type="textarea" v-model="form.zoneRemarks" style="width:100%"></el-input>
       </el-form-item>
       <el-form-item>
+        <!-- <span class="save-blue big-blue" @click="save('form')"  v-loading="addLoading">保存</span> -->
+        <el-button type="primary" @click="save('form')"  v-loading="addLoading">保存</el-button>
         <el-button @click="reset()">清空</el-button> 
-        <span class="save-blue big-blue" @click="save('form')"  v-loading="addLoading">保存</span>
       </el-form-item>
   </el-form>
     </div>

@@ -8,7 +8,7 @@
             <span class="title" :data-menu-id="menuItem.id" v-if="menuItem.id !== 51">{{menuItem.name}} </span>
             <span class="title" v-if="menuItem.id === 51">
               <span class="title" size="small" :data-menu-id="51" v-if="num === 0 ">隐患排查</span>
-              <el-badge :value="num"  class="item"v-if="num !==0" >
+              <el-badge :value="num"  class="item" v-if="num !==0" >
               <span class="title" size="small" :data-menu-id="51">隐患排查</span>
             </el-badge>
             </span>
@@ -70,6 +70,7 @@ export default {
 }
 .menu-list-container ul{
   background: #20222A;
+  border-top: solid 1px #000;
 }
 .menu-list-container ul li{
   height: 52px;

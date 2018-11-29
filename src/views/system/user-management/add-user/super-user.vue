@@ -2,12 +2,12 @@
   <!-- v-if="roleId === 1   普通管理员1 超级管理员2-->
   <div class="user-main" @click="hideTree($event)">
     <div class="user-info-title border-bottom">
-      <button class="title-btn">用户基本信息</button>
+      <el-button class="title-btn" type="text">用户基本信息</el-button>
     </div>
   <div class="user-form my-form common-form" >
     <el-form ref="myUser" :model="myUser"  label-width="120px">
       <el-form-item label=" 分区名称" required>
-        <el-input v-model="myUser.zoneName" @blur=""></el-input>
+        <el-input v-model="myUser.zoneName" ></el-input>
       </el-form-item>
       <el-form-item label="上级分区"  required>
         <el-input  v-model="myUser.higherZone" @focus="selectZone"  id="part" style="width:100%" ></el-input>
@@ -28,7 +28,7 @@
       <div class="super-user" v-if="myUser.type === 1">
       <el-form ref="newUser" :model="newUser"   label-width="120px">
         <el-form-item label=" 用户名"  required>
-          <el-input v-model="newUser.username" @blur=""></el-input>
+          <el-input v-model="newUser.username" ></el-input>
         </el-form-item>
         <el-form-item label="登录账号"  required >
           <el-input v-model="newUser.loginAccount" ></el-input>
@@ -45,7 +45,7 @@
         <div class="my-authorityTree" v-show="isAuthority">
           <div class="authority-content">
             <el-tree :data="authorityData" show-checkbox  node-key="id"  default-expand-all  :expand-on-click-node="false"
-               ref="tree1" @check="">
+               ref="tree1" >
             <span class="custom-tree-node" slot-scope="{ node, data }"  >
               <span style="margin-right:20px"> {{ node.data.name }}</span>
               <span>
@@ -136,7 +136,7 @@ export default {
     },
     // user/allMenu.do  获取 用户权限菜单
     getAuthorityList() {
-      this.axios.post('/web/user/allMenu.do')
+      this.axios.post('/user/allMenu.do')
       .then((res) => {
         if (res.status ===200) {
           this.authorityData= res.data

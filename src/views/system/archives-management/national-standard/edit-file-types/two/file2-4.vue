@@ -2,7 +2,7 @@
   <!-- 2#7. id 7 _年度职业病防治经费一览表 2-3  -->
 <div class="content">
   <div class="list-title-all border-bottom">
-     <button class="title-btn">职业病防治经费一览表  </button>
+     <el-button class="title-btn" type="text">职业病防治经费一览表  </el-button>
   </div>
   <div class="tableForm">
     <el-form :inline="true" :model="form1" class="demo-form-inline" label-width="140px" style="margin-left:-50px;">
@@ -44,10 +44,10 @@
       </tr>
       <tr  v-for="(i, x) in tableData " :key="x" track-by="x">
         <td >{{i[0]}} </td>
-        <td ><input v-model="i[1]" >  </input> </td>
-         <td ><input v-model="i[2]" >  </input> </td>
-         <td > <input v-model="i[3]" >  </input> </td>
-         <td ><input v-model="i[4]" >  </input></td>
+        <td ><input v-model="i[1]" >   </td>
+         <td ><input v-model="i[2]" >   </td>
+         <td > <input v-model="i[3]" >   </td>
+         <td ><input v-model="i[4]" >  </td>
         </tr>
     </tbody>
    </table>
@@ -138,7 +138,7 @@ export default {
         inputs: inputs,
         comPId: getUserInfo().comPId
       }
-      this.axios.post('/web/recordsEdit/edit.do', qs.stringify( data )  )
+      this.axios.post('/recordsEdit/edit.do', qs.stringify( data )  )
       .then((res) => {
         if(res.data === 'success1'){
             this.$message({

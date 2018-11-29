@@ -11,27 +11,31 @@
               <el-option :label="item" :value="item" v-for="(item,index) in isUse" :key="index"></el-option>
           </el-select>
         </li>
-        <ul class="type-btn clearfix">
+        <!-- <ul class="type-btn clearfix">
           <li> <span class="common-btn orange-btn"  @click="searchType(form)" >查询工种</span></li>
           <li><span class="common-btn green-btn" @click=" addWokeType">新增工种</span></li>
-        </ul>
+        </ul> -->
+        <li class="type-btn">
+          <el-button type="success" round @click="searchType(form)">查询工种</el-button>
+          <el-button type="warning" round @click=" addWokeType">新增工种</el-button>
+        </li>
       </ul>
     </div>
     <div class="type-list-title border-bottom clearfix">
-        <button class="title-btn">工种列表</button>
+        <el-button class="title-btn" type="text">工种列表</el-button>
     </div> 
     <!-- pid是序号  jid是本身id-->
     <div class="list-table" >
-      <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="700"  :row-class-name="tableRowClassName">
+      <el-table :data="tableData" border stripe  :row-style="rowStyle" :header-cell-style="rowStyle" max-height="700"  :row-class-name="tableRowClassName" center>
         <el-table-column prop="pid" label="序列号" width="100" > </el-table-column>
         <el-table-column prop="jid" label="id" width="100" > </el-table-column>
-        <el-table-column prop="jobsName"  label="工种名称"  width="180">  </el-table-column>
+        <el-table-column prop="jobsName"  label="工种名称">  </el-table-column>
         <el-table-column  prop="status"  label="工种状态">
           <template slot-scope="scope">
             <span v-if="scope.row.status === 1" class="safe-type"> 启用</span>
             <span v-else class="ban-type"> 禁用</span>
         </template>  </el-table-column>
-        <el-table-column fixed="right" label="操作">  
+        <el-table-column fixed="right" label="操作" width="100">  
         <template slot-scope="scope">
           <span  @click="editTable(scope.$index, scope.row)">
             <span class="edit-work"> 修改信息</span>
@@ -336,7 +340,7 @@ width: 200px;
 margin-right: 10px;
 }
  .type-form .search-form .input-group .my-select{
-  width: 80px;
+  width: 100px;
 }
 .add-form{
   width: 100%;
@@ -349,7 +353,7 @@ margin-right: 10px;
 .wire{height: 30px;width: 100%;border-bottom: 1px solid #ccc;margin-bottom: 18px}
 .wire-btn{height: 46px;border-bottom: 1px solid #ef5924;padding: 0 10px;position:relative;}
 .wire-btn button{position: absolute;top:1px;left: 10px;height: 45px;outline: none;border: none;border-radius: 5px 5px 0 0;padding: 0 18px;font-size: 16px;background-color: #f37b03;font-size: 16px;color: #fff}
-.dm-list-table{margin-top: 10px; font-size: 16px;}
+.dm-list-table{margin-top: 10px; font-size: 16px; }
 .list-table{
 font-size: 16px;
 }

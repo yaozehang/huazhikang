@@ -2,14 +2,14 @@
   <!-- v-if="roleId === 1   普通管理员1 超级管理员2-->
   <div class="user-main" @click="hideTree($event)">
     <div class="user-info-title border-bottom">
-      <button class="title-btn">修改用户信息</button>
+      <el-button class="title-btn" type="text">修改用户信息</el-button>
       <el-button class="return" @click="goBack">返回</el-button>
     </div>
   <div class="user-form my-form common-form" >
       <div class="super-user" >
       <el-form ref="newUser" :model="newUser"   label-width="120px">
         <el-form-item label=" 用户名"  required>
-          <el-input v-model="newUser.username" @blur=""></el-input>
+          <el-input v-model="newUser.username" ></el-input>
         </el-form-item>
         <el-form-item label="登录账号"  required >
           <el-input v-model="newUser.loginAccount" ></el-input>
@@ -24,7 +24,7 @@
         <div class="my-authorityTree" v-show="isAuthority">
           <div class="authority-content">
             <el-tree :data="authorityData" show-checkbox  node-key="id"  default-expand-all  :expand-on-click-node="false"
-               ref="tree1" @check="">
+               ref="tree1" >
             <span class="custom-tree-node" slot-scope="{ node, data }"  >
               <span style="margin-right:20px"> {{ node.data.name }}</span>
               <span>
@@ -114,7 +114,7 @@ export default {
       let data = {
         userId: this.querryId
       }
-      this.axios.post('/web/user/selectByUserId.do', qs.stringify(data))
+      this.axios.post('/user/selectByUserId.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           console.log(res.data)
@@ -128,7 +128,7 @@ export default {
     },
     // user/allMenu.do  获取 用户权限菜单
     getAuthorityList() {
-      this.axios.post('/web/user/allMenu.do')
+      this.axios.post('/user/allMenu.do')
       .then((res) => {
         if (res.status ===200) {
           this.authorityData= res.data
@@ -142,7 +142,7 @@ export default {
       let data ={
         userId: this.querryId
       }
-      this.axios.post('/web/user/getMenuByUserId.do', qs.stringify(data))
+      this.axios.post('/user/getMenuByUserId.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           let temp = []
@@ -220,7 +220,7 @@ export default {
       this.$refs.tree1.setCheckedKeys([])
     },
     getZone() {      // partition/superAdminSelectZone.do
-      this.axios.post('/web/partition/superAdminSelectZone.do')
+      this.axios.post('/partition/superAdminSelectZone.do')
       .then((res) => {
         console.log(res.data.data)
         if (res.data) {
@@ -238,7 +238,7 @@ export default {
       }
       console.log(this.newUser)
       console.log(data)
-      this.axios.post('/web/partition/superAdminUpdateUser.do', qs.stringify(data))
+      this.axios.post('/partition/superAdminUpdateUser.do', qs.stringify(data))
       .then((res) => {
         if (res.data !==0) {
          this.sucMsg('修改成功')

@@ -49,7 +49,7 @@ export default {
 .side-menu-container{
   width: 220px;
   height: 100vh;
-  background-size: 100% 100%;
+  /* background-size: 100% 100%; */
   background: #20222A;
   /* border: 10px solid #0075c8; */
   /* background: #e8f5fe; */
@@ -59,6 +59,7 @@ export default {
 }
 .menu-list-container ul{
   background: #20222A;
+  border-top: solid 1px #000;
 }
 .menu-list-container ul li{
   height: 52px;

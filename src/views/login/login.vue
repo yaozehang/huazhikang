@@ -30,7 +30,7 @@
     </div>
     <!-- 忘记密码 -->
     <div class="forgetPws">
-      <el-dialog  class="dialog-form" title="忘记密码"  center width="500px"  center :visible.sync="pwsVisible" :modal-append-to-body="false" >
+      <el-dialog  class="dialog-form" title="忘记密码"  center width="500px"  :visible.sync="pwsVisible" :modal-append-to-body="false" >
         <el-form :model="pwsForm" label-width="120px" ref="pwsForm"  class="pws-form" >
           <el-form-item label="用户名" >
             <el-input v-model="pwsForm.username" auto-complete="off" class="inner-input" ></el-input>
@@ -168,22 +168,15 @@ export default {
 @import '~common/stylus/mixin'
 
 .login-container
-  position:fixed
-  top:0
-  left:0
-  bottom:0
-  right:0
+  height :100vh
   // background: #005989
   bg-image('~static/imgs/bg-login.png')
   background-size:cover
   .logo
-    position:fixed
-    top:180px
-    left:50%
     display:inline-block
     width:415px
     height:146px
-    margin-left: -237.5px
+    margin: 0 0 20px 115px
   .hello
     width:100%
     height:30px
@@ -194,12 +187,11 @@ export default {
     top:240px
     text-align:center
   .login-bar
-    position:fixed
-    top:380px
-    left:45%
-    margin-left:-300px
+    position: relative
     width:700px
     height: 300px
+    padding: 20px 0
+    box-sizing: border-box
     // pading:50px
     bg-image('~static/imgs/Loginbottom.png')
     // background-color:#5a99b7
@@ -262,11 +254,15 @@ export default {
 /*   height: 600px;
   margin-top: 180px;
   position: relative; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .form-content{
   width: 520px;
   height: 220px;
-  margin: 20px 125px 20px 55px;
+  margin: 0 125px 0 55px;
   padding-top: 35px;
   background: #00326a;
   position: relative;

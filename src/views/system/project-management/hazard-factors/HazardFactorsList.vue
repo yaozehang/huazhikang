@@ -14,7 +14,7 @@
         </el-form>
       </div>
       <div class="factorsList-title border-bottom">
-        <button class="title-btn">危害因素列表</button>
+        <el-button class="title-btn" type="text">危害因素列表</el-button>
         <span class="import-excel" @click="exportTable"> 导出EXCEL</span>
       </div>
       <div class="factorsList-table">
@@ -112,7 +112,7 @@ export default {
       })
         return false
       } else{
-        let url =`${myurl}/web/exprotSysHarmToExcl.do?id=${this.multipleSelection}`
+        let url =`${myurl}/exprotSysHarmToExcl.do?id=${this.multipleSelection}`
         window.open(url)
       }
     },
@@ -122,7 +122,7 @@ export default {
       let data ={
         page: this.currentPage
       }
-      this.axios.post('/web/selectsysharm.do', qs.stringify(data))
+      this.axios.post('/selectsysharm.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.tableData = res.data.resultList
@@ -139,7 +139,7 @@ export default {
         sysharmName:  this.form.factorName,
         page: val
       }
-      this.axios.post('/web/selectsysharmByName.do', qs.stringify(data))
+      this.axios.post('/selectsysharmByName.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.tableData = res.data.resultList
@@ -155,7 +155,7 @@ export default {
         sysharmName:  this.form.factorName,
         page: this.currentPage
       }
-      this.axios.post('/web/selectsysharmByName.do', qs.stringify(data))
+      this.axios.post('/selectsysharmByName.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.tableData = res.data.resultList
@@ -184,7 +184,7 @@ export default {
         type: this.tipWord,
         id: row.hId
       }
-      this.axios.post('/web/updateType.do', qs.stringify(data))
+      this.axios.post('/updateType.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
           }else{

@@ -1,5 +1,4 @@
 <template>
-  <el-card>
   <div class="main-content" @click="hideTree($event)">
     <!-- 搜索框 -->
     <ul class="search-container">
@@ -33,7 +32,7 @@
           <el-radio :label="1">最近三个月</el-radio>
         </el-radio-group>
         <el-button type="primary" style="margin-left:20px;width:120px;" @click="_getConfirmList">查询</el-button>
-        <el-button type="primary"  plain  class="all-btn downBtn" @click="exportExcel" style="margin-right:20px;">批量下载</el-button>
+        <el-button type="primary"  plain  class="all-btn downBtn" @click="exportExcel" style="margin-right:50px;">批量下载</el-button>
       </li>
      </ul>
     <!-- 表格标题 -->
@@ -46,15 +45,15 @@
         <!-- <li><i class="circle bg-2"></i><span class="text">粉尘风控</span></li> -->
         <li><i class="circle bg-0"></i><span class="text">正常</span></li>
       </ul>
-      <el-table :data="tableData" border @selection-change="handleSelectionChange">
+      <el-table :data="tableData"  @selection-change="handleSelectionChange">
         <el-table-column  width="50" type="selection" > </el-table-column>
         <el-table-column  prop="username"  label="姓名">  </el-table-column>
-        <el-table-column  prop="sex"  label="性别" >  </el-table-column>
-        <el-table-column  prop="checkType"  label="体检类型">  </el-table-column>
+        <el-table-column  prop="sex"  label="性别" width="50px">  </el-table-column>
+        <el-table-column  prop="checkType"  label="体检类型" width="80px">  </el-table-column>
         <el-table-column  prop="curPosName"  label="当前分区">  </el-table-column>
-        <el-table-column  prop="curJobName"  label="当前工种/职务">  </el-table-column>
+        <el-table-column  prop="curJobName"  label="当前工种/职务" width="150px">  </el-table-column>
         <el-table-column  prop="aimPosName"  label="目标分区">  </el-table-column>
-        <el-table-column  prop="aimJobName"  label="目标工种/职务">  </el-table-column>
+        <el-table-column  prop="aimJobName"  label="目标工种/职务" width="120px">  </el-table-column>
         <el-table-column  prop="lastCheckDate"  label="上次体检时间">  </el-table-column>
         <el-table-column  prop="" label="体检结论">
           <template slot-scope="scope">
@@ -64,7 +63,7 @@
         <el-table-column  prop=""  label="风控模型">
           <template slot-scope="scope">
              <i class="circle bg-0" v-if="scope.row.model.length === 0"></i>
-             <i class="circle" :class="'bg-'+item" v-for="(item,idx) in scope.row.model"></i>
+             <i class="circle" :class="'bg-'+item" v-for="(item,idx) in scope.row.model" v-bind:key="idx"></i>
           </template>
         </el-table-column>
         <el-table-column  prop="" label="查看报告">
@@ -72,7 +71,7 @@
              <i class="el-icon-search icon" @click="showReport(scope.row)"></i>
           </template>
         </el-table-column>
-      <el-table-column  prop="" label="操作">
+      <el-table-column  prop="" label="操作" width="120">
           <template slot-scope="scope">
              <i class="el-icon-check icon" style="margin-right:40px;" @click="onPass(scope.row.id)"></i>
              <i class="el-icon-close icon" @click="onReject(scope.row.id, scope.row.userid)"></i>
@@ -108,11 +107,11 @@
          <el-col :span="16">体检报告.pdf</el-col>
          <el-col :span="3">
           <i class="el-icon-view icon" @click="viewFile()"></i>
-            <!-- <a :href="'http://47.92.26.132:8080/web/tranPos/previewPdf.do?id='+reportContent.id" class="el-icon-view icon" target="_blank"></a> -->
+            <!-- <a :href="'http://47.92.26.132:8080/tranPos/previewPdf.do?id='+reportContent.id" class="el-icon-view icon" target="_blank"></a> -->
          </el-col>
          <el-col :span="3">
           <i class="el-icon-download icon" @click="downFile"></i>
-           <!--  <a :href="'http://47.92.26.132:8080/web/downloadPdf.do?id='+reportContent.id" class="el-icon-download icon"></a> -->
+           <!--  <a :href="'http://47.92.26.132:8080/downloadPdf.do?id='+reportContent.id" class="el-icon-download icon"></a> -->
          </el-col>
        </el-row>
        <li v-else>
@@ -121,7 +120,6 @@
       </ul>
     </el-dialog>
   </div>
-  </el-card>
 </template>
 
 <script>
@@ -174,16 +172,16 @@ export default {
   },
   methods: {
     viewFile(){  //预览PDF
-      let url =`${myurl}/web/tranPos/previewPdf.do?id=${this.reportContent.id}`
+      let url =`${myurl}/tranPos/previewPdf.do?id=${this.reportContent.id}`
       window.open(url)
     },
     exportExcel(){   //批量下载 导出表格
       let data = JSON.stringify(this.passIdList)
-      let url =`${myurl}/web/tranPos/exprotExcl.do?id=${this.passIdList}`
+      let url =`${myurl}/tranPos/exprotExcl.do?id=${this.passIdList}`
       window.open(url)
     },
     downFile(){   //下载
-      let url =`${myurl}/web/downloadPdf.do?id=${this.reportContent.id}`
+      let url =`${myurl}/downloadPdf.do?id=${this.reportContent.id}`
       window.open(url)
     },
     _getTreeData() {

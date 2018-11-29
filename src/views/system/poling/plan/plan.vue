@@ -86,7 +86,7 @@
         </div>
         <div class="form-items">
           <el-form-item label="巡检人员"  class="inner-group"  prop="userId"  required>
-            <el-select v-model="editParams.userId" multiple filterable placeholder="请选择" class="inner-input" @change="">
+            <el-select v-model="editParams.userId" multiple filterable placeholder="请选择" class="inner-input" >
               <el-option v-for="item in personOptions" :key="item.personId" :label="item.username" :value="item.personId"></el-option>
               </el-select>
             </el-form-item>
@@ -360,7 +360,7 @@ export default {
       let userId = JSON.stringify(this.editParams.userId)
       this.editParams.dateList = JSON.stringify(this.dateList)
       Object.assign(data, this.editParams, {userId:userId})
-      this.axios.post('/web/workPlan/add.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/workPlan/add.do', qs.stringify(data)).then((res) => {
           if (res.data === 'success') {
             this.editParams.userId = []
             this.$message({type: 'success',message: '新增成功'})
@@ -420,7 +420,7 @@ export default {
       }
       // Object.assign(data, this.editParams)
       if(true){
-        this.axios.post('/web/workPlan/edit.do', qs.stringify(data)).then((res) => {
+        this.axios.post('/workPlan/edit.do', qs.stringify(data)).then((res) => {
           if (res.data === 1) {
             this.$message({type: 'success',message: '修改成功' })
             this.showFlag = false

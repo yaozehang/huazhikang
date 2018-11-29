@@ -2,7 +2,7 @@
     <!--  2-2. id   职业病危害项目申报基本情况表 -->
 <div class="content">
   <div class="list-title-all border-bottom">
-     <button class="title-btn">   职业病危害项目申报基本情况表 </button>
+     <el-button class="title-btn" type="text">   职业病危害项目申报基本情况表 </el-button>
   </div>
   <div class="tableForm">
     <el-form :inline="true" :model="form1" class="demo-form-inline" label-width="250px" style="margin-left:-50px;">
@@ -122,16 +122,16 @@
         <th style="width:400px;">  接触人数(可重复) </th>
         <th style="width:400px;"> 接触人数(可重复)</th>
       </tr>
-     <tbody v-for="(item,index) in tableData">
+     <tbody v-for="(item,index) in tableData" :key="index">
          <tr>
-          <td :rowspan="item.list.length+2"><input v-model="item.name" ref="nameInput"></input></td>
-          <td><input v-model="item.list[0][0]"></input></td>
-          <td><input v-model="item.list[0][1]"></input> <i class="el-icon-remove-outline my-del"></i> </td>
-          <td :rowspan="item.list.length+2"><input v-model="item.num"></input></td>
+          <td :rowspan="item.list.length+2"><input v-model="item.name" ref="nameInput"></td>
+          <td><input v-model="item.list[0][0]"></td>
+          <td><input v-model="item.list[0][1]"> <i class="el-icon-remove-outline my-del"></i> </td>
+          <td :rowspan="item.list.length+2"><input v-model="item.num"></td>
          </tr>
-         <tr v-for="(i,idx) in item.list" v-if="idx!==0" track-by="idx">
-          <td><input v-model="i[0]"></input></td>
-          <td><input v-model="i[1]"></input>
+         <tr v-for="(i,idx) in item.list" v-if="idx!==0" track-by="idx" :key="idx">
+          <td><input v-model="i[0]"></td>
+          <td><input v-model="i[1]">
            <i class="el-icon-remove-outline my-del" @click="delInner(idx,item.list,i)"></i></td>
          </tr>
          <tr>
@@ -140,7 +140,7 @@
        </tbody>
         <tr>
         <td colspan="3">合计</td>
-        <td><input v-model="form[24]"></input></td>
+        <td><input v-model="form[24]"></td>
          </tr>
        <tr>
         <td colspan="4"><i class="el-icon-circle-plus-outline" @click="addRow"></i></td>
@@ -225,7 +225,7 @@ export default {
         inputs: inputs,
         comPId: getUserInfo().comPId
       }
-      this.axios.post('/web/recordsEdit/editSpecialTwo.do', qs.stringify( data )  )
+      this.axios.post('/recordsEdit/editSpecialTwo.do', qs.stringify( data )  )
       .then((res) => {
       if(res.data === 'success1'){
             this.$message({

@@ -75,7 +75,7 @@
     </div>
 <div class="content">
   <div class="list-title-all border-bottom">
-     <button class="title-btn">年度职业病防治计划实施检查表</button>
+     <el-button class="title-btn" type="text">年度职业病防治计划实施检查表</el-button>
   </div>
   <div class="tableForm">
     <el-form :inline="true" :model="form" class="demo-form-inline" label-width="140px" style="margin-left:-50px;">
@@ -146,7 +146,7 @@
         </tr>
         <tr v-for="(i, x) in tableData.rows " :key="x">
           <td v-for="(rowItem,idx) in i.rowsData" :key="idx" >
-            <input v-model="rowItem.name" ></input>
+            <input v-model="rowItem.name" >
           </td>
         </tr>
         <tr class="rows-add-td">
@@ -169,22 +169,22 @@
       </tr>
       <tr v-for="(i, x) in tableData.rows " :key="x">
         <td >
-          <input v-model="i.rule1" >  </input>
+          <input v-model="i.rule1" >  
         </td>
          <td >
-          <input v-model="i.contrastValue1" >  </input>
+          <input v-model="i.contrastValue1" >  
         </td>
          <td >
-          <input v-model="i.rule2" >  </input>
+          <input v-model="i.rule2" >  
         </td>
          <td >
-          <input v-model="i.contrastValue2" >  </input>
+          <input v-model="i.contrastValue2" >  
         </td>
          <td >
-          <input v-model="i.handlingOpinions" >  </input>
+          <input v-model="i.handlingOpinions" >  
         </td>
          <td >
-          <input v-model="i.handlingTime" >  </input>
+          <input v-model="i.handlingTime" >  
         </td>
         <td >
           <i class="el-icon-remove-outline" @click="delInner(x)"></i>
@@ -196,7 +196,7 @@
     </tbody>
    </table>
   </div>
-<<<<<<< .mine</div> 
+   <!-- <<<<<<< .mine</div>  -->
 <div class="save">
     <el-button type="primary">保存</el-button>
     <el-button type="">清空</el-button>
@@ -207,9 +207,9 @@
 <script>
 const item = { name: '' }
 const tableData = {
-  rows: []
-const item = {idx: 1, date: '', content: '', detail: '', person: '', text: ''}
-const tableData = {
+  rows: [],
+ item : {idx: 1, date: '', content: '', detail: '', person: '', text: ''},
+tableData : {
   headData: ['序号', '日期', '职业病防治计划内容', '实施情况', '实施负责人', '备注'],
   rows: [
     {
@@ -217,8 +217,9 @@ const tableData = {
       date: '2013-5-7',
     }
   ]
-
+ }
 }
+
 export default {
   name: 'TableForm',
   data () {
@@ -291,6 +292,7 @@ export default {
   width: 100%;
 }
 
+</style>
 
 
 

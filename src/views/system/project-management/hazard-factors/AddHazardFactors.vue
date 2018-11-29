@@ -1,7 +1,7 @@
 <template>
   <div class="add-hazardFactors ">
     <div class="add-project-title border-bottom">
-      <button class="title-btn">新增危害因素</button>
+      <el-button class="title-btn" type="text">新增危害因素</el-button>
     </div>
     <div class="content clearfix">
       <div class="addForm">
@@ -18,7 +18,7 @@
         <el-form-item label="组合项目">
           <el-select v-model="hazard.testItem" multiple  filterable remote reserve-keyword placeholder="请输入组合项目" 
             :remote-method="getGruopInfo"  :loading="loading" style="width:100%" @change="changeTestItem">
-            <el-option v-for="(item,index) in DetailedList"  :key="item.iId"  :label="item.iName"  :value="item.iId">
+            <el-option v-for="(item,index) in DetailedList"  :key="index"  :label="item.iName"  :value="item.iId">
             </el-option>
           </el-select>
         </el-form-item>
@@ -203,7 +203,7 @@ export default {
         let data = {
         projiectName: query
       }
-      this.axios.post('/web/selectdetalItemByName.do', qs.stringify(data))
+      this.axios.post('/selectdetalItemByName.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             this.DetailedList= []
@@ -226,7 +226,7 @@ export default {
       let data ={
         name: this.hazard.hazardName
       }
-       this.axios.post('/web/alphabeticBrevityCodeHName.do', qs.stringify(data))
+       this.axios.post('/alphabeticBrevityCodeHName.do', qs.stringify(data))
         .then((res) => {
             if (res.status ===200) {
               if(res.data ==='名字重复'){
@@ -296,7 +296,7 @@ export default {
    }
     this.$refs[hazard].validate((valid) => {
       if (valid && this.disable === false) {
-      this.axios.post('/web/addSysHarm.do', qs.stringify(data))
+      this.axios.post('/addSysHarm.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           if(res.data.msg === '名字重复') {

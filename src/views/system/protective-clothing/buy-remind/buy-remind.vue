@@ -24,7 +24,7 @@
         </el-form>
       </div>
       <div class="zoneList-title border-bottom">
-        <button class="title-btn">护具使用情况</button>
+        <el-button class="title-btn" type="text">护具使用情况</el-button>
       </div>
       <div class="zonList-table">
        <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600">
@@ -97,7 +97,7 @@ export default {
       let data = {
         prPartitionId: getUserInfo().userId
       }
-      this.axios.post('/web/proic/queryproductnamelist.do',qs.stringify(data))
+      this.axios.post('/proic/queryproductnamelist.do',qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
         this.allNameList = res.data
@@ -127,7 +127,7 @@ export default {
         proName: this.form.procetName,
         prPartitionId: getUserInfo().userId
       }
-    this.axios.post('/web/proic/querybywarn.do', qs.stringify(data))
+    this.axios.post('/proic/querybywarn.do', qs.stringify(data))
     .then((res) => {
       if (res.status ===200) {
         this.tableData = res.data.resultList
@@ -144,7 +144,7 @@ export default {
         proName: this.form.procetName,
         prPartitionId: getUserInfo().userId
       }
-    this.axios.post('/web/proic/querybywarn.do', qs.stringify(data))
+    this.axios.post('/proic/querybywarn.do', qs.stringify(data))
     .then((res) => {
       if (res.status ===200) {
         this.tableData = res.data.resultList

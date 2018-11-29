@@ -49,11 +49,11 @@
     <!-- 部门树状图 -->
       </div>
       <div class="zoneList-title border-bottom">
-        <button class="title-btn">护具失效列表</button>
+        <el-button class="title-btn" type="text">护具失效列表</el-button>
       </div>
      <!-- pgPersonalId   pgLoseDays 时效天数  pgGrantTime pgId pgGrantNumber gender -->
       <div class="zonList-table">
-       <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600" ref="multipleTable1"  @selection-change="handleSelectionChange1" :default-sort = "{prop: 'pgLoseDays', order: 'descending'}">
+       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600" ref="multipleTable1"  @selection-change="handleSelectionChange1" :default-sort = "{prop: 'pgLoseDays', order: 'descending'}">
         <el-table-column prop="gpId"  label=""   type="selection"> </el-table-column>
         <el-table-column prop="gpGetMan"  label="姓名"  width="50" > </el-table-column>
         <el-table-column prop="" label="性别">
@@ -244,7 +244,7 @@ export default {
       let data = {
         prPartitionId: getUserInfo().userId
       }
-      this.axios.post('/web/proic/queryproductnamelist.do', qs.stringify(data))
+      this.axios.post('/proic/queryproductnamelist.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
         this.allNameList = res.data
@@ -257,7 +257,7 @@ export default {
       let data= {
         dgId: this.zoneKey
       }
-      this.axios.post('/web/depart/queryproducttypebydgid.do', qs.stringify(data))
+      this.axios.post('/depart/queryproducttypebydgid.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           if(res.data.length !==0){
@@ -284,7 +284,7 @@ export default {
       let data = {
         proType: this.addForm.ProductType
       }
-      this.axios.post('/web/depart/queryproductbytypename.do', qs.stringify(data))
+      this.axios.post('/depart/queryproductbytypename.do', qs.stringify(data))
       .then((res) => {
         console.log(res.data)
         if (res.status ===200) {
@@ -305,7 +305,7 @@ export default {
         proType: this.addForm.ProductType
       }
       if(this.zoneKey !=='' && this.addForm.procetName !=='' && this.addForm.ProductType !==''){
-      this.axios.post('/web/period/querypersonbyposid.do', qs.stringify(data))
+      this.axios.post('/period/querypersonbyposid.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           this.loading= false
@@ -323,7 +323,7 @@ export default {
       let data = {
         gpId: row.gpId
       }
-     this.axios.post('/web/period/querybyid.do', qs.stringify(data))
+     this.axios.post('/period/querybyid.do', qs.stringify(data))
     .then((res) => {
       if (res.status === 200) { 
         let data  = res.data
@@ -360,7 +360,7 @@ export default {
         gpGetMan: this.tableDataT[0].gpGetMan,   //表格里面的数据
         gpAge: this.tableDataT[0].gpAge,   //表格里面的数据
       }
-    this.axios.post('/web/period/updatebykey.do', qs.stringify(data))
+    this.axios.post('/period/updatebykey.do', qs.stringify(data))
     .then((res) => {
       if (res.data.status === 1) {
           this.IsGrantOnce = false
@@ -418,7 +418,7 @@ export default {
         linkTel: this.form.linkTel,
         departId: getUserInfo().userId
       }
-    this.axios.post('/web/period/queryperiod.do', qs.stringify(data))
+    this.axios.post('/period/queryperiod.do', qs.stringify(data))
     .then((res) => {
       if (res.status ===200) {
           this.tableData = res.data.resultList
@@ -481,7 +481,7 @@ export default {
         tabGrants: tabGrants
       }
       if(parseInt(this.addForm.grantNum) > 1 && this.addForm.grantNum !== '' && this.multipleSelection.length !==0) {
-        this.axios.post('/web/period/addperiod.do', qs.stringify(data)).then((res) => {
+        this.axios.post('/period/addperiod.do', qs.stringify(data)).then((res) => {
           if (res.status ===200) {
             this.IsAdd = false
             this.getList()
@@ -515,7 +515,7 @@ export default {
         linkTel: this.form.linkTel,
         departId: getUserInfo().userId
       }
-    this.axios.post('/web/period/queryperiod.do', qs.stringify(data))
+    this.axios.post('/period/queryperiod.do', qs.stringify(data))
     .then((res) => {
       if (res.status ===200) {
         this.tableData = res.data.resultList

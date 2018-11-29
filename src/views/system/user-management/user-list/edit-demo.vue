@@ -1,7 +1,7 @@
 <template>
   <div class="edit-user-main"   @click="hideTree($event)">
     <div class="type-list-title border-bottom">
-        <button class="title-btn">用户列表</button>
+        <el-button class="title-btn" type="text">用户列表</el-button>
         <el-button class="return" @click="goBack">返回</el-button>
     </div>
   <div class="user-form my-form" >
@@ -50,12 +50,12 @@
     </div>
   <!-- 部操作分区图 -->
        <el-form-item label=" 用户类型" required>
-         <el-select v-model="user.type"  placeholder="请选择" @change="">
+         <el-select v-model="user.type"  placeholder="请选择" >
           <el-option v-for="(item,index) in types" :key="index"  :label="item"  :value="item"> </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="是否禁用">
-        <el-select v-model="user.isUse"  placeholder="请选择" @change="">
+        <el-select v-model="user.isUse"  placeholder="请选择" >
           <el-option v-for="(item,index) in isUse" :key="index"  :label="item"  :value="item"> </el-option>
         </el-select>
       </el-form-item>
@@ -67,7 +67,7 @@
       <div class="my-authorityTree" v-show="isAuthority">
         <div class="authority-tree">
            <el-tree :data="authorityData" show-checkbox  node-key="id"  default-expand-all  :expand-on-click-node="false"
-             ref="tree" @check="" >
+             ref="tree" >
             <span class="custom-tree-node" slot-scope="{ node, data }">
               <span style="margin-right:20px"  @click="setType(node,data)"> {{ node.data.name }}</span>
               <span>
@@ -91,7 +91,7 @@
       <el-form :model="typeform" label-width="80px" ref="typeform" style="width: 80%;">
         <el-form-item label="巡检类型" >
           <el-select v-model="typeform.type" multiple filterable  placeholder="请选择" style="width: 100%;">
-             <el-option v-for="(item,index) in typeList" :key="item.id" :label="item.insTypeName" :value="item.id" ></el-option>
+             <el-option v-for="(item,index) in typeList" :key="index" :label="item.insTypeName" :value="item.id" ></el-option>
           </el-select>
         </el-form-item>
       </el-form>
@@ -234,7 +234,7 @@ export default {
       let data ={
         username: this.user.username
       }
-      this.axios.post('/web/user/username.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/user/username.do', qs.stringify(data)).then((res) => {
         if (res.status ===200) {
           if(res.data.status === 1){
             this.errMsg('用户名字重复 请重新输入')

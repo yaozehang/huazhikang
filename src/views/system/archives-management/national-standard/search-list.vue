@@ -4,7 +4,7 @@
           <li v-for="(item,index) in yearList" :key="index" track-by="index" >
             <div class="year-item">{{item.year}} </div>
             <div class="year-list clearfix" v-for="(i,x) in item.files" :key="x" track-by="x">
-              <el-tooltip class="item" effect="dark":content="i.filePath" placement="top-start">
+              <el-tooltip class="item" effect="dark" :content="i.filePath" placement="top-start">
                 <div class="fileName"> {{i.fileName}}</div>
               </el-tooltip>
                 <div class="fileRight"> 
@@ -44,11 +44,11 @@ export default {
   },
   methods:{
     scanFile(index,item){   //预览
-      let url =`${myurl}/web/occuHealthRecordsManage/preview.do?id=${item.id}`
+      let url =`${myurl}/occuHealthRecordsManage/preview.do?id=${item.id}`
       window.open(url)
     },
     downFile(index,item){   //预览
-      let url =`${myurl}/web/occuHealthRecordsManage/download.do?id=${item.id}`
+      let url =`${myurl}/occuHealthRecordsManage/download.do?id=${item.id}`
       window.open(url)
     },
     deleteRow(index,item){

@@ -32,10 +32,10 @@
         </el-form>
       </div>
       <div class="zoneList-title border-bottom">
-        <button class="title-btn">护具列表</button>
+        <el-button class="title-btn" type="text">护具列表</el-button>
       </div>
       <div class="zonList-table">
-       <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600" :default-sort = "{prop: 'pgLoseDays', order: 'descending'}">
+       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600" :default-sort = "{prop: 'pgLoseDays', order: 'descending'}">
         <el-table-column prop="prId"  label="序号"  width="50" > </el-table-column>
         <el-table-column  prop="prProductNumber" label="产品批号" > </el-table-column>
         <el-table-column prop="prProductType" label="产品分类"> </el-table-column>
@@ -46,7 +46,7 @@
         <el-table-column  prop="prInUser" label="入库人员"> </el-table-column>     
         <el-table-column   label="操作"  width="150"> 
           <template slot-scope="scope">
-             <el-button type="primary" style="margin-left:30px;" @click="editInfo(scope.$index,scope.row)">修改信息</el-button>
+             <el-button size="mini" type="warning" style="margin-left:30px;" @click="editInfo(scope.$index,scope.row)">修改信息</el-button>
         </template>
         </el-table-column>
     </el-table>
@@ -80,7 +80,7 @@
            <div class="form-items">
             <el-form-item label="供应商家"  style="margin-right:30px;"  prop="supplier"  required>
               <el-select v-model="addForm.supplier" clearable placeholder="请选择" class="common-input">
-                <el-option  v-for="(item,index) in supplierList" :key="index"  :label="item":value="item"> </el-option>
+                <el-option  v-for="(item,index) in supplierList" :key="index"  :label="item" :value="item"> </el-option>
                </el-select>
             </el-form-item>
             <el-form-item label="产品批号" prop="batchNumber">
@@ -170,7 +170,7 @@
            <div class="form-items">
             <el-form-item label="供应商家"  style="margin-right:30px;"  prop="supplier"  required>
               <el-select v-model="editForm.supplier" clearable placeholder="请选择" style="width:220px;">
-                <el-option  v-for="(item,index) in supplierList" :key="index"  :label="item":value="item"> </el-option>
+                <el-option  v-for="(item,index) in supplierList" :key="index"  :label="item" :value="item"> </el-option>
                </el-select>
             </el-form-item>
             <el-form-item label="产品批号" >
@@ -192,7 +192,6 @@
             <el-form-item label="保质期至"  style="margin-right:30px;" prop="qualityTime"  required>
               <el-date-picker v-model="editForm.qualityTime"  value-format="yyyy-MM-dd"  type="date" placeholder="选择日期"  :picker-options="pickerQualityTime"> </el-date-picker>
           </el-form-item>
-            </el-form-item>
             <el-form-item label="入库单价"  style="margin-right:30px;" prop="perPrice"  required>
               <div class="input-group">
                 <el-input v-model="editForm.perPrice" placeholder="" style="width:220px;" type="number"></el-input>
@@ -371,7 +370,7 @@ export default {
         let data = {
         prPartitionId: getUserInfo().userId
       }
-      this.axios.post('/web/proic/queryproductnamelist.do', qs.stringify(data))
+      this.axios.post('/proic/queryproductnamelist.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           console.log(res.data)
@@ -398,7 +397,7 @@ export default {
       let data={
         spPartitionId: getUserInfo().comPId
       }
-      this.axios.post('/web/supp/selectsupnamelist.do',qs.stringify(data))
+      this.axios.post('/supp/selectsupnamelist.do',qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
         this.supplierList = res.data
@@ -417,7 +416,7 @@ export default {
         ptName: this.addTypeList,
         partitionId: getUserInfo().comPId
       }
-    this.axios.post('/web/protype/addprotype.do', qs.stringify(data))
+    this.axios.post('/protype/addprotype.do', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
           console.log(res.data)
@@ -440,7 +439,7 @@ export default {
         prName: this.form.procetName,
         prPartitionId: getUserInfo().comPId
       }
-    this.axios.post('/web/proic/querybypage.do', qs.stringify(data))
+    this.axios.post('/proic/querybypage.do', qs.stringify(data))
     .then((res) => {
         if (res.status ===200) {
           this.tableData = res.data.resultList
@@ -474,7 +473,7 @@ export default {
       }
     this.$refs[addForm].validate((valid) => {
       if (valid) {
-        this.axios.post('/web/proic/addprotectice.do', qs.stringify(data))
+        this.axios.post('/proic/addprotectice.do', qs.stringify(data))
         .then((res) => {
           if (res.status ===200) {
             if(res.data.status === 1){
@@ -502,7 +501,7 @@ export default {
       let data = {
         prId: row.prId
       }
-      this.axios.post('/web/proic/querybyid.do', qs.stringify(data))
+      this.axios.post('/proic/querybyid.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           this.editForm.procetName = res.data.prName  //护具名称
@@ -542,7 +541,7 @@ export default {
       }
       this.$refs[editForm].validate((valid) => {
       if (valid) {
-      this.axios.post('/web/proic/updateprotectice.do', qs.stringify(data))
+      this.axios.post('/proic/updateprotectice.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           if(res.data.status === 1){
@@ -571,7 +570,7 @@ export default {
         prName: this.form.procetName,
         prPartitionId: getUserInfo().comPId //分区id
       }
-    this.axios.post('/web/proic/querybypage.do', qs.stringify(data))
+    this.axios.post('/proic/querybypage.do', qs.stringify(data))
     .then((res) => {
       if (res.status ===200) {
         this.tableData = res.data.resultList

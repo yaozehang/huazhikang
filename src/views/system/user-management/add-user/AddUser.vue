@@ -3,7 +3,7 @@
   <div class="user-main">
     <div class="common-user"  @click="hideTree($event)" v-if="roleId !== 3">
     <div class="user-info-title border-bottom">
-      <button class="title-btn">用户基本信息</button>
+      <el-button class="title-btn" type="text">用户基本信息</el-button>
     </div>
   <div class="user-form my-form common-form" >
     <el-form ref="user" :model="user"  :rules="rules"  label-width="120px">
@@ -30,7 +30,7 @@
       </el-form-item>
       <el-form-item label="巡检类型">
         <el-select v-model="typeform.type" multiple filterable  placeholder="请选择"  @change="addType" class="big-select">
-             <el-option v-for="(item,index) in typeList" :key="item.id" :label="item.insTypeName" :value="item.id" ></el-option>
+             <el-option v-for="(item,index) in typeList" :key="index" :label="item.insTypeName" :value="item.id" ></el-option>
           </el-select>
       </el-form-item>
       <!-- 分区树 -->
@@ -57,13 +57,13 @@
     <ul class="form-items clearfix">
         <li class="input-group">
           <span class="title">用户类型</span>
-           <el-select v-model="user.type"  placeholder="请选择" @change="" class="inner-input">
+           <el-select v-model="user.type"  placeholder="请选择" class="inner-input">
             <el-option v-for="(item,index) in types" :key="index"  :label="item"  :value="item"> </el-option>
           </el-select>
         </li>
         <li class="input-group">
           <span class="title">是否禁用</span>
-          <el-select v-model="user.isUse"  placeholder="请选择" @change="" class="inner-input">
+          <el-select v-model="user.isUse"  placeholder="请选择" class="inner-input">
             <el-option v-for="(item,index) in isUse" :key="index"  :label="item"  :value="item"> </el-option>
           </el-select>
         </li>
@@ -75,7 +75,7 @@
       <div class="my-authorityTree" v-show="isAuthority" id="authorityTree">
         <div class="authority-tree">
           <el-tree :data="authorityData" show-checkbox  node-key="id"  default-expand-all  :expand-on-click-node="false"
-             ref="tree" @check="">
+             ref="tree" >
           <span class="custom-tree-node" slot-scope="{ node, data }"  >
             <span style="margin-right:20px" @click="setType(node,data)"> {{ node.data.name }}</span>
             <span>
@@ -92,7 +92,8 @@
       </div>
       <!--  权限树-->
       <el-form-item class="footer-item">
-           <span class="save-blue big-blue"  @click="addUser('user')">保存</span>
+           <!-- <span class="save-blue big-blue"  @click="addUser('user')">保存</span> -->
+           <el-button type="primary"  @click="addUser('user')">保存</el-button>
       </el-form-item>
     </el-form>
     <div>

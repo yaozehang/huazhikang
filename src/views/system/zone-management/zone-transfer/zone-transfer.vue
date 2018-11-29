@@ -1,7 +1,7 @@
 <template>
   <div class="selfCheck-container">
   <div class="list-title-all border-bottom">
-    <button class="title-btn">分区迁移</button>
+    <el-button class="title-btn" type="text">分区迁移</el-button>
   </div>
   <div class="data-container clearfix">
     <div class="choose-data" >
@@ -29,7 +29,6 @@
      </div>
   </div>
     </div>
-  </div>
 </template>
 
 <script>

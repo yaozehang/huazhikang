@@ -7,7 +7,7 @@
       </tr>
       <tr v-for="(i, x) in tableDate.rows " :key="x">
         <td v-for="(rowItem,idx) in i.rowsData" :key="idx" >
-          <input v-model="rowItem.name" ></input></td>
+          <input v-model="rowItem.name" ></td>
         </tr>
         <tr class="rows-add-td">
           <td :colspan="6"><i class="el-icon-circle-plus-outline" @click="addRow"></i></td>

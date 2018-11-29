@@ -221,7 +221,7 @@ export default{
           comId: this.news.zoneKey,
           message: this.news.content
         }
-        this.axios.post('/web/switch/addMessage.do', qs.stringify(data)).then((res) => {
+        this.axios.post('/switch/addMessage.do', qs.stringify(data)).then((res) => {
           if (res.data === '添加成功' || res.data === '添加/修改成功') {
             this.$message({
               type: 'success',
@@ -370,7 +370,7 @@ line-height: 60px;
 height: 60px;
 font-size: 16px;
 padding: 0 20px;
-background: #fff;
+background: #000;
 color: rgb(102,102,102);
 }
 .app-code{

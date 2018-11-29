@@ -6,7 +6,7 @@
   	  <div class="main-container">
         <div class="bread-list clearfix">
         <div class="bread-content">
-          <span class="local-icon"> <img src="static/imgs/position.png" alt=""></span>
+          <span class="local-icon"> <img src="static/imgs/position.png" alt="" width="20px"></span>
           <span class="local-title">您的当前位置：</span>
           <span class="bread-menu">
             <el-breadcrumb separator-class="el-icon-arrow-right">
@@ -16,7 +16,9 @@
           </span>
         </div>
       </div>
+      <el-card style="margin-bottom:20px;">
   	  	 <router-view></router-view>
+      </el-card>
   	  </div>
   </div>
 </template>
@@ -57,6 +59,6 @@ export default {
   z-index:100
 .main-container
   margin-left:230px
-  padding:0 30px
+  padding:20px 30px
   color:$text-color-main
 </style>

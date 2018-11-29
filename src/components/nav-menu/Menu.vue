@@ -65,6 +65,7 @@ export default {
 }
 .menu-list-container ul{
   background: #20222A;
+  border-top: solid 1px #000;
 }
 .menu-level-1{
     min-height:70px;
@@ -97,7 +98,6 @@ export default {
     position:absolute;
     top:29px;
     right:20px;
-    color: ;
     font-size:8px;
   }
   .my-collapse{

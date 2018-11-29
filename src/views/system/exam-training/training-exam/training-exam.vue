@@ -14,7 +14,7 @@
             value-format="yyyy-MM-dd HH:mm:ss">
           </el-date-picker>
    <!--        <el-date-picker v-model="selectParams.date" type="date" placeholder="选择日期" class="inner-input" :editable="false" value-format="yyyy-MM-dd"></el-date-picker> -->
-         <el-button type="primary" @click="_getExamList" style="width:120px">查询</el-button>
+         <el-button type="primary" @click="_getExamList" style="width:120px;margin-left:40px;">查询</el-button>
       </li>
       <li class="input-group">
           <span class="title">培训单位</span>
@@ -37,13 +37,13 @@
         <el-table-column prop="themeName" label="培训主题"></el-table-column>
         <el-table-column prop="partitionName" label="培训单位"></el-table-column>
         <el-table-column prop="planNum" label="计划人数"></el-table-column>
-        <el-table-column label="签到二维码">
+        <el-table-column label="签到二维码" width="100px">
           <template slot-scope="scope">
              <img :src="scope.row.signQrCodePath" alt="签到二维码" class="erweima" width="25px" height="25px" @click="showImg(scope.row.signQrCodePath)">
           </template>
         </el-table-column>
         <el-table-column prop="signNum" label="签到人数"></el-table-column>
-        <el-table-column prop="paperQrCodePath" label="试卷二维码">
+        <el-table-column prop="paperQrCodePath" label="试卷二维码" width="100px">
           <template slot-scope="scope">
             <img :src="scope.row.paperQrCodePath" alt="试卷二维码" width="25px" height="25px" class="erweima" @click="showImg(scope.row.paperQrCodePath)">
           </template>
@@ -297,7 +297,7 @@ export default {
     onConfirm(editParams) {
        this.$refs[editParams].validate((valid) => {
         if (valid) {
-          this.axios.post('/web/train/exam/add.do', qs.stringify(this.editParams)).then((res) => {
+          this.axios.post('/train/exam/add.do', qs.stringify(this.editParams)).then((res) => {
             console.log(this.editParams)
             if (res.data === 1) {
               this.$message({

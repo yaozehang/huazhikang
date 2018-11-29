@@ -1,7 +1,9 @@
 <template>
-	<div class="content-main">
-      <router-view></router-view>
-    </div>
+  <el-card style="margin-bottom:20px;">
+    <div class="content-main">
+        <router-view></router-view>
+      </div>
+  </el-card>
 </template>
 
 <script>
@@ -17,4 +19,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.content-main {
+  padding-right: 20px;
+}
 </style>

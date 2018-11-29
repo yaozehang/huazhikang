@@ -2,7 +2,7 @@
 <!-- :disabled="readonly"  进入页面判断 true 只读 false 查看-->
   <div class="AddPersonalHealth">
   <div class="list-title-all border-bottom">
-    <button class="title-btn">修改信息</button>
+    <el-button class="title-btn" type="text">修改信息</el-button>
     <el-button class="return" @click="goBack" :disabled="readonly">返回</el-button>
     </div>
     <div class="content clearfix row">
@@ -101,7 +101,7 @@
             <el-form-item label="工种/职务" >
               <el-select v-model="form.jobPost" multiple  filterable  placeholder="请输入关键词" 
                  style="width:320%" disabled>
-              <el-option v-for="(item,index) in jobPostList" :key="item"  :label="item" :value="item">
+              <el-option v-for="(item,index) in jobPostList" :key="index"  :label="item" :value="item">
               </el-option>
             </el-select>
             </el-form-item>
@@ -156,7 +156,7 @@
           <!-- v-show="i.status == 1" -->
            <i class="el-icon-edit"  @click="changeTestInfo(i)"></i>
            <i class="el-icon-view" @click="viewFile(i)"></i>
-       <!--    <a :href="'http://47.92.26.132:8080/web/selectpdf.do?id='+i.crentertime" class="el-icon-view icon"
+       <!--    <a :href="'http://47.92.26.132:8080/selectpdf.do?id='+i.crentertime" class="el-icon-view icon"
            target="_blank" v-show="i.status == 1"></a> -->
           <i class="el-icon-upload2"  @click="getTestNum(i)" ></i>
           <i class="el-icon-remove-outline" @click="delPdf(i)" v-show="i.status == 1"> </i>
@@ -338,7 +338,7 @@ export default {
         userId : getUserInfo().userId,
         menuId: 33
       }
-      this.axios.post('/web/user/getAuthorityByUserAndMenu.do', qs.stringify(data))
+      this.axios.post('/user/getAuthorityByUserAndMenu.do', qs.stringify(data))
       .then((res) => {
         console.log(res.data)
           if (res.status === 200) {
@@ -353,7 +353,7 @@ export default {
         })
     },
     viewFile(index, item){  //预览PDF
-      let url =`${myurl}/web/selectpdf.do?id=${i.crentertime}`
+      let url =`${myurl}/selectpdf.do?id=${i.crentertime}`
       window.open(url)
     },
     goBack(){
@@ -363,7 +363,7 @@ export default {
       let data={
         crcardnumber: this.form.idCard
       }
-      this.axios.post('/web/crcardnumber.do', qs.stringify(data))
+      this.axios.post('/crcardnumber.do', qs.stringify(data))
       .then((res) => {
         if (res.status ===200) {
           this.form.age =  res.data.age
@@ -383,7 +383,7 @@ export default {
       let data ={
         id: i.crentertime
       }
-      this.axios.post('/web/deletepdf.do', qs.stringify(data))
+      this.axios.post('/deletepdf.do', qs.stringify(data))
       .then((res) => {
           if(res.data === '删除成功'){
             this.sucMsg(res.data)
@@ -396,7 +396,7 @@ export default {
       let data ={
         number: i.crentertime
       }
-      this.axios.post('/web/selectBynumber.do', qs.stringify(data))
+      this.axios.post('/selectBynumber.do', qs.stringify(data))
        .then((res) => {
         console.log(res.data.conclusion)
           if(res.status === 200){
@@ -433,7 +433,7 @@ export default {
           'Content-Type': 'multpart/form-data'
         }
       }
-      this.axios.post('/web/uploading.do',fd, config)
+      this.axios.post('/uploading.do',fd, config)
        .then((res) => {
         if(res.status ===200){
           if(res.data === '上传成功'){
@@ -454,7 +454,7 @@ export default {
         jobs: this.form.jobPost,
       }
       if(name !=='') {
-         this.axios.post('/web/jobsVerify.do', qs.stringify(data))
+         this.axios.post('/jobsVerify.do', qs.stringify(data))
         .then((res) => {
           if(res.data === 'y'){
             this.sucMsg('工种可以添加')
@@ -467,7 +467,7 @@ export default {
     //    tabid      接口 healthinformation.do 
     getInfoById(){
       let  data ={ tabid: this.queryId}
-      this.axios.post('/web/healthinformation.do', qs.stringify(data))
+      this.axios.post('/healthinformation.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             console.log(res.data)
@@ -586,7 +586,7 @@ export default {
      }
      // console.log(data)
      // updatepersonal.do
-      this.axios.post('/web/updatepersonal.do', qs.stringify(data))
+      this.axios.post('/updatepersonal.do', qs.stringify(data))
        .then((res) => {
         console.log(res.data)
           if(res.status === 200){

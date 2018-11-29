@@ -2,7 +2,7 @@
   <!-- 5-5  id 35职业病危害事故报告与处理记录表   -->
 <div class="content">
   <div class="list-title-all border-bottom">
-     <button class="title-btn">职业病危害事故报告与处理记录表 </button>
+     <el-button class="title-btn" type="text">职业病危害事故报告与处理记录表 </el-button>
   </div>
   <div class="tableForm">
     <el-form :inline="true" :model="form1" class="demo-form-inline" label-width="160px" style="margin-left:-10px;">
@@ -108,7 +108,7 @@
           <el-input v-model="form[18]" placeholder="" style="width:220px;"></el-input>
         </el-form-item>
         <el-form-item label="报告时间">
-          <el-date-picker v-model="form[29]" type="date"value-format="yyyy-MM-dd" placeholder="选择日期"> </el-date-picker>
+          <el-date-picker v-model="form[29]" type="date" value-format="yyyy-MM-dd" placeholder="选择日期"> </el-date-picker>
         </el-form-item>
       </div>
   </el-form>
@@ -171,7 +171,7 @@ export default {
         comPId: getUserInfo().comPId
       }
       console.log(data)
-      this.axios.post('/web/recordsEdit/edit.do', qs.stringify( data )  )
+      this.axios.post('/recordsEdit/edit.do', qs.stringify( data )  )
       .then((res) => {
        if(res.data === 'success1') {
             this.$message({

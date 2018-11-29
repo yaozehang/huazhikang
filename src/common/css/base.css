@@ -50,17 +50,18 @@ input {font-family: "微软雅黑";}
   border-bottom: 1px solid #004a9d; margin-bottom: 5px; margin-top: 10px; width: 100%;
 }
 .title-btn{ 
-color: #fff;
+color: #00a1d6;
 border-radius: 5px;
-font-size: 22px;
+font-size: 20px;
 height: 60px; 
 line-height: 60px;
 width: 250px;
 border: none;
 outline: none;
 text-align: center;
-background: url('../../../static/imgs/list-bg.png');
-background-size: 100% 100%;
+/* background-color: #0074ea; */
+/* background: url('../../../static/imgs/list-bg.png'); */
+/* background-size: 100% 100%; */
 }
 .my-pagination{ float: right; }
 /*左侧菜单栏样式*/
@@ -126,6 +127,9 @@ color: #0074ea;
 .el-select-dropdown.is-multiple .el-select-dropdown__item.selected{
   background-color: #dbefff!important;
 }
+.el-table .cell {
+  text-align:center;
+}
 .popper__arrow{
   border-bottom-color: #c8cddc!important;
 }
@@ -146,36 +150,40 @@ display: inline-block;
 height: 40px;
 line-height: 40px;
 color: #fff;
-padding: 0 10px;
-font-size: 18px;
+padding:0 10px;
+font-size: 16px;
 text-align: center;
-width: 110px;
+width: 100px;
 border-radius: 5px;
 }
 .common-btn:hover{
   cursor: pointer;
 }
 .orange-btn{
-  background: -webkit-linear-gradient(#e4c94a, #ab5000); 
+  /* background: -webkit-linear-gradient(#e4c94a, #ab5000); 
   background: -o-linear-gradient(#e4c94a, #ab5000); 
   background: -moz-linear-gradient(#e4c94a, #ab5000);
   background: linear-gradient(#e4c94a, #ab5000); 
-  box-shadow: 0 0 10px #a76e00;
+  box-shadow: 0 0 10px #a76e00; */
+  background-color: #e0c443;
 }
 .orange-btn:hover{
-  box-shadow: 0 0 0px #a76e00;
+  /* box-shadow: 0 0 0px #a76e00; */
+  background-color: #dba372;
   color: #fff;
 }
 .green-btn{
   color: #fff;
-  background: -webkit-linear-gradient(#82d759, #057732); 
+  background-color: #4acc09;
+  /* background: -webkit-linear-gradient(#82d759, #057732); 
   background: -o-linear-gradient(#82d759, #057732); 
   background: -moz-linear-gradient(#82d759, #057732); 
   background: linear-gradient(#82d759, #057732); 
-  box-shadow: 0 0 10px #009c28;
+  box-shadow: 0 0 10px #009c28; */
 }
 .green-btn:hover{
-  box-shadow: 0 0 0px #a76e00;
+  /* box-shadow: 0 0 0px #a76e00; */
+  background-color: #2aaa5d;
   color: #fff;
 }
 .small-comfirm{   /* 绿色小查询按钮 */
@@ -193,20 +201,23 @@ border-radius: 5px;
   display: inline-block;
   width: 80px;
   text-align: center;
-  height: 44px;
-  line-height: 44px;
-  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
   color: #fff;
   border-radius: 5px;
-  background: -webkit-linear-gradient(#00a2ff, #004a9d); 
+  /* background: -webkit-linear-gradient(#00a2ff, #004a9d); 
   background: -o-linear-gradient(#00a2ff, #004a9d); 
   background: -moz-linear-gradient(#00a2ff, #004a9d);
-  background: linear-gradient(#00a2ff, #004a9d); 
-  box-shadow: 0 0 10px #0069bb;
+  background: linear-gradient(#00a2ff, #004a9d);  */
+  background-color: #00a2ff;
+  /* box-shadow: 0 0 10px #0069bb; */
 }
 .save-blue:hover{
   cursor: pointer;
-  box-shadow: 0 0 0px #0069bb;
+  /* box-shadow: 0 0 0px #0069bb; */
+  background-color: #0069bb;
+  color: #f1f1f1;
 }
 .yell-btn{
   background: #ff7520;

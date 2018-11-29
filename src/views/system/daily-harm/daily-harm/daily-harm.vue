@@ -15,11 +15,11 @@
         </div>
         <div class="form-items">
           <el-form-item label="记录名称">
-             <el-input v-model="form.record" placeholder=""class="inner-input"></el-input>
+             <el-input v-model="form.record" placeholder="" class="inner-input"></el-input>
           </el-form-item>
            <el-form-item label="危害因素" style="margin-right:30px;">
             <el-select v-model="form.harm" multiple  filterable  placeholder="请输入关键词" class="inner-input">
-              <el-option v-for="(item,index) in harmList" :key="item.id"  :label="item.name" :value="item.name">
+              <el-option v-for="(item,index) in harmList" :key="index"  :label="item.name" :value="item.name">
               </el-option>
             </el-select>
           </el-form-item>
@@ -74,12 +74,12 @@
         <add-table :innerTable="innerTable2"  :innerTableF="innerTable"></add-table>
            <div slot="footer" class="dialog-footer my-footer-bths" >
              <el-button type="primary" @click="sureAdd()">确 定</el-button>
-             <el-button @click="">取 消</el-button>
+             <el-button>取 消</el-button>
            </div>
          </el-dialog>
      <!-- 新增记录弹出框结束-->
      <div class="type-list-title border-bottom">
-        <button class="title-btn">评测记录列表</button>
+        <el-button class="title-btn" type="text">评测记录列表</el-button>
     </div>
     <div class="my-table-v">
 <!--  dhid  主键id -->
@@ -91,15 +91,18 @@
         <el-table-column  prop="dhTime"  label="记录日期" >  </el-table-column>
         <el-table-column  prop="dhRecordName"  label="记录名称" >  </el-table-column>
         <el-table-column prop="dhName"  label="评测人" >  </el-table-column>
-        <el-table-column  prop="" label="折线图"> 
+        <el-table-column  prop="" label="折线图" width="80">  
           <template slot-scope="scope"> 
-            <span class="text-yel" @click="showGraph(scope.$index, scope.row) "> 查看</span>
+            <!-- <span class="text-yel" @click="showGraph(scope.$index, scope.row) "> 查看</span> -->
+            <el-button type="info" size="mini" @click="showGraph(scope.$index, scope.row) "> 查看</el-button>
           </template>
          </el-table-column>
         <el-table-column fixed="right" label="操作" width="150">  
         <template slot-scope="scope">
-            <span  class="text-yel ml" @click="editInfo(scope.$index, scope.row)"> 编辑</span>
-            <span class="text-yel" @click="delInfo(scope.$index, scope.row)"> 删除</span>
+            <!-- <span  class="text-yel ml" @click="editInfo(scope.$index, scope.row)"> 编辑</span> -->
+            <el-button size="mini" @click="editInfo(scope.$index, scope.row)"> 编辑</el-button>
+            <!-- <span class="text-yel" @click="delInfo(scope.$index, scope.row)"> 删除</span> -->
+            <el-button size="mini" type="danger" @click="delInfo(scope.$index, scope.row)"> 删除</el-button>
         </template>
       </el-table-column>
     </el-table>  
@@ -286,7 +289,7 @@ export default {
       let data={
         dhid: row.dhId
       }
-      this.axios.post('/web/harm/selectharm.do', qs.stringify(data))
+      this.axios.post('/harm/selectharm.do', qs.stringify(data))
       .then((res) => {
           if (res.status ===200) {
             console.log(res.data)
@@ -305,7 +308,7 @@ export default {
             harmid: harmid,
             type: type
           }
-          this.axios.post('/web/harm/selectLineChart.do', qs.stringify(data))
+          this.axios.post('/harm/selectLineChart.do', qs.stringify(data))
           .then((res) => {
           if (res.status ===200) {
             let temp =[] 
@@ -340,7 +343,7 @@ export default {
           harmid: harmid,
           type: type
         }
-        this.axios.post('/web/harm/selectLineChart.do', qs.stringify(data)).then((res) => {
+        this.axios.post('/harm/selectLineChart.do', qs.stringify(data)).then((res) => {
         if (res.status ===200) {
            let temp =[] 
            let temp2 =[]
@@ -415,7 +418,7 @@ export default {
         // pid: getUserInfo().cpId
         pid: JSON.stringify(getUserInfo().allPId)
       }
-      this.axios.post('/web/selectDailyLis.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/selectDailyLis.do', qs.stringify(data)).then((res) => {
         if (res.status ===200) {
            this.total = parseInt(res.data.total)
            this.tableData = res.data.list
@@ -436,7 +439,7 @@ export default {
         roleId: getUserInfo().roleId,
         pid: getUserInfo().cpId
       }
-      this.axios.post('/web/selectDailyLis.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/selectDailyLis.do', qs.stringify(data)).then((res) => {
         if (res.status ===200) {
            this.total = parseInt(res.data.total)
            this.tableData = res.data.list
@@ -449,7 +452,7 @@ export default {
       let data ={
         id: this.zonekey
       }
-      this.axios.post('/web/selectDailyHarm.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/selectDailyHarm.do', qs.stringify(data)).then((res) => {
         if (res.status ===200) {
           let data = res.data
           let chemistry  =[] 
@@ -526,7 +529,7 @@ export default {
           physics: physics,
           comId: getUserInfo().comPId
         }
-        this.axios.post('/web/adddhdailyharm.do',qs.stringify(data)).then((res) => {
+        this.axios.post('/adddhdailyharm.do',qs.stringify(data)).then((res) => {
           if (res.data === '添加成功') {
             this.searchList()
             this.isAdd = false
@@ -543,7 +546,7 @@ export default {
         name: ''
       }
       this.loading1 = true
-        this.axios.post('/web/selectsysparm.do', qs.stringify(data))
+        this.axios.post('/selectsysparm.do', qs.stringify(data))
         .then((res) => {
           if (res.status ===200) {
             this.loading1 = false
@@ -574,7 +577,7 @@ export default {
       let data = {
         id: row.dhId
       }
-      this.axios.post('/web/selectbyIdDhDaily.do', qs.stringify(data))
+      this.axios.post('/selectbyIdDhDaily.do', qs.stringify(data))
       .then((res) => {
          if (res.status ===200) {
            this.editForm = res.data.message
@@ -599,7 +602,7 @@ export default {
         chemistry: JSON.stringify(temp1),
         physics: JSON.stringify(temp2)
       }
-      this.axios.post('/web/updateByIdDhDaily.do', qs.stringify(data))
+      this.axios.post('/updateByIdDhDaily.do', qs.stringify(data))
       .then((res) => {
          if (res.data ==='修改成功') {
           this.isEdit = false
@@ -611,7 +614,7 @@ export default {
         })
     },
     delInfo(index,row) {   //删除记录    id
-    this.axios.post('/web/deleteByIdDhDaily.do', qs.stringify({ id: row.dhId}))
+    this.axios.post('/deleteByIdDhDaily.do', qs.stringify({ id: row.dhId}))
       .then((res) => {
          if (res.data === '删除成功') {
           this.sucMsg(res.data)

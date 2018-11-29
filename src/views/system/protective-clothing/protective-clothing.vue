@@ -3,9 +3,9 @@
     <div class="sideMenu">
       <side-menu :slidList="menuList"></side-menu>
     </div>
-     <div class="project-main">
+     <el-card class="project-main">
       <router-view v-if="isRouterAlive"></router-view>
-    </div>
+     </el-card>
   </div>
 </template>
 
@@ -96,5 +96,5 @@ export default {
   height:100%;
   z-index:100;
 }
-.project-main{margin-left:260px;overflow: hidden;border-top: 1px solid #dedede; margin-top: 30px;}
+.project-main{margin-left:250px;overflow: hidden;border-top: 1px solid #dedede; margin-top: 30px;margin-right:20px;}
 </style>

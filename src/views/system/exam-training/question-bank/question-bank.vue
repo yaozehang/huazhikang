@@ -268,7 +268,7 @@ export default {
       this.showFlag = true
     },
     addQuestion() {
-      this.axios.post('/web/train/questions/add.do', qs.stringify(this.editParams))
+      this.axios.post('/train/questions/add.do', qs.stringify(this.editParams))
         .then((res) => {
           if (res.data.status === 1) {
             this.$message({
@@ -307,7 +307,7 @@ export default {
     editQuestion() {
       let data = {}
       Object.assign(data, this.editParams, {queId: this.editId})
-      this.axios.post('/web/train/questions/edit.do', qs.stringify(data))
+      this.axios.post('/train/questions/edit.do', qs.stringify(data))
         .then((res) => {
           if (res.data.status === 1) {
             this.$message({
@@ -366,7 +366,7 @@ export default {
           'Content-Type': 'multpart/form-data'
         }
       }
-      this.axios.post('/web/train/questions/uploadPic.do', formData, config).then((res) => {
+      this.axios.post('/train/questions/uploadPic.do', formData, config).then((res) => {
         if (res.data.status === 1) {
           switch (this.fileType) {
             case 0:

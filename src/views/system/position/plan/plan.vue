@@ -1,5 +1,4 @@
 <template>
-  <el-card>
   <div class="main-content" @click="hideTree($event)">
     <!-- 搜索框 -->
     <ul class="search-container">
@@ -55,7 +54,7 @@
         <el-table-column  prop="idCard" label="身份证号码" width="170px"></el-table-column>
          <el-table-column  prop="position" label="分区"></el-table-column>
         <el-table-column  prop="job" label="工种/职务" width="100px"></el-table-column>
-        <el-table-column  prop="checkDate" label="上次体检时间"></el-table-column>
+        <el-table-column  prop="checkDate" label="上次体检时间" width="110px"></el-table-column>
         <el-table-column  prop="checkType"  label="体检类型"></el-table-column>
         <el-table-column label="体检结论">
           <template slot-scope="scope">
@@ -66,7 +65,7 @@
           <template slot-scope="scope">
             <!-- 0 正常 1 听力 2 粉尘 -->
              <i class="circle bg-0" v-if="scope.row.model.length === 0"></i>
-             <i class="circle" :class="'bg-'+item" v-for="(item,idx) in scope.row.model"></i>
+             <i class="circle" :class="'bg-'+item" v-for="(item,idx) in scope.row.model" v-bind:key="idx"></i>
           </template>
         </el-table-column>
         <el-table-column  prop="" label="预调岗">
@@ -101,7 +100,6 @@
       <get-set :data="itemData" @onConfirm="prePos" @onCancel="cancelPos" v-if="IsPosition"></get-set>
     </el-dialog>
   </div>
-  </el-card>
 </template>
 
 <script>
@@ -241,7 +239,7 @@ export default {
     },
     prePos(data) {
       console.log(data)
-      this.axios.post('/web/preTranPos.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/preTranPos.do', qs.stringify(data)).then((res) => {
         if (res.data === 1) {
           this.$message({
             type: 'success',

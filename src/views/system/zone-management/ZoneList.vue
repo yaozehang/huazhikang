@@ -9,9 +9,12 @@
             </el-form-item>
           </div>
           <div class="search-btns">
-           <span class="save-blue right-30" @click="getListByName" > 查询 </span>
+           <!-- <span class="save-blue right-30" @click="getListByName" > 查询 </span>
           <span class="common-btn green-btn right-30"  @click="selectZone" id="part1" >结构树查询</span>
-          <span class="common-btn orange-btn" @click="isTransfer = true"> 分区迁移 </span>
+          <span class="common-btn orange-btn" @click="isTransfer = true"> 分区迁移 </span> -->
+            <el-button type="primary" @click="getListByName">查询</el-button>
+            <el-button type="success"  @click="selectZone" id="part1" >结构树查询</el-button>
+            <el-button type="warning" @click="isTransfer = true">分区迁移</el-button>
           </div>
         </el-form>
         <!-- 分区树 default-expand-all -->
@@ -24,7 +27,7 @@
       </div>
       </div>
       <div class="zoneList-title border-bottom ">
-        <button class="title-btn">区域列表</button>
+        <el-button class="title-btn" type="text">区域列表</el-button>
       </div>
       <!-- 分区迁移弹出框 -->
        <el-dialog title="分区迁移"  width="1200px" center :visible.sync="isTransfer">

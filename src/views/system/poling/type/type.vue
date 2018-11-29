@@ -7,8 +7,8 @@
         <el-input class="inner-input" v-model="selectParams.type" placeholder="请输入关键字查询" @keyup.native.enter="_getListByType"></el-input>
       </li>
       <li class="btn-container">
-        <el-button type="primary" @click="_getListByType" style="margin-left:90px">查询</el-button>
-        <el-button type="primary" @click="_addNewType" style="margin-left:50px">新增</el-button>
+        <el-button plain @click="_getListByType" style="margin-left:90px">查询</el-button>
+        <el-button plain @click="_addNewType" style="margin-left:50px">新增</el-button>
       </li>
     </ul>
     <!-- 表格标题 -->
@@ -20,7 +20,8 @@
         <el-table-column prop="type" label="巡检类型"></el-table-column>
         <el-table-column label="操作">
         <template slot-scope="scope">
-          <span class="edit-btn" @click="_editType(scope.row)">修改信息</span>
+          <!-- <span class="edit-btn" @click="_editType(scope.row)">修改信息</span> -->
+          <el-button size="mini" type="warning" @click="_editType(scope.row)">修改信息</el-button>
         </template>
       </el-table-column>
       </el-table>
@@ -95,7 +96,7 @@ export default {
       })
     },
     addNewType() {
-      this.axios.post('/web/inspection/addInspectionType.do', qs.stringify({
+      this.axios.post('/inspection/addInspectionType.do', qs.stringify({
         typeName: this.editParams.typeName,
         comPId: getUserInfo().comPId
       }))
@@ -111,7 +112,7 @@ export default {
         })
     },
     editType() {
-      this.axios.post(('/web/inspection/updateInspectionType.do'), qs.stringify({
+      this.axios.post(('/inspection/updateInspectionType.do'), qs.stringify({
         id: this.editParams.id,
         type: this.editParams.typeName,
         comPId: getUserInfo().comPId

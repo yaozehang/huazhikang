@@ -2,8 +2,10 @@
   <div class="main-content">
     <div class="card-container">
     <!-- 搜索框 -->
-    <div class="search-form clearfix">
-    <ul class="search-container blue-check" >
+    <el-row class="search-form clearfix" :gutter="20">
+      <el-col :span="12">
+    <el-card>
+    <ul class="search-container" >
       <li class="input-group">
         <span class="title">姓名</span>
         <el-select placeholder="请选择" v-model="personId" class="inner-input" filterable @change="selectName" :disabled="personOptions.length===1">
@@ -23,7 +25,11 @@
         <el-input class="inner-input" v-model="Info.idCard" readonly></el-input>
       </li>
     </ul>
-      <ul class="search-container blue-check" >
+    </el-card>
+    </el-col>
+    <el-col :span="12">
+      <el-card>
+      <ul class="search-container" >
         <li class="input-group">
           <span class="title">分区</span>
           <el-input class="inner-input" v-model="Info.position" readonly></el-input>
@@ -41,7 +47,9 @@
             <el-input class="inner-input" v-model="Info.result" readonly></el-input>
         </li>
       </ul>
-    </div>
+    </el-card>
+    </el-col>
+    </el-row>
     <el-row class="chart-container">
     	<el-col tag="section" :span="16" class="left-chart">
          <div class="tip" v-show="isObject">观察对象</div>

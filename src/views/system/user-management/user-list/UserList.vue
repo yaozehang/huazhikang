@@ -11,7 +11,8 @@
             <el-input v-model="user.name" style="width: 250px;"></el-input>
           </span>
           <span class="search">
-            <span class="save-blue big-blue"  @click="searchList">查询</span>
+            <!-- <span class="save-blue big-blue"  @click="searchList">查询</span> -->
+            <el-button type="primary" @click="searchList">查询</el-button>
           </span>
         </li>
         <li class="clearfix">
@@ -26,13 +27,13 @@
         </li>  
      </ul>
       <div class="type-list-title border-bottom">
-        <button class="title-btn">用户列表</button>
+        <el-button class="title-btn" type="text">用户列表</el-button>
     </div>
 <!-- userId  2 是公司管理员将 1 普通管理员 3 超级管理员 0 是员工-->
       <div class="list-table" >
       <el-table :data="userData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="700" :row-class-name="tableRowClassName">
         <el-table-column prop="sort" label="序列号" width="100" > </el-table-column>
-        <el-table-column prop="username"  label="用户名"  width="180">  </el-table-column>
+        <el-table-column prop="username"  label="用户名"  width="100">  </el-table-column>
         <el-table-column  prop="loginAccount"  label="登录账号">  </el-table-column>
         <el-table-column  prop="tel"  label="联系电话">  </el-table-column>
         <el-table-column  prop="creater"  label="创建者">  </el-table-column>
@@ -46,15 +47,18 @@
               <span v-if="scope.row.roleId === 0"> 员工</span>
             </template>
          </el-table-column>
-        <el-table-column fixed="right" label="操作">  
+        <el-table-column fixed="right" label="操作" width="200">  
         <template slot-scope="scope">
-          <el-button  type="text" size="primary" @click="editUserInfo(scope.$index, scope.row)">
+          <!-- <el-button  type="text" size="primary" @click="editUserInfo(scope.$index, scope.row)">
             <span class="editUser-span">修改信息</span>
-          </el-button>
-           <el-button  type="text" size="primary" @click="editTable(scope.$index, scope.row)">
-            <a href="#" class="safe " v-if="scope.row.status === 1"> 启用人员</a>
-            <a href="#" class="danger" v-else> 禁用人员</a>
-          </el-button>
+          </el-button> -->
+          <el-button plain size="mini"  @click="editUserInfo(scope.$index, scope.row)">修改信息</el-button>
+           <!-- <el-button  type="text" size="primary" @click="editTable(scope.$index, scope.row)">
+            <a href="#" class="danger" v-if="scope.row.status === 1"> 禁用人员</a>
+            <a href="#" class="safe " > 启用人员</a>
+          </el-button> -->
+          <el-button type="danger" size="mini" @click="editTable(scope.$index, scope.row)" v-if="scope.row.status === 1">禁用人员</el-button>
+          <el-button type="success" size="mini" @click="editTable(scope.$index, scope.row)" v-else>启用人员</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -76,8 +80,6 @@
       </el-dialog>
     </div>
 </div>
-
-  </div>
 </template>
 
 <script>
@@ -170,7 +172,7 @@ export default {
           userId: row.userId,
           status: status
         }
-      this.axios.post('/web/user/ban.do', qs.stringify(data)).then((res) => {
+      this.axios.post('/user/ban.do', qs.stringify(data)).then((res) => {
         if (res.status ===200) {
           if (row.status === 1) {
               this.tipWord = '禁用'
@@ -211,8 +213,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.editUser-span
-  text-decoration underline
+// .editUser-span
+//   text-decoration underline
 </style>
 
 

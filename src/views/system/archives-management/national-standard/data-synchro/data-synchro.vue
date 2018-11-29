@@ -8,7 +8,7 @@
       <span class="fileDate">
         <span style=" margin-right:20px;">历史模板</span>
           <el-select v-model="year" filterable  placeholder="请输入关键词" @change="_getTreeData">
-          <el-option v-for="(item,index) in chooseList" :key="item.year"  :label="item.year" :value="item.year">
+          <el-option v-for="(item,index) in chooseList" v-bind:key="index"  :label="item.year" :value="item.year">
           </el-option>
         </el-select>
       </span>
@@ -20,7 +20,7 @@
       <!-- <div type="primary" class="center-btn" @click="onConfirmPart"> 同步 </div> -->
   </div>
   <div class="list-title-all border-bottom">
-    <button class="title-btn">数据同步</button>
+    <el-button class="title-btn" type="text">数据同步</el-button>
     <el-button class="return" @click="goBack" >返回</el-button>
   </div>
   <div class="data-container clearfix">
@@ -50,7 +50,6 @@
      </div>
   </div>
     </div>
-  </div>
 </template>
 
 <script>

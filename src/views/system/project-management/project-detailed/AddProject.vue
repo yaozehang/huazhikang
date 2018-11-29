@@ -1,7 +1,7 @@
 <template>
 <div class="add-project-management">
   <div class="add-project-title border-bottom">
-    <button class="title-btn">新增明细项目</button>
+    <el-button class="title-btn" type="text">新增明细项目</el-button>
   </div>
   <div class="list-content clearfix">
     <div class="add-form">
@@ -43,7 +43,7 @@
             <table style=" width: 100%;" class="my-table2">
               <tr v-for="(item,index) in detailPrice" :key="index" style=" width: 90%; " track-by="index">
                 <td style=" width: 100%; margin-bottom:20px; height:40px; line-height: 40px;" class="clearfix ">
-                 <input v-model="item.thedetailvalue"  class="detailedName"></input>
+                 <input v-model="item.thedetailvalue"  class="detailedName">
                  <span  class="del-btns-inner" @click="delInner(item,index)">  <i class="el-icon-remove-outline"></i> </span>
                 </td>
               </tr>
@@ -129,7 +129,7 @@ export default {
       let data ={
         diname: this.project.projectName
       }
-       this.axios.post('/web/alphabeticBrevityCode.do', qs.stringify(data))
+       this.axios.post('/alphabeticBrevityCode.do', qs.stringify(data))
         .then((res) => {
             if (res.status ===200) {
               this.project.pinyinCode = res.data
@@ -167,7 +167,7 @@ export default {
     this.$refs[project].validate((valid) => {
       if (valid) {
         this.sucMsg('数据正确')
-        this.axios.post('/web/addDetailProject.do', qs.stringify(data))
+        this.axios.post('/addDetailProject.do', qs.stringify(data))
           .then((res) => {
               if (res.status ===200) {
                 this.sucMsg('提交成功')

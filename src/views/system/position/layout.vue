@@ -3,9 +3,9 @@
   	  <div class="side-menu">
   	  	 <side-menu :slidList="menuList"></side-menu>
       </div>
-  	  <div class="main-container">
+  	  <el-card class="main-container">
   	  	 <router-view></router-view>
-  	  </div>
+  	  </el-card>
   </div>
 </template>
 
@@ -59,7 +59,7 @@ export default {
   height:100%
   z-index:100
 .main-container
-  margin-left:230px
-  padding:20px 30px
+  padding: 0 30px;
+  margin: 20px 30px 20px 250px;
   color:$text-color-main
 </style>

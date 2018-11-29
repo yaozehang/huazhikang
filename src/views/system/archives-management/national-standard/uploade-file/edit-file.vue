@@ -2,7 +2,7 @@
   <!-- 页面样式 -->
   <div class="file-container">
   <div class="list-title-all border-bottom">
-    <button class="title-btn">新建上传</button>
+    <el-button class="title-btn" type="text">新建上传</el-button>
     <el-button class="return" @click="goBack" >返回</el-button>
   </div>
   <div class="file-content clearfix">
@@ -76,7 +76,7 @@
           </li>
         </ul>
         <ul class="data-list">
-          <li class="clearfix" v-for=" (item,indedx) in historyList">
+          <li class="clearfix" v-for=" (item,index) in historyList" :key="index">
             <div class="item-left">
               <span class="item-img">
                 <img src="static/img/word.png" alt="文件夹" v-if="item.status === 2">

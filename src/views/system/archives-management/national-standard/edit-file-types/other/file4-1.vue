@@ -45,7 +45,7 @@
                 <th>删除</th>
               </tr>
             </thead>
-            <tbody v-for="(item,index) in tableData">
+            <tbody v-for="(item,index) in tableData" :key="index">
               <tr>
                 <td :rowspan="item.list.length">{{item.name}}<br><i class="el-icon-circle-plus-outline icon" @click="addLine(item,index)" track-by="index">
                 </i></td>
@@ -55,7 +55,7 @@
                 <td><el-input v-model="item.list[0][3]"></el-input></td>
                 <td><i class="el-icon-remove-outline icon" @click="cutLine(index,item.list)"></i></td>
               </tr>
-              <tr v-for="(row,idx) in item.list" v-if="idx>0" track-by="idx">
+              <tr v-for="(row,idx) in item.list" v-if="idx>0" track-by="idx" :key="idx">
                 <td><el-input v-model="row[0]"></el-input></td>
                 <td><el-input v-model="row[1]"></el-input></td>
                 <td><el-input v-model="row[2]"></el-input></td>
@@ -66,7 +66,6 @@
          </table>
       </div>
     </div>
-    </el-form>
     <div class="btn-container">
        <el-button type="primary" @click="save">保存</el-button>
        <el-button  @click="reset">清空</el-button>
@@ -145,7 +144,7 @@ export default {
         comPId: getUserInfo().comPId
       }
       console.log(data)
-      this.axios.post('/web/recordsEdit/editSpecialOne.do', qs.stringify(data) )
+      this.axios.post('/recordsEdit/editSpecialOne.do', qs.stringify(data) )
       .then((res) => {
         if(res.data === 'success1'){
             this.$message({
