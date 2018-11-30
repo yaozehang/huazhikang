@@ -35,7 +35,7 @@
         <el-button class="title-btn" type="text">护具列表</el-button>
       </div>
       <div class="zonList-table">
-       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600" :default-sort = "{prop: 'pgLoseDays', order: 'descending'}">
+       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%" :default-sort = "{prop: 'pgLoseDays', order: 'descending'}">
         <el-table-column prop="prId"  label="序号"  width="50" > </el-table-column>
         <el-table-column  prop="prProductNumber" label="产品批号" > </el-table-column>
         <el-table-column prop="prProductType" label="产品分类"> </el-table-column>

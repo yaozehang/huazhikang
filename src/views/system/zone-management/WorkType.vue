@@ -26,7 +26,7 @@
     </div> 
     <!-- pid是序号  jid是本身id-->
     <div class="list-table" >
-      <el-table :data="tableData" border stripe  :row-style="rowStyle" :header-cell-style="rowStyle" max-height="700"  :row-class-name="tableRowClassName" center>
+      <el-table :data="tableData" border stripe  :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%"  :row-class-name="tableRowClassName" center>
         <el-table-column prop="pid" label="序列号" width="100" > </el-table-column>
         <el-table-column prop="jid" label="id" width="100" > </el-table-column>
         <el-table-column prop="jobsName"  label="工种名称">  </el-table-column>
@@ -37,9 +37,10 @@
         </template>  </el-table-column>
         <el-table-column fixed="right" label="操作" width="100">  
         <template slot-scope="scope">
-          <span  @click="editTable(scope.$index, scope.row)">
+          <!-- <span  @click="editTable(scope.$index, scope.row)">
             <span class="edit-work"> 修改信息</span>
-          </span>
+          </span> -->
+          <el-button size="mini" plain @click="editTable(scope.$index, scope.row)">修改信息</el-button>
         </template>
       </el-table-column>
     </el-table>

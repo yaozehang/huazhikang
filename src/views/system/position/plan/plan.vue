@@ -47,7 +47,7 @@
         <!-- <li><i class="circle bg-2"></i><span class="text">粉尘风控</span></li> -->
         <li><i class="circle bg-0"></i><span class="text">正常</span></li>
       </ul>
-      <el-table :data="tableData" border style="width: 100%;" max-height="700" stripe >
+      <el-table :data="tableData" border style="width: 100%;" max-height="100%" stripe >
         <el-table-column label="序号" type="index" width="50" ></el-table-column>
         <el-table-column  prop="username" label="姓名"></el-table-column>
         <el-table-column  prop="sex" label="性别" ></el-table-column>

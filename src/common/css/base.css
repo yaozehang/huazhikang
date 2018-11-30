@@ -130,6 +130,9 @@ color: #0074ea;
 .el-table .cell {
   text-align:center;
 }
+.el-table {
+  max-width: 100%;
+}
 .popper__arrow{
   border-bottom-color: #c8cddc!important;
 }

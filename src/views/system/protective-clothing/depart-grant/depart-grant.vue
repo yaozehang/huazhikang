@@ -52,7 +52,7 @@
         <el-button  @click="exportTable" class="export-excel">导出excel</el-button>
       </div>       
       <div class="zonList-table">
-       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600" :default-sort = "{prop: 'dgGrantTime', order: 'descending'}"  @selection-change="handleSelectionChange">
+       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%" :default-sort = "{prop: 'dgGrantTime', order: 'descending'}"  @selection-change="handleSelectionChange">
         <el-table-column prop="dgId"  label="序号"  width="50"  type="selection"> </el-table-column>
         <el-table-column  prop="dgDepartName" label="发放部门" > </el-table-column>
         <el-table-column prop="dgProductType" label="产品分类"> </el-table-column>

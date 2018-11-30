@@ -22,7 +22,7 @@
     <table-title :title="'调岗记录'"></table-title>
     <!-- 表格 -->
     <div class="table-container my-table">
-      <el-table :data="tableData" border  style="width: 100%;" max-height="700" stripe>
+      <el-table :data="tableData" border  style="width: 100%;" max-height="100%" stripe>
         <el-table-column  label="序号" type="index" width="50"> </el-table-column>
         <el-table-column  prop="name"  label="姓名"></el-table-column>
         <el-table-column  prop="idCard"  label="身份证号码" width="170px"></el-table-column>

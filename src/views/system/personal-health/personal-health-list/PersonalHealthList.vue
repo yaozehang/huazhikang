@@ -82,7 +82,7 @@
         <button v-show="role === 1" class="my-downLoade right-30" @click="downFile"> 模板下载</button>
         <button  class="my-downLoade right-30" v-show="role === 1"  @click="importExcle"> 导入EXCEL </button>
       </div> 
-        <el-table :data="testData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="700"  :row-class-name="tableRowClassName">
+        <el-table :data="testData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%"  :row-class-name="tableRowClassName">
         <!-- <el-table-column prop="cpid" label="序号" width="50" > </el-table-column> -->
         <el-table-column prop="crdepartment_id"  label="车间班组"  width="150">  </el-table-column>
         <el-table-column  prop="cpname"  label="姓名">  </el-table-column>

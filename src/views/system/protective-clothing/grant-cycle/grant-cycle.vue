@@ -53,7 +53,7 @@
       </div>
      <!-- pgPersonalId   pgLoseDays 时效天数  pgGrantTime pgId pgGrantNumber gender -->
       <div class="zonList-table">
-       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600" ref="multipleTable1"  @selection-change="handleSelectionChange1" :default-sort = "{prop: 'pgLoseDays', order: 'descending'}">
+       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%" ref="multipleTable1"  @selection-change="handleSelectionChange1" :default-sort = "{prop: 'pgLoseDays', order: 'descending'}">
         <el-table-column prop="gpId"  label=""   type="selection"> </el-table-column>
         <el-table-column prop="gpGetMan"  label="姓名"  width="50" > </el-table-column>
         <el-table-column prop="" label="性别">
@@ -114,7 +114,7 @@
       </div>
       <div class="add-table">   
         <!-- curPosId   id -->
-        <el-table :data="tableData2" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="500" ref="multipleTable"  @selection-change="handleSelectionChange" v-loading="loading">
+        <el-table :data="tableData2" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%" ref="multipleTable"  @selection-change="handleSelectionChange" v-loading="loading">
         <el-table-column prop="pgGetMan"  label=""   type="selection"> </el-table-column>
         <el-table-column prop="pgGetMan"  label="姓名" > </el-table-column>
         <el-table-column  prop="pgGetTel" label="电话" > </el-table-column>

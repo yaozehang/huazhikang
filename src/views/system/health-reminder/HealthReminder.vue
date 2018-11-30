@@ -79,8 +79,8 @@
     </div>
     <div class="my-table">
         <!-- 没用到的 "cwHarmElement":危害因素       "cwUserId":职员id   "cwWarn":提醒类型   "cwWorkType":工种 -->
-      <el-table :data="testData" border stripe style="width: 97%;" :row-style="rowStyle" :header-cell-style="rowStyle"
-       max-height="700"   ref="multipleTable"  @selection-change="handleSelectionChange"
+      <el-table :data="testData"  stripe style="width: 97%;" :row-style="rowStyle" :header-cell-style="rowStyle"
+       max-height="100%"   ref="multipleTable"  @selection-change="handleSelectionChange"
         :default-sort="{prop: ['cwCurrentTime','cwNextTime'],order: 'descending'}" >
         <el-table-column label="序号" width="50"   type="selection"> </el-table-column>
         <el-table-column  label="序号" width="50"   type="index"> </el-table-column>
@@ -91,8 +91,8 @@
         <el-table-column prop="cwDepartment"  label="车间班组" >  </el-table-column>
         <el-table-column  prop="cwHarmElement"  label="危害因素">  </el-table-column> 
         <el-table-column  prop="cwHarmTime"  label="危害工龄">  </el-table-column>
-        <el-table-column  prop="cwCurrentTime"  label="本次体检时间" sortable>  </el-table-column>
-        <el-table-column  prop="cwNextTime"  label="下次体检时间"  sortable>  </el-table-column>
+        <el-table-column  prop="cwCurrentTime"  label="本次体检时间" sortable width="140">  </el-table-column>
+        <el-table-column  prop="cwNextTime"  label="下次体检时间"  sortable width="140">  </el-table-column>
         <el-table-column  prop="cwPeriod"  label="体检周期">  </el-table-column>
         <el-table-column  prop="cwWarn"  label="提醒">  </el-table-column>
         <el-table-column  prop="cwConclusion" label="上次体检结论"> </el-table-column>

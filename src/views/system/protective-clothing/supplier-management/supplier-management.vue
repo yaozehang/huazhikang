@@ -30,7 +30,7 @@
         <el-button class="title-btn" type="text">供应商列表</el-button>
       </div>
       <div class="zonList-table">  <!-- spPyCode  spDescribe -->
-       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600">
+       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%">
         <!-- <el-table-column prop="spId"  label="序号"  width="50" > </el-table-column> -->
         <el-table-column  prop="spName" label="供应商名称" > </el-table-column>
          <el-table-column prop="spLinkman" label="联系人"> </el-table-column>

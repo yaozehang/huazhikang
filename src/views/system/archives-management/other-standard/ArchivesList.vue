@@ -36,7 +36,7 @@
 <!--     :date:"2018-05-17"id:1name:""note:""path:"F:\HYS_TEST\hzk\web\WEB-INF\file\otherRecords\2018-05-17"
 sort:1title:"档案编写表单内容.docx"type:"测试" -->
       <div class="list-table" >
-      <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="700" :row-class-name="tableRowClassName">
+      <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%" :row-class-name="tableRowClassName">
         <el-table-column prop="sort" label="序列号" width="100" > </el-table-column>
         <el-table-column prop="title"  label="标题"  width="180">  </el-table-column>
         <el-table-column  prop="type"  label="类型">  </el-table-column>

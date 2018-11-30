@@ -59,7 +59,7 @@
       </div>
      <!-- pgPersonalId   pgLoseDays 时效天数  pgId -->
       <div class="zonList-table">
-       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600"  :default-sort = "{prop: 'pgGrantTime', order: 'descending'}" @selection-change="SelectionChange">
+       <el-table :data="tableData"  stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%"  :default-sort = "{prop: 'pgGrantTime', order: 'descending'}" @selection-change="SelectionChange">
         <el-table-column prop="pgId"  label="序号"  width="50" type="selection"> </el-table-column>
         <el-table-column prop="pgProductType" label="产品分类"> </el-table-column>
         <el-table-column  prop="pgProductName" label="护具名称"> </el-table-column>
@@ -112,7 +112,7 @@
       </div>
       <div class="add-table">   
         <!-- curPosId   id -->
-        <el-table :data="tableData2" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="500" ref="multipleTable"  @selection-change="handleSelectionChange" v-loading="loading">
+        <el-table :data="tableData2" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%" ref="multipleTable"  @selection-change="handleSelectionChange" v-loading="loading">
         <el-table-column prop="pgGetMan"  label=""   type="selection"> </el-table-column>
         <el-table-column prop="pgGetMan"  label="姓名" > </el-table-column>
         <el-table-column  prop="pgGetTel" label="电话" > </el-table-column>

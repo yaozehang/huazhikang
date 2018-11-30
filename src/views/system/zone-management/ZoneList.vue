@@ -36,7 +36,7 @@
     <!-- 分区迁移弹出框-->
         <!-- pid是序号  id是本身id-->
       <div class="zonList-table">
-       <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="700" :row-class-name="tableRowClassName">
+       <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%" :row-class-name="tableRowClassName">
         <el-table-column prop="pid" label="序号"   > </el-table-column>
          <el-table-column prop="id" label="id"   > </el-table-column>
         <el-table-column  prop="name" label="分区名称" >  </el-table-column>
@@ -44,7 +44,8 @@
         <el-table-column  prop="node" label="分区备注"> </el-table-column>
          <el-table-column  label="修改" >
             <template slot-scope="scope">
-              <span class="edit-zone" @click="editTable(scope.$index, scope.row)"> 修改分区</span>
+              <!-- <span class="edit-zone" @click="editTable(scope.$index, scope.row)"> 修改分区</span> -->
+              <el-button size="mini" plain  @click="editTable(scope.$index, scope.row)">修改分区</el-button>
             </template>
           </el-table-column>
     </el-table>

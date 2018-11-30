@@ -43,7 +43,7 @@
           </el-pagination>
       </div>
     </div>
-    <div class="table-container right my-table" style="width:44%;max-height:680px;overflow-y:auto">
+    <div class="table-container right my-table" style="width:44%;max-height:100%;overflow-y:auto">
       <div class="table-head" v-html="headTitle" @click="showAll"></div>
       <table width="100%" v-show="infoType===0">
         <tr>

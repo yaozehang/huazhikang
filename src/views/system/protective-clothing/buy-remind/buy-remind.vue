@@ -27,7 +27,7 @@
         <el-button class="title-btn" type="text">护具使用情况</el-button>
       </div>
       <div class="zonList-table">
-       <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="600">
+       <el-table :data="tableData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%">
         <el-table-column type="expand">
           <template slot-scope="props">
             <el-table :data="props.row.child" stripe border style="width: 100%"  :row-style="rowStyle" :header-cell-style="rowStyle">

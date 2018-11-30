@@ -32,7 +32,7 @@
         <el-button class="title-btn" type="text">登录列表</el-button>
     </div>
       <div class="list-table" >
-      <el-table :data="userData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="700" :row-class-name="tableRowClassName">
+      <el-table :data="userData" border stripe style="width: 100%;" :row-style="rowStyle" :header-cell-style="rowStyle" max-height="100%" :row-class-name="tableRowClassName">
         <el-table-column prop="sort" label="序列号" width="100" > </el-table-column>
         <el-table-column  prop="username"  label="登录账号">  </el-table-column>
         <el-table-column  prop="date"  label="时间">  </el-table-column>
