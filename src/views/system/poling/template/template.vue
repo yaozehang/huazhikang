@@ -99,6 +99,8 @@
         <section class="template-content">
           <ul>
             <li v-for="(item,idx) in template.list" :key="item.uid">
+              <p v-if="item.type == 2">单选</p>
+              <p v-if="item.type == 3">多选</p>
               <el-checkbox v-model="item.required" :disabled="item.type === 1">必填项</el-checkbox>
                <template-item :type="item.type" :index="index" :idx="idx" @handleDefault="handleDefault" @handleDel="handleDel" :defaultData="item.default"></template-item>
             </li>
@@ -310,7 +312,39 @@ export default {
       this.editParams.typeName = ''
       this.editParams.title = ''
       this.editParams.content = ''
-      this.templateList = []
+      this.templateList = [
+        {
+          title: '',
+          typeId: '',   //巡检类型
+          typeName: '',  //巡检类型对应的名字
+          list: [
+            {
+              uid: Math.random(),
+              type: parseInt(1),
+              default: [],
+              required: true,
+            },
+            {
+              uid: Math.random(),
+              type: parseInt(2),
+              default: [],
+              required: true,
+            },
+            {
+              uid: Math.random(),
+              type: parseInt(3),
+              default: [],
+              required: true,
+            },
+            {
+              uid: Math.random(),
+              type: parseInt(5),
+              default: [],
+              required: true,
+            },
+          ]
+        }
+      ]
       this.editParams.templateType = 1
       this.editParams.type = 0
       this.showFlag = !this.showFlag
@@ -352,7 +386,32 @@ export default {
           title: '',
           typeId: '',   //巡检类型
           typeName: '',  //巡检类型对应的名字
-          list: []
+          list: [
+            {
+              uid: Math.random(),
+              type: parseInt(1),
+              default: [],
+              required: true,
+            },
+            {
+              uid: Math.random(),
+              type: parseInt(2),
+              default: [],
+              required: true,
+            },
+            {
+              uid: Math.random(),
+              type: parseInt(3),
+              default: [],
+              required: true,
+            },
+            {
+              uid: Math.random(),
+              type: parseInt(5),
+              default: [],
+              required: true,
+            },
+          ]
         })
       }
     },
@@ -363,6 +422,7 @@ export default {
       this.showIndex = this.showIndex===index ? -1 : index
     },
     selectItem(e,index) {
+      console.log(e.target.dataset.type);
       this.templateList[index].list.push({
         uid: Math.random(),
         type: parseInt(e.target.dataset.type),
@@ -499,7 +559,7 @@ export default {
           line-height:20px
           padding:10px
           margin-bottom:10px
-          background-color:#e6e6e6
+          background-color:#f1f1f1
           border-radius(5px)
 </style>
 <style scoped>
