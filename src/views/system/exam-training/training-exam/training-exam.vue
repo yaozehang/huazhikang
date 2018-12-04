@@ -51,7 +51,8 @@
         <el-table-column prop="quaRate" label="合格率"></el-table-column>
         <el-table-column label="状态/操作" width="200">
           <template slot-scope="scope">
-            <p class="edit-btn" v-html="examStatus(scope.row.status)" @click="changeStatus(scope.row)"></p>
+            <!-- <p class="edit-btn" v-html="examStatus(scope.row.status)" @click="changeStatus(scope.row)"></p> -->
+            <el-button size="mini" plain  @click="changeStatus(scope.row)">开始考试</el-button>
           </template>
       </el-table-column>
       </el-table>

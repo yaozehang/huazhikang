@@ -49,7 +49,8 @@
         </el-table-column>
         <el-table-column label="操作组卷" width="200">
         <template slot-scope="scope">
-          <p class="edit-btn" @click="_editPaper(scope.row.id)">编辑组卷</p>
+          <!-- <p class="edit-btn" @click="_editPaper(scope.row.id)">编辑组卷</p> -->
+          <el-button size="mini" plain @click="_editPaper(scope.row.id)" >编辑组卷</el-button>
         </template>
       </el-table-column>
       </el-table>

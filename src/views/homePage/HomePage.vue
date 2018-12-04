@@ -11,6 +11,11 @@
       <div class="menu-container" :style="{backgroundImage:'url(static/img/home-bg.png)'}">
         <div class="menu-content">
           <home-menu :menuList="menuList"></home-menu>
+              <div class="new-menu">
+                <router-link :to="{path:'/wrap/test'}">
+                  <img  src="static/img/10.png" alt="" class="logo-img">
+                </router-link>
+              </div>
          </div>
       </div>
   <!--   <div class="my-notification" v-if="roleId !==3">
@@ -215,5 +220,12 @@ text-indent: 10px;
 }
 .warm-num{
   color: #f27b02;
+}
+
+.new-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
 }
 </style>

@@ -13,7 +13,7 @@
         <el-date-picker v-model="selectParams.date" type="date" placeholder="选择日期" class="inner-input" :editable="false" value-format="yyyy-MM-dd"></el-date-picker>
         <el-button type="primary" @click="_getAnalysisList">查询培训</el-button>
       </li>
-      <el-button type="primary" plain class="import-btn" @click="importExcel">一键导出</el-button>
+      <el-button type="primary"  class="import-btn" @click="importExcel">一键导出</el-button>
     </ul>
     <!-- 表格标题 -->
     <table-title :title="'考试列表'"></table-title>
@@ -28,8 +28,10 @@
         <el-table-column prop="rate"  label="合格率"></el-table-column>
         <el-table-column label="状态/操作" width="200">
           <template slot-scope="scope">
-            <span class="edit-btn" @click="showInfo(scope.row.examId,0)">查看错题&nbsp;&nbsp;</span>|
-            <span class="edit-btn" @click="showInfo(scope.row.examId,1)">&nbsp;&nbsp;查看考生</span>
+            <!-- <span class="edit-btn" @click="showInfo(scope.row.examId,0)">查看错题&nbsp;&nbsp;</span>| -->
+            <!-- <span class="edit-btn" @click="showInfo(scope.row.examId,1)">&nbsp;&nbsp;查看考生</span> -->
+            <el-button size="mini" @click="showInfo(scope.row.examId,0)">查看错题</el-button>
+            <el-button size="mini" @click="showInfo(scope.row.examId,1)">查看考生</el-button>
           </template>
       </el-table-column>
       </el-table>
@@ -73,7 +75,8 @@
           <td>{{item.idCard}}</td>
           <td>{{item.tel}}</td>
           <td>{{item.score}}</td>
-          <td style="text-decoration:underline;cursor:pointer" @click="showDetail(item.id)">查看详情</td>
+          <!-- <td style="text-decoration:underline;cursor:pointer" @click="showDetail(item.id)">查看详情</td> -->
+          <td><el-button @click="showDetail(item.id)">查看详情</el-button></td>
         </tr>
       </table>
     </div>

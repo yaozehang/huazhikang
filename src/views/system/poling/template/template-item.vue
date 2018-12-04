@@ -1,22 +1,22 @@
 <template>
   <div>
   	 <!-- 文本   任务说明-->
-  	 <div v-show="type===1">
+  	 <div v-show="type===1" class="content">
       <span class="title">说明</span>
-  	   <input type="text" data-type="word" v-model="defaultData" @change="onChange($event)" placeholder="任务说明"><i class="el-icon-circle-close-outline icon" @click="delItem"></i>
+  	   <el-input type="text" data-type="word" v-model="defaultData" @change="onChange($event)" placeholder="任务说明" style="width:420px;"></el-input><i class="el-icon-circle-close-outline icon" @click="delItem"></i>
   	 </div>
   	 <!-- 单选 -->
-  	 <div v-show="type===2">
+  	 <div v-show="type===2" class="content">
         <div class="radio-group" v-for="(item,idx) in list" :key="idx">
-  	 	    <input type="radio" name=""><input type="text" placeholder="请编辑选项" style="width:100px" v-model="list[idx]" @change="onChange"><i class="el-icon-remove-outline icon" @click="delRadio(idx)"></i>
+  	 	    <input  type="radio" name=""><el-input type="text" placeholder="请编辑选项" style="width:170px" v-model="list[idx]" @change="onChange"></el-input><i class="el-icon-remove-outline icon" @click="delRadio(idx)"></i>
         </div>
         <i class="icon el-icon-circle-plus-outline" @click="addRadio"></i>
         <i class="el-icon-circle-close-outline icon" @click="delItem"></i>
   	 </div>
   	 <!-- 复选 多选-->
-  	 <div v-show="type===3">
+  	 <div v-show="type===3" class="content">
         <div class="radio-group" v-for="(item,idx) in list" :key="idx">
-  	 	    <input type="checkbox"><input type="text" v-model="list[idx]" @change="onChange" placeholder="请编辑选项" style="width:100px" ><i class="el-icon-remove-outline icon" @click="delRadio(idx)"></i>
+  	 	    <input  type="checkbox"> <el-input type="text" v-model="list[idx]" @change="onChange" placeholder="请编辑选项" style="width:165px" ></el-input><i class="el-icon-remove-outline icon" @click="delRadio(idx)"></i>
         </div>
         <i class="icon el-icon-circle-plus-outline" @click="addRadio"></i>
         <i class="el-icon-circle-close-outline icon" @click="delItem"></i>
@@ -26,9 +26,9 @@
        <input type="text" v-model="defaultData" @change="onChange($event)" placeholder="请输入输入框默认文字"><i class="el-icon-circle-close-outline icon" @click="delItem"></i>
      </div> -->
      <!-- 文本域 备注 -->
-     <div v-show="type==5">
+     <div v-show="type==5" class="content">
       <span class="title-s">备注</span>
-      <textarea name="" v-model="defaultData" id="" @change="onChange($event)" rows="3" placeholder="备注"></textarea><i class="el-icon-circle-close-outline icon" @click="delItem"></i>
+      <el-input type="textarea" name="" v-model="defaultData" id="" @change="onChange($event)" rows="3" placeholder="备注" style= "width:420px;"></el-input><i class="el-icon-circle-close-outline icon" @click="delItem"></i>
      </div>
   </div>
 </template>
@@ -115,7 +115,7 @@ input[type=radio],input[type=checkbox]
   cursor:pointer
 .radio-group
   position:relative
-  width:135px
+  width:200px
   display:inline-block
   .icon
     position:absolute
@@ -126,7 +126,7 @@ input[type=radio],input[type=checkbox]
   .title
     display:inline-block
     text-align:left
-    margin-right:20px
+    margin-right:10px
     font-size:$font-size-medium-x
 </style>
 <style lang="css" scoped>
@@ -139,5 +139,8 @@ input[type=radio],input[type=checkbox]
   display: inline-block;
    margin-right:20px;
    margin-top: 20px;
+}
+.content {
+  padding: 10px 0;
 }
 </style>

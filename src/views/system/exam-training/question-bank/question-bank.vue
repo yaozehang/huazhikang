@@ -38,7 +38,8 @@
         </el-table-column>
         <el-table-column fixed="right" label="编辑试题" width="200">
         <template slot-scope="scope">
-          <p class="edit-btn" @click="_editQustion(scope.row)">编辑试题</p>
+          <!-- <p class="edit-btn" @click="_editQustion(scope.row)">编辑试题</p> -->
+          <el-button plain size="mini" @click="_editQustion(scope.row)" >编辑试题</el-button>
         </template>
       </el-table-column>
       </el-table>

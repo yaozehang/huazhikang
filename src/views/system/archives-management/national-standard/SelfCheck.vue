@@ -102,7 +102,7 @@
      </el-table>
       <div class="add-type" >
         <el-button type="button"   class="add-type-btn" @click="addTypeOne()">
-            <i class="el-icon-circle-plus-outline"> </i>
+            + 新增文件类型
         </el-button>
      </div>
     </div>
@@ -128,14 +128,14 @@
     <!-- 编辑弹出框 结束-->
     <!-- 新增类型弹出框 -->
      <el-dialog title="新增文件类型"  width="400px" center :visible.sync="IsAddType2">
-        <el-form  label-width="80px" :model="addForm" :rules="rules" ref="addForm">
-          <el-form-item label="文件类型" class="" required>
+        <el-form  label-width="120px" :model="addForm" :rules="rules" ref="addForm">
+          <el-form-item label="文件类型" class="" required >
             <el-input v-model="addForm.fileType"   auto-complete="off" style="width:80%;"></el-input>
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer my-footer-bths" >
           <el-button type="primary" @click="comfirmAddType(addForm)">确 定</el-button>
-          <el-button>取 消</el-button>
+          <el-button @click="addTypeOne">取 消</el-button>
         </div>
       </el-dialog>
   <!-- 新增类型弹出框结束-->

@@ -29,7 +29,8 @@
         </el-table-column>
         <el-table-column label="操作">
         <template slot-scope="scope">
-            <p class="edit-btn" @click="_editTheme(scope.row)">修改信息</p>
+            <!-- <p class="edit-btn" @click="_editTheme(scope.row)">修改信息</p> -->
+            <el-button size="mini" plain @click="_editTheme(scope.row)">修改信息</el-button>
         </template>
       </el-table-column>
       </el-table>

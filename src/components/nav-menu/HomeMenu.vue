@@ -6,7 +6,7 @@
         <!-- <i class="el-icon-document my-icon" ></i> -->
         <img :src="iconImg" alt="华职康健康科技" class="my-icon">
          <span>功能模块</span></p>
-      <router-link tag="li" class="menu-list" v-for="(item,idx) in col" :key="item.id"
+      <router-link tag="li" class="menu-list" v-for="(item,idx) in col" :key="idx"
        :to="{path:item.path,query: {menuId: item.id,name:item.name}}" @click.native="setPath(item)">
         <img :src="item.logo" alt=""  class="logo-img">
      <!--    <p class="title" @click="linkTo(item.path)">{{item.name}} </p> -->

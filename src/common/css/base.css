@@ -47,7 +47,7 @@ input {font-family: "微软雅黑";}
 }
 .list-title{  line-height: 50px; color: #fff; padding-left: 10px; background: #4d9bf3; font-size: 16px; }
 .border-bottom{
-  border-bottom: 1px solid #004a9d; margin-bottom: 5px; margin-top: 10px; width: 100%;
+  border-bottom: 1px solid #004a9d; margin-bottom: 15px; margin-top: 10px; width: 100%;
 }
 .title-btn{ 
 color: #00a1d6;
@@ -58,7 +58,7 @@ line-height: 60px;
 width: 250px;
 border: none;
 outline: none;
-text-align: center;
+text-align: left;
 /* background-color: #0074ea; */
 /* background: url('../../../static/imgs/list-bg.png'); */
 /* background-size: 100% 100%; */

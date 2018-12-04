@@ -49,14 +49,14 @@
     <el-dialog  class="dialog-form" :title="editParams.type===0?'新增模板':'编辑模板'" width="880px" :visible.sync="showFlag"
     :closeOnClickModal ="false">
       <el-row>
-        <el-col tag="ul" :span="15" class="input-container">
+        <el-col tag="ul" :span="17" class="input-container">
           <li class="input-group">
             <span class="title">巡检标题</span>
-            <el-input class="inner-input" v-model="editParams.title"></el-input>
+            <el-input class="inner-input" v-model="editParams.title" style="width:420px;"></el-input>
           </li>
           <li class="input-group">
             <span class="title title-dm">巡检内容</span>
-            <el-input class="inner-input" type="textarea" :rows="5" v-model="editParams.content"></el-input>
+            <el-input class="inner-input" type="textarea" :rows="5" v-model="editParams.content" style="width:420px;"></el-input>
           </li>
           <li class="input-group">
             <span class="title">模板类型</span>
@@ -78,7 +78,7 @@
           </span>
            <span class="input-group">
             <!-- getTypename -->
-            <span class="title">巡检类型</span>
+            <span class="title" style="text-align:right;">巡检类型</span>
             <el-select class="inner-input" v-model="template.typeId" placeholder="请选择">
               <el-option v-for="item in typeOption1" :key="item.id" :label="item.insTypeName" :value="item.id"></el-option>
          </el-select>
@@ -99,9 +99,9 @@
         <section class="template-content">
           <ul>
             <li v-for="(item,idx) in template.list" :key="item.uid">
-              <p v-if="item.type == 2">单选</p>
-              <p v-if="item.type == 3">多选</p>
               <el-checkbox v-model="item.required" :disabled="item.type === 1">必填项</el-checkbox>
+              <p v-if="item.type == 2" style="padding-top:10px;">单选</p>
+              <p v-if="item.type == 3" style="padding-top:10px;">多选</p>
                <template-item :type="item.type" :index="index" :idx="idx" @handleDefault="handleDefault" @handleDel="handleDel" :defaultData="item.default"></template-item>
             </li>
           </ul>
@@ -492,7 +492,7 @@ export default {
     margin-top:30px
   .dialog-form
     ul.input-container
-      padding:0 80px
+      padding-left:70px
     .input-group
       margin-bottom:20px
     .input-group .title
@@ -521,8 +521,8 @@ export default {
       .template-head
         position:relative
         height: 40px
-        padding:5px
-        background-color:$color-background-blue
+        padding:10px
+        background-color:$F8F8F8
         input
           display:inline-block
           width:150px
@@ -559,7 +559,7 @@ export default {
           line-height:20px
           padding:10px
           margin-bottom:10px
-          background-color:#f1f1f1
+          background-color:#f8f8f8
           border-radius(5px)
 </style>
 <style scoped>

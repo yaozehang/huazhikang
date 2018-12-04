@@ -97,6 +97,7 @@ export default {
       menuId: data.id,
       userId: this.userId,
     }
+    console.log({param});
    },
   //获取二级菜单
   _getSubmenu() {
