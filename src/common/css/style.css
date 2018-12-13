@@ -10,9 +10,9 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video,input,p{ margin: 0; padding: 0;font-size: 12px;font-family: "Î¢ÈíÑÅºÚ", "microsoft yahei"}
+time, mark, audio, video,input,p{ margin: 0; padding: 0;font-size: 12px;font-family: "Î¢ï¿½ï¿½ï¿½Åºï¿½", "microsoft yahei"}
 ul,li{list-style-type: none}
-/*×¢²á*/
+/*×¢ï¿½ï¿½*/
 .re-register{width: 100%;background-color: #efefef!important;}
 .re-header, .re-content, .re-footer,.re-h-content{width: 1180px;margin: auto}
 .re-header{width: 100%;background-color:#fff;height:97px;border-bottom: 1px solid #e4e4e4}
@@ -48,7 +48,7 @@ ul,li{list-style-type: none}
 .re-footer{
 ;width: 100%;border-top: 1px solid #e4e4e4;padding-top: 20px;text-align: center;background-color: #fff}
 .re-footer p{color: #646464}
-/*µÇÂ¼*/
+/*ï¿½ï¿½Â¼*/
 .login-content{ height: 526px; background: url("../login_bg.jpg")no-repeat  center; position: relative; }
 .login-main{width: 1180px;margin: auto;overflow: hidden}
 .login-main .login-main-right{float: right;margin-right: 115px;background-color: #fff;width: 378px;border-radius: 5px;height: 400px;margin-top: 64px}

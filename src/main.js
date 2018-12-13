@@ -27,7 +27,7 @@ Vue.config.productionTip = false
 // axios.defaults.baseURL = 'http://192.168.50.211:8080'   //211
 // axios.defaults.baseURL = '/api'
 	// axios.defaults.baseURL = 'http://localhost:8080/'
-	axios.defaults.baseURL = 'http://192.168.1.2:8080/'
+	axios.defaults.baseURL = 'http://192.168.5.129:8080/'
 // 打包之前线上地址
 axios.defaults.timeout = 20000
 axios.defaults.headers = {

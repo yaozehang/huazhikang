@@ -6,7 +6,8 @@ Vue.use(VueRouter);
 // const AddPersonalHealth = resolve =>  require([''],resolve)
 const Wrap = resolve => require(["@/views/system/index/Wrap.vue"], resolve);
 const HomePage = resolve => require(["@/views/homePage/HomePage.vue"], resolve);
-const Login = resolve => require(["@/views/login/login.vue"], resolve);
+// const Login = resolve => require(["@/views/login/login.vue"], resolve);
+const Login = resolve => require(["@/views/login/loginNew.vue"], resolve);
 const DataBoard = resolve =>
   require(["@/views/data-board/data-board.vue"], resolve); //数据看板
 const PrintTask = resolve =>

@@ -23,7 +23,7 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    host: 'localhost',
+    host: '192.168.5.109',
     port: process.env.PORT || 3000,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
@@ -32,7 +32,7 @@ module.exports = {
       '/api': { //将localhost:8080印射为/api
 			// target:'http://localhost:8080',// 接口域名
           //target:'http://47.92.26.132:8080',
-          target:'http://192.168.1.2:8080', 
+          target:'http://192.168.5.129:8080', 
           // target:'http://120.78.185.196:8080',   //120/
           // target:'http://192.168.50.211:8080',   //211
           changeOrigin:true, //是否跨域

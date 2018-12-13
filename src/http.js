@@ -15,7 +15,7 @@ import router from './router/index.js'
 axios.defaults.timeout = 9999999999999999; //请求超时设置
 // http://192.168.1.107:8080
 //let  baseUrl = 'http://192.168.1.107:8080/web';
-let  baseUrl = 'http://192.168.1.2:8080/';
+let  baseUrl = 'http://192.168.5.129:8080/';
 axios.defaults.baseURL = baseUrl;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
