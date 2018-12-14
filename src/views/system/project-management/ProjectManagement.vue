@@ -1,5 +1,5 @@
 <template>
-  <div  class="project-container clearfix">
+  <div  class="content-container clearfix">
     <div class="sideMenu">
       <side-menu :slidList="slidList"></side-menu>
     </div>
@@ -87,8 +87,8 @@ export default {
 <style lang="css" scoped>
 .Project-container{left: 0; width: 100%; overflow: hidden;position: relative;display: block;}
 .sideMenu{  
-  position:fixed;
-  top:60px;
+  position:absolute;
+  top:0;
   left:0;
   width:220px;
   background-color: #20222A;
@@ -96,4 +96,14 @@ export default {
   z-index:100;
 }
 .project-main{margin-left:260px;overflow: hidden;border-top: 1px solid #dedede; }
+</style>
+<style>
+  .content-container {
+    left: 0;
+    width: 100%;
+    min-height: calc(100vh - 77px);
+    overflow: hidden;
+    position: relative;
+    display: block;
+  }
 </style>

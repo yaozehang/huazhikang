@@ -1,7 +1,7 @@
 <template>
   <div class="data-board">
     <div class="my-header">
-      <my-header></my-header>
+      <my-header :list="list"></my-header>
     </div>
     <div class="data-container clearfix">
       <div class="left-container">
@@ -237,11 +237,13 @@ export default {
       cpId : getUserInfo().cpId,
       hazard: {
         harmType: 1,
-      }
+      },
+      list:[]
     };
   },
   created() {
     this.lawList2 = this.fomater(this.lawList)
+    this._getList()
   },
   mounted() { 
     this._getExamData()
@@ -252,6 +254,19 @@ export default {
     this._getDangerData()
   },
   methods:{
+    _getList() {
+      let ret = []
+      let menulist = JSON.parse(decodeURIComponent(sessionStorage.getItem('menu')))
+      menulist.forEach((item, idx) => {
+        ret.push({
+          id: item.menuid,
+          name: item.menuname,
+          logo: item.image,
+          path: item.url
+        })
+      })
+      this.list = ret
+    },
     fomater(arr){
       let len  = arr.length-1
       let result = []
@@ -476,7 +491,10 @@ color: #fff!important;
 </style>
 <style lang="css" scoped>
 .data-board{
+  min-width: 1900px;
   width: 100%;
+  min-height: 1100px;
+  height: 100vh;
   background: #020e1f;
 }
 .my-header{

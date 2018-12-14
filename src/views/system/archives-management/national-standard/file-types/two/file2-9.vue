@@ -22,7 +22,7 @@
           <el-input v-model="form[4]" placeholder="" class="inner-input"></el-input>
         </el-form-item>
         <el-form-item label="检查日期">
-          <el-date-picker v-model="form[5]" type="date"class="inner-input"  value-format="yyyy-MM-dd" placeholder="选择日期"> </el-date-picker>
+          <el-date-picker v-model="form[5]" type="date" class="inner-input"  value-format="yyyy-MM-dd" placeholder="选择日期"> </el-date-picker>
         </el-form-item>
         <p class="findQusetion">
           <span class="qusetionTitle">发现主要存在的问题（主要内容摘录）</span>
@@ -46,7 +46,7 @@
           <p class="findQusetion">
             <span class="qusetionTitle">用人单位领导审批意见 </span>
              <el-form-item label="日期" label-width="300px">
-              <el-date-picker v-model="form[9]" type="date"  class="inner-input"value-format="yyyy-MM-dd"  placeholder="选择日期"> </el-date-picker>
+              <el-date-picker v-model="form[9]" type="date"  class="inner-input" value-format="yyyy-MM-dd"  placeholder="选择日期"> </el-date-picker>
              </el-form-item>
           </p>
           <el-form-item label=""  >
@@ -60,7 +60,7 @@
           <el-input v-model="form[12]" placeholder="" class="inner-input"></el-input>
         </el-form-item>
         <el-form-item label="编制日期">
-          <el-date-picker v-model="form[13]" type="date" value-format="yyyy-MM-dd"class="inner-input"  placeholder="选择日期"> </el-date-picker>
+          <el-date-picker v-model="form[13]" type="date" value-format="yyyy-MM-dd" class="inner-input"  placeholder="选择日期"> </el-date-picker>
         </el-form-item>
     </el-form>
   </div>

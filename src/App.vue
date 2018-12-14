@@ -42,7 +42,7 @@ methods:{
   isTab(){
     if(this.$route.path === '/login'||this.$route.path==='/gameHall'||this.$route.path==='/car'||this.$route.path==='/par'){
        this.isShow = false
-    }else if(this.$route.path === '/homePage'||this.$route.path==='/homePage:uesrId'){
+    }else if(this.$route.path === '/board'||this.$route.path==='/board:uesrId'){
       this.isShow = true
     }else{
       this.isShow = true

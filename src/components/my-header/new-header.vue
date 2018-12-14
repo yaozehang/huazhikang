@@ -99,7 +99,7 @@ export default{
         this.$emit('removeTab',index,List)
       },
       goHome() {
-        this.$router.push({path:'/homePage'})
+        this.$router.push({path:'/board'})
       },
       logOut(){
          localStorage.removeItem('userInfo.username')
@@ -119,7 +119,7 @@ export default{
         this.editPsw = !this.editPsw
       },
       viewRoute(){
-        if(this.$route.fullPath === '/homePage' || this.$route.fullPath === '/login') {
+        if(this.$route.fullPath === '/board' || this.$route.fullPath === '/login') {
           this.notHome = false
         }
       }
@@ -142,9 +142,8 @@ export default{
  }
 .logo {width: 220px; height: 60px;float: left;background-color: #20222A;}
 .logo img {
-margin-top: 0px;
- width: 100%;
-height: 100%;}
+margin-top: 10px;
+margin-left: 10px;}
 .home-btn{  width: 30px; height: 30px;float: left;margin-left: 58px;margin-right: 5px;}
 .home-btn img {margin-top: 15px;width: 20px;height: 20px;}
 .head-btn-list {float: right; color: #fff;overflow: hidden; width: 250px;}

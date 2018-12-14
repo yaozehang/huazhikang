@@ -156,7 +156,7 @@ export default{
     },
     methods: {
       goHome() {
-        this.$router.push({path:'/homePage'})
+        this.$router.push({path:'/board'})
       },
       showBoard(){
         this.$router.push({path:'/board'})
@@ -247,7 +247,7 @@ export default{
         this.editPsw = !this.editPsw
       },
       viewRoute(){
-        if(this.$route.fullPath === '/homePage' || this.$route.fullPath === '/login') {
+        if(this.$route.fullPath === '/board' || this.$route.fullPath === '/login') {
           this.notHome = false
         }
       }
@@ -301,9 +301,8 @@ cursor: pointer;
  }
 .logo {width: 220px; height: 60px;float: left;background-color: #20222A;}
 .logo img {
-margin-top: 0px;
- width: 100%;
-height: 100%;}
+margin-top: 10px;
+margin-left: 10px;}
 .head-btn-list {float: right; color: #fff;overflow: hidden; width: 250px; height: 60px;}
 .head-btn-list li {float: left;margin-right: 30px;white-space: nowrap;color: #fff;line-height: 60px;cursor: pointer;}
 .head-btn-list li:first-child{ margin-right: 0px!important; }

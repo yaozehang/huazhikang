@@ -73,10 +73,9 @@ export default {
   width: 100%;
   overflow: hidden;
   display: block;
-  margin-top: 30px;
   .sideMenu{
-    position:fixed;
-    top:60px;
+    position:absolute;
+    top:0;
     left:0;
     width:220px;
     background-color: #20222A;

@@ -19,7 +19,7 @@
     "element-ui": "^2.4.11",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.11.0",
     "qrcode": "^1.2.0",
     "qs": "^6.5.1",
     "sass-loader": "^7.1.0",

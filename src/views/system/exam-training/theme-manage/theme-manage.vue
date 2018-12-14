@@ -45,15 +45,34 @@
       </div>
     </div>
     <!-- 新增/编辑弹出框 -->
-    <el-dialog  class="dialog-form" :title="editType===0?'新增主题':'编辑主题'" width="420px" :visible.sync="showFlag">
+    <el-dialog  class="dialog-form" :title="editType===0?'新增主题':'编辑主题'" width="800px" :visible.sync="showFlag">
       <el-form :model="editParams" label-width="90px" ref="editParams" style="padding:0 30px"  :rules="rules">
         <el-form-item label="主题名称" class="dialog-item" prop="themeName"  required>
           <el-input v-model="editParams.themeName" style="width:220px"></el-input>
         </el-form-item>
-        <el-form-item label="是否启用" >
+        <el-form-item label="是否启用">
           <el-select v-model="editParams.status" placeholder="请选择" style="width:220px">
              <el-option v-for="item in statusOption" :label="item.label" :value="item.value" :key="item.value"></el-option>
           </el-select>
+        </el-form-item>
+        <el-form-item label="上传视频">
+          <el-upload
+            class="upload-demo"
+            action=""
+            :before-remove="beforeRemove"
+            multiple
+            :limit="1"
+            :file-list="fileList">
+            <el-button size="medium" type="primary">点击上传</el-button>
+          </el-upload>
+        </el-form-item>
+        <el-form-item style="width:620px" label="课程介绍">
+          <el-input
+            type="textarea"
+            :autosize="{ minRows: 6}"
+            placeholder="请输入内容"
+            v-model="textarea">
+          </el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -107,6 +126,8 @@ export default {
       rules: {
         themeName: [{ required: true, message: '主題名称不能为空', trigger: 'blur' }],
       },
+      fileList:[],
+      textarea:''
     }
   },
   created() {
@@ -199,6 +220,9 @@ export default {
     pageChange(page) {
       this.selectParams.page = page
       this._getThemeList()
+    },
+    beforeRemove(file, fileList) {
+        return this.$confirm(`确定移除 ${ file.name }？`);
     }
   },
   components: {
@@ -243,4 +267,14 @@ export default {
   .pagination-container
     text-align:right
     margin-top:30px
+</style>
+
+<style lang="scss" scoped>
+  /deep/{
+  .el-form::after {
+    content:'';
+    display:block;
+    clear:both;
+      }
+  }
 </style>

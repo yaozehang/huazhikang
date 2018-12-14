@@ -11,7 +11,7 @@
           </el-input>
         </div>
         <div class="box-input">
-          <el-input  placeholder="请输入密码" class="log-input" :type="typePws"  v-model="userInfo.password" @keyup.enter="_login" @blur="onBlur(1)">
+          <el-input  placeholder="请输入密码" class="log-input" :type="typePws"  v-model="userInfo.password" @keyup.enter.native="_login" @blur="onBlur(1)">
             <i slot="prefix" class="pass-icon el-input__icon"></i>
             <i slot="suffix" class="el-icon-view el-input__icon" @click="changeNumType" ></i>
           </el-input>
@@ -108,7 +108,7 @@ export default {
             type: "success",
             message: res.msg
           });
-          this.$router.push("/homePage");
+          this.$router.push("/board");
         } else {
           this.tipShow = true;
           this.tipShow2 = true;
@@ -121,7 +121,7 @@ export default {
     },
     //测试登录
     login() {
-      this.$router.push("/homePage");
+      this.$router.push("/board");
     },
     setPws() {
       //设置密码
@@ -178,7 +178,7 @@ export default {
 .login-logo {
   width: 600px;
   height: 500px;
-  background: url(~/static/img/logo.png) no-repeat center;
+  background: url(~/static/img/logo1.png) no-repeat center;
   background-size: contain;
   position: absolute;
   top: 15%;
@@ -240,8 +240,8 @@ export default {
   }
 }
 .box-check {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   margin: 0;
 }
 .box-hint {

@@ -61,7 +61,7 @@ export default {
             type: 'success',
             message: res.msg
           })
-          this.$router.push('/homePage')
+          this.$router.push('/board')
         } else {
           this.$message({
             type: 'warning',
@@ -72,7 +72,7 @@ export default {
     },
     //测试登录
     login(){
-       this.$router.push('/homePage')
+       this.$router.push('/board')
     },
     onBlur(type) {
       if (type === 0 && this.userInfo.username === '') {

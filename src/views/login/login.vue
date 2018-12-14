@@ -110,7 +110,7 @@ export default {
             type: 'success',
             message: res.msg
           })
-          this.$router.push('/homePage')
+          this.$router.push('/board')
         } else {
            this.tipShow = true
            this.tipShow2 = true
@@ -123,7 +123,7 @@ export default {
     },
     //测试登录
     login(){
-       this.$router.push('/homePage')
+       this.$router.push('/board')
     },
     setPws(){   //设置密码
       this.pwsVisible = true

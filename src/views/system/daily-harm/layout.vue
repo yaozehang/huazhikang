@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-container">
+  <div class="content-container">
   	  <div class="side-menu">
   	  	 <side-menu :slidList="menuList"></side-menu>
       </div>
@@ -59,8 +59,8 @@ export default {
 @import '~common/stylus/mixin'
 
 .side-menu
-  position:fixed;
-  top:60px;
+  position:absolute;
+  top:0;
   left:0;
   width:220px;
   background-color: #20222A;
@@ -70,4 +70,15 @@ export default {
   margin:20px 20px 20px 250px
   padding:0 30px
   color:$text-color-main
+</style>
+
+<style>
+  .content-container {
+    left: 0;
+    width: 100%;
+    min-height: calc(100vh - 77px);
+    overflow: hidden;
+    position: relative;
+    display: block;
+  }
 </style>

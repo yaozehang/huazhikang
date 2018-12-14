@@ -5,7 +5,7 @@ const routes = [ {
     },
     {
       path: '/wrap',
-    },
+    
       children: [
          {
           name: '职业健康体检提醒',

@@ -48,7 +48,7 @@ export default {
 /*手写样式i*/
 .side-menu-container{
   width: 220px;
-  height: 100vh;
+  height: 100%;
   /* background-size: 100% 100%; */
   background: #20222A;
   /* border: 10px solid #0075c8; */

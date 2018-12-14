@@ -10,7 +10,7 @@
           <span class="local-title">您的当前位置：</span>
           <span class="bread-menu">
             <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/homePage' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/board' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>{{localName}} </el-breadcrumb-item>
             </el-breadcrumb>
           </span>
@@ -86,10 +86,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.content-container{left: 0; width: 100%; overflow: hidden;position: relative;display: block;}
+.content-container{left: 0; width: 100%; min-height: calc(100vh - 77px); overflow: hidden;position: relative;display: block;}
 .sideMenu{
-  position:fixed;
-  top:60px;
+  position:absolute;
+  top:0;
   left:0;
   width:220px;
   background-color: #20222A;

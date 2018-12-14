@@ -37,7 +37,7 @@
         <el-table-column prop="themeName" label="培训主题"></el-table-column>
         <el-table-column prop="partitionName" label="培训单位"></el-table-column>
         <el-table-column prop="planNum" label="计划人数"></el-table-column>
-        <el-table-column label="签到二维码" width="100px">
+        <!-- <el-table-column label="签到二维码" width="100px">
           <template slot-scope="scope">
              <img :src="scope.row.signQrCodePath" alt="签到二维码" class="erweima" width="25px" height="25px" @click="showImg(scope.row.signQrCodePath)">
           </template>
@@ -47,7 +47,7 @@
           <template slot-scope="scope">
             <img :src="scope.row.paperQrCodePath" alt="试卷二维码" width="25px" height="25px" class="erweima" @click="showImg(scope.row.paperQrCodePath)">
           </template>
-        </el-table-column>
+        </el-table-column> -->
         <el-table-column prop="quaRate" label="合格率"></el-table-column>
         <el-table-column label="状态/操作" width="200">
           <template slot-scope="scope">

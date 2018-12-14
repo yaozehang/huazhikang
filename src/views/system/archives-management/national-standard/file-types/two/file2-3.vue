@@ -42,13 +42,13 @@
         <th style="width:50px;">  删除 </th>
       </tr>
       <tr v-for="(i, x) in tableData " :key="x" track-by="x">
-        <td ><input v-model="i[0]" >  </input></td>
-        <td ><input v-model="i[1]" >  </input> </td>
-        <td ><input v-model="i[2]" >  </input></td>
-        <td ><input v-model="i[3]" >  </input> </td>
-        <td ><input v-model="i[4]" >  </input></td>
-        <td ><input v-model="i[5]" >  </input> </td>
-        <td ><input v-model="i[6]" >  </input> </td>
+        <td ><input v-model="i[0]" ></td>
+        <td ><input v-model="i[1]" ></td>
+        <td ><input v-model="i[2]" ></td>
+        <td ><input v-model="i[3]" ></td>
+        <td ><input v-model="i[4]" ></td>
+        <td ><input v-model="i[5]" ></td>
+        <td ><input v-model="i[6]" ></td>
         <td class="center-td">
           <i class="el-icon-remove-outline" @click="delInner(x)"></i>
         </td>

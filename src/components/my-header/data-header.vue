@@ -5,10 +5,10 @@
         <div class="submenu">
           <ul class="menulist clearfix">
             <!-- curIdex === index ? my-active ? 'common-link' query:{menuId:item.id,name:item.name}-->
-           <router-link tag="li" class="" v-for="(item, index) in List" :key="item.id" 
+           <router-link tag="li" class="" v-for="(item, index) in List" :key="index" 
            :to="{path:item.path,query:{menuId:item.id,name:item.name}}" track-by="index">
               <span class="title-menu">  {{item.name}}</span>
-              <i class="el-icon-close" @click="removeTab(index,List)"></i>
+              <!-- <i class="el-icon-close" @click="removeTab(index,List)"></i> -->
               </router-link>
         </ul>
         </div>
@@ -83,7 +83,7 @@ export default{
         this.curIdex = index
       },
       goHome() {
-        this.$router.push({path:'/homePage'})
+        this.$router.push({path:'/board'})
       },
       _logOut(){
         let data = {
@@ -111,34 +111,34 @@ export default{
       cancleEdit(PWSForm) {
         this.editPsw = !this.editPsw
       },
-      viewRoute(){
-        if(this.$route.fullPath === '/homePage' || this.$route.fullPath === '/login') {
-          this.notHome = false
-        }
-      }
+      // viewRoute(){
+      //   if(this.$route.fullPath === '/homePage' || this.$route.fullPath === '/login') {
+      //     this.notHome = false
+      //   }
+      // }
     }
   };
 </script>
 
 <style lang="css" scoped>
 .app-head {
-  background: #003268;
+  background: #252424;
   /* border-bottom: 1px solid #b5c2ca; */
   overflow: visible;
    color: #fff;
-   position:fixed;
-   left: 0;
+   position:absolute;
    top:0;
-   width:100%;
+   /* overflow-x:scroll; */
+   min-width:1900px;
+   width: 100%;
    z-index: 1000
  }
 .logo {width: 220px; height: 60px;float: left;background-color: #20222A;}
 .logo img {
-margin-top: 0px;
- width: 100%;
-height: 100%;}
-.home-btn{  width: 30px; height: 30px;float: left;margin-left: 58px;margin-right: 5px;}
-.home-btn img {margin-top: 15px;width: 20px;height: 20px;}
+margin-top: 10px;
+margin-left: 10px;}
+.home-btn{  width: 30px; height: 30px;float: left;margin-left: 20px;cursor: pointer;}
+.home-btn img {margin-top: 20px;width: 20px;height: 20px;}
 .head-btn-list {float: right; color: #fff;overflow: hidden; width: 250px; height: 60px;}
 .head-btn-list li {float: left;margin-right: 30px;white-space: nowrap;color: #fff;line-height: 60px;cursor: pointer;}
 .head-btn-list li:first-child{ margin-right: 0px!important; }
@@ -203,7 +203,7 @@ text-align: center;
 line-height: 60px;
 height: 60px;
 font-size: 14px;
-padding: 0 5px;
+padding-left:20px;
 }
 .menulist .title-menu{
   line-height: 60px;
@@ -214,57 +214,48 @@ background: #000;
 }
 .menulist li:hover{
   cursor: pointer;
+  color: #44a8f0;
 }
-.menulist li.common-link{
-background: #1f7add;
-}
-.menulist li.active{
-   background: #000;
-}
-.menulist li.my-active{
-  /*background: #fff;*/
+.menulist li:active{
+  color: #44a8f0;
 }
 .menulist{
+  width: 1100px;
   height: 60px;
 }
 @media screen and (max-width: 1657px) {
   .menulist{
-  width: 780px;
+  /* width: 780px; */
   overflow: hidden;
 }
 }
 @media screen and (max-width: 1595px) {
   .menulist{
-  width: 780px;
+  /* width: 780px; */
   overflow: hidden;
 }
 }
 @media screen and (max-width: 1363px) {
   .menulist{
-  width: 686px;
+  /* width: 686px; */
   overflow: hidden;
 }
 }
 @media screen and (max-width: 1280px) {
   .menulist{
-  width: 640px;
+  /* width: 640px; */
   overflow: hidden;
 }
 }
 @media screen and (max-width: 1222px) {
   .menulist{
-  width: 480px;
+  /* width: 480px; */
   overflow: hidden;
 }
 }
 </style>
 <style>
   .menulist .router-link-active{
-  background: #fff;
-  color: #333;
-}
-.menulist .router-link-active .title-menu{
-  background: #fff;
-  color: #333;
+  color: #44a8f0;
 }
 </style>
